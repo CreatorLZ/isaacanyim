@@ -2,32 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* base styles */
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  @apply scroll-smooth;
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background:
+    linear-gradient(
+      to right,
+      rgba(235, 240, 250, 0.7),
+      rgba(235, 240, 250, 0.7)
+    ),
+    linear-gradient(
+      to left,
+      rgba(235, 240, 250, 0.7),
+      rgba(235, 240, 250, 0.7)
+    ),
+    url('/graphnew.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  @apply pb-20 scroll-smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+main {
+  @apply p-2.5 md:px-10 lg:px-36 text-left w-full h-full;
+  p {
+    @apply text-gray-600;
   }
+}
+h2 {
+  @apply text-2xl tracking-normal leading-relaxed pb-8 font-medium text-black;
+}
+nav {
+  @apply w-full flex justify-between pb-10 pt-5 items-center px-0 md:px-4 lg:px-24;
+}
+.pattern {
+  background-image: radial-gradient(#a3a1a1 2px, transparent 2px);
+  background-size: 50px 50px;
+  background-color: rgba(0, 0, 0, 0);
+}
+/* .confetti {
+  background: url('/confetti4.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+.no-scroll {
+  overflow: hidden;
 }
