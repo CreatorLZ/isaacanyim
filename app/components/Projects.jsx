@@ -109,7 +109,8 @@ export default function Projects() {
         ></span>
       </button>
       <p className="text-center font-bold">
-        Here are some projects i've worked on. CLick on any project to preview
+        Here are some projects i{"'"}ve worked on. CLick on any project to
+        preview
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20  ">
         {projects.map((project, index) => (

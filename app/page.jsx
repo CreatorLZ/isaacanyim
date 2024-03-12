@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="text-center flex-col pb-0">
       <h1 className="text-gray-700 text-2xl md:text-4xl tracking-normal  pb-0  font-black">
-        Hi👋🏾, I'M ISAAC
+        Hi👋🏾, I{"'"}M ISAAC
         <br />A FRONTEND DEVELOPER
       </h1>
       <br />
