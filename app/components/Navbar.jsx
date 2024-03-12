@@ -66,7 +66,7 @@ export default function Navbar() {
         {/* Slide-in menu */}
         {isMenuOpen && (
           <div
-            className={`fixed left-0 w-full h-full bg-white transition-all duration-500 ${
+            className={`transition-all duration-500 delay-200 fixed left-0 w-full h-full bg-white  ${
               isMenuOpen
                 ? 'opacity-100 visible top-0'
                 : 'opacity-0 invisible -top-full'

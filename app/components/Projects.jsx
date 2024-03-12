@@ -108,7 +108,7 @@ export default function Projects() {
           data-rounded="rounded-lg"
         ></span>
       </button>
-      <p className="text-center font-bold">
+      <p className="text-center font-bold text-base md:text-lg">
         Here are some projects i{"'"}ve worked on. CLick on any project to
         preview
       </p>
@@ -146,9 +146,6 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                {/* <button className="w-fit bg-indigo-100 p-3 rounded-lg mt-3 text-black">
-                  view website
-                </button> */}
               </div>
             </div>
           </div>
@@ -181,7 +178,7 @@ export default function Projects() {
           <p className="text-lg font-extrabold text-black pb-1">
             {projects[selectedProject].name}
           </p>
-          <p className="text-gray-700 text-lg pb-4">
+          <p className="text-gray-700  text-base pb-4 ">
             {projects[selectedProject].details}
           </p>
           <Image
@@ -193,7 +190,9 @@ export default function Projects() {
             className="h-72 md:h-80 max-w-auto rounded-lg"
           />
           <p className="text-base font-bold text-black pb-1 pt-7">About</p>
-          <p>{projects[selectedProject].details}</p>
+          <p className="text-xs md:text-base">
+            {projects[selectedProject].details}
+          </p>
           <p className="text-base font-bold text-black pb-1 pt-7">
             Technologies
           </p>
