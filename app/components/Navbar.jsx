@@ -51,8 +51,8 @@ export default function Navbar() {
             style={{ cursor: 'pointer' }}
           />
         </div>
-        {/* Show dark mode icon on all screens */}
-        <div>
+
+        {/* <div>
           <Image
             src={dark}
             alt="dark mode"
@@ -61,7 +61,7 @@ export default function Navbar() {
             quality={100}
             style={{ cursor: 'pointer' }}
           />
-        </div>
+        </div> */}
 
         {/* Slide-in menu */}
         {isMenuOpen && (
