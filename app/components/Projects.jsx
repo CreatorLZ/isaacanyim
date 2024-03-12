@@ -124,6 +124,8 @@ export default function Projects() {
               alt={`${project.name} screenshot`}
               quality={100}
               style={{ cursor: 'pointer' }}
+              placeholder="blur"
+              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
               className="h-72 md:h-80 max-w-auto rounded-lg  "
             />
             <div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50  md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 md:backdrop-blur-none">
@@ -165,6 +167,7 @@ export default function Projects() {
                 quality={100}
                 height={30}
                 width={30}
+                placeholder="blur"
                 className="cursor-pointer"
               />
             </div>
@@ -185,6 +188,8 @@ export default function Projects() {
             src={projects[selectedProject].image}
             alt={`${projects[selectedProject].name} screenshot`}
             quality={100}
+            placeholder="blur"
+            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
             className="h-72 md:h-80 max-w-auto rounded-lg"
           />
           <p className="text-base font-bold text-black pb-1 pt-7">About</p>
@@ -212,6 +217,7 @@ export default function Projects() {
               quality={100}
               height={20}
               width={20}
+              placeholder="blur"
               className="cursor-pointer"
             />
             <p className="text-base font-bold text-black pb-1 pt-7">Website</p>
@@ -226,6 +232,7 @@ export default function Projects() {
               quality={100}
               height={20}
               width={20}
+              placeholder="blur"
               className="cursor-pointer"
             />
             <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{' '}
@@ -234,6 +241,12 @@ export default function Projects() {
             {projects[selectedProject].github}
           </Link>
         </div>
+      )}
+      {selectedProject !== null && (
+        <div
+          className="w-full h-full fixed top-0 left-0 bg-black z-10 bg-opacity-50 cursor-pointer"
+          onClick={closeDetails}
+        ></div>
       )}
 
       <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
