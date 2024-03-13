@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import adresstracker from '/public/adresstracker.png'
 import moviebox from '/public/moviebox2.gif'
 import carddetails from '/public/carddetails.png'
@@ -12,10 +12,12 @@ import earth from '/public/earth.png'
 import github from '/public/github.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Transition } from '@headlessui/react'
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isShowing, setIsShowing] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   useEffect(() => {
     const body = document.body
 
@@ -92,8 +94,12 @@ export default function Projects() {
   const handleClick = (index) => {
     setSelectedProject(index)
     setIsShowing((isShowing) => !isShowing)
+    setIsMenuOpen(!isMenuOpen)
   }
-
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+    document.body.style.overflow = isMenuOpen ? 'visible' : 'hidden'
+  }
   const closeDetails = () => {
     setSelectedProject(null)
     setIsShowing((isShowing) => !isShowing)
@@ -155,15 +161,8 @@ export default function Projects() {
           </div>
         ))}
       </div>
-      <Transition
-        show={isShowing}
-        enter="transition transform duration-150"
-        enterFrom="transform translateX(100%) opacity-0"
-        enterTo="transform translateX(0%) opacity-100"
-        leave="transition transform duration-150"
-        leaveFrom="transform translateX(0%) opacity-100"
-        leaveTo="transform translateX(100%) opacity-0"
-      >
+
+      <div>
         {selectedProject !== null && (
           <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll">
             {' '}
@@ -195,7 +194,7 @@ export default function Projects() {
             <p className="text-lg font-extrabold text-black pb-1">
               {projects[selectedProject].name}
             </p>
-            <p className="text-gray-700  text-base pb-4 ">
+            <p className="text-gray-700 text-sm md:text-base pb-4 ">
               {projects[selectedProject].details}
             </p>
             <Image
@@ -207,7 +206,7 @@ export default function Projects() {
               className="h-72 md:h-80 max-w-auto rounded-lg"
             />
             <p className="text-base font-bold text-black pb-1 pt-7">About</p>
-            <p className="text-xs md:text-base">
+            <p className="text-sm md:text-base">
               {projects[selectedProject].details}
             </p>
             <p className="text-base font-bold text-black pb-1 pt-7">
@@ -259,7 +258,8 @@ export default function Projects() {
             </Link>
           </div>
         )}
-      </Transition>
+      </div>
+
       {selectedProject !== null && (
         <div
           className="w-full h-full fixed top-0 left-0 bg-black z-10 bg-opacity-50 cursor-pointer"

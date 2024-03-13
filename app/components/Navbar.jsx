@@ -96,7 +96,10 @@ export default function Navbar() {
                 leaveTo="opacity-0 scale-95"
               >
                 <div className="flex h-full w-full  pt-16  bg-white justify-center p-4 ">
-                  <div className="flex flex-col gap-10 items-center text-gray-700 font-bold">
+                  <div className="flex flex-col gap-11 items-center text-gray-500 font-black">
+                    <Link onClick={closeModal} href="/">
+                      HOME
+                    </Link>
                     <Link onClick={closeModal} href="#about">
                       ABOUT
                     </Link>
