@@ -12,8 +12,10 @@ import earth from '/public/earth.png'
 import github from '/public/github.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Transition } from '@headlessui/react'
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [isShowing, setIsShowing] = useState(false)
   useEffect(() => {
     const body = document.body
 
@@ -89,10 +91,12 @@ export default function Projects() {
 
   const handleClick = (index) => {
     setSelectedProject(index)
+    setIsShowing((isShowing) => !isShowing)
   }
 
   const closeDetails = () => {
     setSelectedProject(null)
+    setIsShowing((isShowing) => !isShowing)
   }
 
   return (
@@ -151,96 +155,111 @@ export default function Projects() {
           </div>
         ))}
       </div>
-      {selectedProject !== null && (
-        <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll">
-          <div
-            className="flex items-center justify-between w-full px-1 py-2"
-            onClick={closeDetails}
-          >
-            <div>
+      <Transition
+        show={isShowing}
+        enter="transition transform duration-150"
+        enterFrom="transform translateX(100%) opacity-0"
+        enterTo="transform translateX(0%) opacity-100"
+        leave="transition transform duration-150"
+        leaveFrom="transform translateX(0%) opacity-100"
+        leaveTo="transform translateX(100%) opacity-0"
+      >
+        {selectedProject !== null && (
+          <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll">
+            {' '}
+            <div
+              className="flex items-center justify-between w-full px-1 py-2"
+              onClick={closeDetails}
+            >
+              <div>
+                <Image
+                  src={back}
+                  alt={back}
+                  quality={100}
+                  height={30}
+                  width={30}
+                  placeholder="blur"
+                  className="cursor-pointer"
+                />
+              </div>
+              <Link href="#projects">
+                <div
+                  onClick={closeDetails}
+                  className="font-bold cursor-pointer"
+                >
+                  Back to projects
+                </div>
+              </Link>
+            </div>
+            <hr className="pb-10" />
+            <p className="text-lg font-extrabold text-black pb-1">
+              {projects[selectedProject].name}
+            </p>
+            <p className="text-gray-700  text-base pb-4 ">
+              {projects[selectedProject].details}
+            </p>
+            <Image
+              src={projects[selectedProject].image}
+              alt={`${projects[selectedProject].name} screenshot`}
+              quality={100}
+              placeholder="blur"
+              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
+              className="h-72 md:h-80 max-w-auto rounded-lg"
+            />
+            <p className="text-base font-bold text-black pb-1 pt-7">About</p>
+            <p className="text-xs md:text-base">
+              {projects[selectedProject].details}
+            </p>
+            <p className="text-base font-bold text-black pb-1 pt-7">
+              Technologies
+            </p>
+            <div className="mt-5">
+              <div className="flex flex-wrap gap-3 mt-3">
+                {projects[selectedProject].skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="w-fit inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-indigo-700/10"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="w-fit gap-1 flex items-center">
               <Image
-                src={back}
-                alt={back}
+                src={earth}
+                alt="earth icon"
                 quality={100}
-                height={30}
-                width={30}
+                height={20}
+                width={20}
                 placeholder="blur"
                 className="cursor-pointer"
               />
+              <p className="text-base font-bold text-black pb-1 pt-7">
+                Website
+              </p>
             </div>
-            <Link href="#projects">
-              <div onClick={closeDetails} className="font-bold cursor-pointer">
-                Back to projects
-              </div>
+            <Link href={projects[selectedProject].link}>
+              {projects[selectedProject].link}
+            </Link>
+            <div className="w-fit gap-3 flex items-center">
+              <Image
+                src={github}
+                alt="github icon"
+                quality={100}
+                height={20}
+                width={20}
+                placeholder="blur"
+                className="cursor-pointer"
+              />
+              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{' '}
+            </div>
+            <Link href={projects[selectedProject].github}>
+              {projects[selectedProject].github}
             </Link>
           </div>
-          <hr className="pb-10" />
-          <p className="text-lg font-extrabold text-black pb-1">
-            {projects[selectedProject].name}
-          </p>
-          <p className="text-gray-700  text-base pb-4 ">
-            {projects[selectedProject].details}
-          </p>
-          <Image
-            src={projects[selectedProject].image}
-            alt={`${projects[selectedProject].name} screenshot`}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
-            className="h-72 md:h-80 max-w-auto rounded-lg"
-          />
-          <p className="text-base font-bold text-black pb-1 pt-7">About</p>
-          <p className="text-xs md:text-base">
-            {projects[selectedProject].details}
-          </p>
-          <p className="text-base font-bold text-black pb-1 pt-7">
-            Technologies
-          </p>
-
-          <div className="mt-5">
-            <div className="flex flex-wrap gap-3 mt-3">
-              {projects[selectedProject].skills.map((skill, skillIndex) => (
-                <span
-                  key={skillIndex}
-                  className="w-fit inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-indigo-700/10"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="w-fit gap-1 flex items-center">
-            <Image
-              src={earth}
-              alt="earth icon"
-              quality={100}
-              height={20}
-              width={20}
-              placeholder="blur"
-              className="cursor-pointer"
-            />
-            <p className="text-base font-bold text-black pb-1 pt-7">Website</p>
-          </div>
-          <Link href={projects[selectedProject].link}>
-            {projects[selectedProject].link}
-          </Link>
-          <div className="w-fit gap-3 flex items-center">
-            <Image
-              src={github}
-              alt="github icon"
-              quality={100}
-              height={20}
-              width={20}
-              placeholder="blur"
-              className="cursor-pointer"
-            />
-            <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{' '}
-          </div>
-          <Link href={projects[selectedProject].github}>
-            {projects[selectedProject].github}
-          </Link>
-        </div>
-      )}
+        )}
+      </Transition>
       {selectedProject !== null && (
         <div
           className="w-full h-full fixed top-0 left-0 bg-black z-10 bg-opacity-50 cursor-pointer"
