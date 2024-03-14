@@ -12,6 +12,7 @@ import earth from '/public/earth.png'
 import github from '/public/github.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -39,6 +40,7 @@ export default function Projects() {
       image: ideafundrsc,
       link: 'https://ideafundr-seven.vercel.app/',
       github: 'https://github.com/CreatorLZ/ideafundr',
+      description: 'Get inv',
       details: 'Showcase your invention to investors with immersive tech.',
       skills: [
         'React',
@@ -98,13 +100,26 @@ export default function Projects() {
   }
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
-    document.body.style.overflow = isMenuOpen ? 'visible' : 'hidden'
   }
   const closeDetails = () => {
     setSelectedProject(null)
     setIsShowing((isShowing) => !isShowing)
   }
-
+  const projectAnimate = {
+    offscreen: { opacity: 0 },
+    onscreen: {
+      opacity: 1,
+      // transition: { duration: 1 },
+    },
+  }
+  const detailsAnimate = {
+    offscreen: { opacity: 0, y: 100 },
+    onscreen: {
+      opacity: [0, 1],
+      y: 0,
+      transition: { duration: 0.7 },
+    },
+  }
   return (
     <main className="pt-32 " id="projects">
       <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit">
@@ -124,7 +139,12 @@ export default function Projects() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20  ">
         {projects.map((project, index) => (
-          <div
+          <motion.div
+            initial={'offscreen'}
+            whileInView={'onscreen'}
+            viewport={{ once: 'false', amount: 0.5 }}
+            variants={projectAnimate}
+            transition={{ staggerChildren: 0.1 }}
             key={index}
             className="relative group cursor-pointer"
             onClick={() => handleClick(index)}
@@ -138,15 +158,24 @@ export default function Projects() {
               blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
               className="h-72 md:h-80 max-w-auto rounded-lg  "
             />
-            <div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50  md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 md:backdrop-blur-none">
+            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50  md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 md:backdrop-blur-none">
               <div className="flex flex-col text-left gap-2">
-                <p className="text-white text-2xl font-extrabold ">
+                <motion.p
+                  variants={detailsAnimate}
+                  className="text-white text-2xl font-extrabold "
+                >
                   {project.name}
-                </p>
-                <p className="text-gray-100 text-sm leading-normal tracking-wide">
+                </motion.p>
+                <motion.p
+                  variants={detailsAnimate}
+                  className="text-gray-100 text-sm leading-normal tracking-wide"
+                >
                   {project.details}
-                </p>
-                <div className="flex flex-wrap gap-3">
+                </motion.p>
+                <motion.div
+                  variants={detailsAnimate}
+                  className="flex flex-wrap gap-3"
+                >
                   {project.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
@@ -155,10 +184,10 @@ export default function Projects() {
                       {skill}
                     </span>
                   ))}
-                </div>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
 
