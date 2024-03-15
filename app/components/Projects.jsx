@@ -296,7 +296,7 @@ export default function Projects() {
             <Link href={projects[selectedProject].github}>
               {projects[selectedProject].github}
             </Link>
-            <div className=" w-full h-fit p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-3">
+            <div className=" w-full h-fit p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7">
               <Link href={projects[selectedProject].link}>
                 <p className="text-white">Open project</p>
               </Link>
