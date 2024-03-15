@@ -13,6 +13,9 @@ module.exports = {
       backgroundImage: {
         graph: "url('/graphnew.jpg')",
       },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

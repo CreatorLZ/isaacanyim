@@ -40,7 +40,8 @@ export default function Projects() {
       image: ideafundrsc,
       link: 'https://ideafundr-seven.vercel.app/',
       github: 'https://github.com/CreatorLZ/ideafundr',
-      description: 'Get inv',
+      description:
+        'ideafundr is a platform where inventors are able to shocase their inventions to potential investors with AR technology. A user on sign-up is presented the choice to choose a path as either an inventor or investor.....',
       details: 'Showcase your invention to investors with immersive tech.',
       skills: [
         'React',
@@ -54,6 +55,8 @@ export default function Projects() {
       name: 'Moviebox',
       link: 'https://moviebox-red.vercel.app/',
       github: 'https://github.com/CreatorLZ/Moviebox',
+      description:
+        'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
       image: moviebox,
       details: 'Watch trailers, read reviews of any movie in the world!',
       skills: ['React', 'TMDB API', 'Styled-Components'],
@@ -62,6 +65,8 @@ export default function Projects() {
       name: 'IP Address Tracker',
       link: 'https://ip-address-tracker-gamma-five.vercel.app/',
       github: 'https://github.com/CreatorLZ/ip_address_tracker',
+      description:
+        'This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.',
       image: adresstracker,
       details: 'Get live info of any IP Address.',
       skills: ['React', 'Styled-Components', 'Geo-location'],
@@ -70,6 +75,8 @@ export default function Projects() {
       name: 'Wristy E-commerce',
       link: 'https://vanilla-e-commerce.vercel.app/',
       github: 'https://github.com/CreatorLZ/Vanilla-e-commerce',
+      description:
+        'Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.',
       image: wristy,
       details: 'Watch Ecommerce starter template for developers.',
       skills: ['HTML', 'CSS', 'Javascript'],
@@ -78,6 +85,8 @@ export default function Projects() {
       name: 'Advice Generator',
       link: 'https://advice-generator-nine-beta.vercel.app/',
       github: 'https://github.com/CreatorLZ/advice-generator',
+      description:
+        'An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.',
       image: advicegenerator,
       details: 'Get random advice.',
       skills: ['React', 'Adviceslip API', 'Styled-components'],
@@ -86,6 +95,8 @@ export default function Projects() {
       name: 'Card Details',
       link: 'https://interactive-form-eight.vercel.app/',
       github: 'https://github.com/CreatorLZ/Interactive_form',
+      description:
+        'This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.',
       image: carddetails,
       details:
         'A modern way of recording customers card details for online payment.',
@@ -109,7 +120,7 @@ export default function Projects() {
     offscreen: { opacity: 0 },
     onscreen: {
       opacity: 1,
-      // transition: { duration: 1 },
+      transition: { duration: 1 },
     },
   }
   const detailsAnimate = {
@@ -142,7 +153,7 @@ export default function Projects() {
           <motion.div
             initial={'offscreen'}
             whileInView={'onscreen'}
-            viewport={{ once: 'false', amount: 0.5 }}
+            viewport={{ once: 'true', amount: 0.2 }}
             variants={projectAnimate}
             transition={{ staggerChildren: 0.1 }}
             key={index}
@@ -224,7 +235,7 @@ export default function Projects() {
               {projects[selectedProject].name}
             </p>
             <p className="text-gray-700 text-sm md:text-base pb-4 ">
-              {projects[selectedProject].details}
+              {projects[selectedProject].description}
             </p>
             <Image
               src={projects[selectedProject].image}

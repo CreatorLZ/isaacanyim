@@ -27,21 +27,24 @@ export default function Navbar() {
           <Image
             src={home}
             alt="Home logo"
-            width={80}
-            height={80}
+            width={60}
+            height={60}
             quality={100}
             style={{ cursor: 'pointer' }}
           />
         </Link>
       </div>
       <div className="gap-6 items-center px-3 flex">
-        <Link className="hidden md:flex" href="#about">
+        <Link className="hidden md:flex" href="/about">
           About
         </Link>
-        <Link className="hidden md:flex" href="#projects">
+        <Link className="hidden md:flex" href="/#skills">
+          Skills
+        </Link>
+        <Link className="hidden md:flex" href="/#projects">
           Projects
         </Link>
-        <Link className="hidden md:flex" href="#contact">
+        <Link className="hidden md:flex" href="/#contact">
           Contact
         </Link>
 
@@ -85,7 +88,7 @@ export default function Navbar() {
               />
             </Transition.Child>
 
-            <div className="fixed top-0 h-1/2 w-full">
+            <div className="fixed top-0 h-full w-full">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -100,13 +103,16 @@ export default function Navbar() {
                     <Link onClick={closeModal} href="/">
                       HOME
                     </Link>
-                    <Link onClick={closeModal} href="#about">
+                    <Link onClick={closeModal} href="/about">
                       ABOUT
                     </Link>
-                    <Link onClick={closeModal} href="#projects">
+                    <Link onClick={closeModal} href="/#skills">
+                      SKILLS
+                    </Link>
+                    <Link onClick={closeModal} href="/#projects">
                       PROJECTS
                     </Link>
-                    <Link onClick={closeModal} href="#contact">
+                    <Link onClick={closeModal} href="/#contact">
                       CONTACT
                     </Link>
                   </div>
