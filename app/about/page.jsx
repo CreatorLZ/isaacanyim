@@ -23,9 +23,9 @@ export default function About() {
           section. <br />
           <br />
           Websites that shine go beyond just looking good. They also work
-          flawlessly and are a breeze to navigate. That's where I come in.
-          Through my experience as a freelancer and from personal projects, I've
-          honed my ability to tackle complex technical challenges while
+          flawlessly and are a breeze to navigate. That{"'"}s where I come in.
+          Through my experience as a freelancer and from personal projects, I
+          {"'"}ve honed my ability to tackle complex technical challenges while
           designing websites that are both beautiful and user-friendly. I stay
           on top of the latest web development trends to ensure every aspect of
           your website is optimized for a smooth user experience.
