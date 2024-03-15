@@ -8,7 +8,7 @@ export default function About() {
     <main>
       <div className="w-full flex flex-col">
         <h2 className="text-4xl font-black">About Me.</h2>
-        <p className="leading-relaxed text-left">
+        <p className="leading-relaxed text-left text-xs md:text-base ">
           Hi, nice to meet you{'!'}.I {''}m Isaac C Anyim, Frontend developer
           with{' '}
           <strong>

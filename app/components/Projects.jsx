@@ -306,11 +306,12 @@ export default function Projects() {
           onClick={closeDetails}
         ></div>
       )}
-
-      <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
-        <p>See more </p>
-        <Image src={forward} alt="forward" width={30} height={30} />
-      </div>
+      <Link href="https://github.com/CreatorLZ">
+        <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
+          <p>See more </p>
+          <Image src={forward} alt="forward" width={30} height={30} />
+        </div>
+      </Link>
     </main>
   )
 }
