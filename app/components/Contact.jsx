@@ -10,11 +10,12 @@ function classNames(...classes) {
 
 export default function Contact() {
   const [success, setSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const form = useRef()
   const timeoutRef = useRef(null)
   const sendEmail = (e) => {
     e.preventDefault()
-
+    setIsLoading(true)
     emailjs
       .sendForm('service_3ac0rlk', 'template_3buadfm', form.current, {
         publicKey: 'Y8NL1S8n8lUf5ZZ0N',
@@ -22,10 +23,13 @@ export default function Contact() {
       .then(
         () => {
           console.log('SUCCESS!')
+          setIsLoading(false)
+          setSuccess(true)
           e.target.reset()
         },
         (error) => {
           console.log('FAILED...', error.text)
+          setIsLoading(false)
         },
       )
   }
@@ -34,7 +38,7 @@ export default function Contact() {
     if (success) {
       timeoutRef.current = setTimeout(() => {
         setSuccess(false) // Set success state to false after timeout
-      }, 3000) // Adjust timeout duration (in milliseconds) here
+      }, 5000)
     }
 
     return () => clearTimeout(timeoutRef.current) // Cleanup on unmount
@@ -127,8 +131,9 @@ export default function Contact() {
             type="submit"
             value="Send"
             className="block w-full rounded-md bg-primary px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            disabled={isLoading}
           >
-            Send Mesaage
+            {isLoading ? 'Sending...' : 'Send Message'}
           </button>
         </div>
       </form>
