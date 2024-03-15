@@ -204,7 +204,7 @@ export default function Projects() {
 
       <div>
         {selectedProject !== null && (
-          <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll">
+          <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll pb-24 ">
             {' '}
             <div
               className="flex items-center justify-between w-full px-1 py-2"
@@ -296,7 +296,7 @@ export default function Projects() {
             <Link href={projects[selectedProject].github}>
               {projects[selectedProject].github}
             </Link>
-            <div className=" w-full h-fit p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7">
+            <div className="fixed bottom-0 left-0 w-full h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
               <Link href={projects[selectedProject].link}>
                 <p className="text-white">Open project</p>
               </Link>
@@ -311,7 +311,7 @@ export default function Projects() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
                 />
               </svg>
             </div>
