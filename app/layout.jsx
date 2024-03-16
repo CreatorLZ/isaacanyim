@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <link rel="icon" href="/public/earth.png" sizes="any" />
         <Navbar />
         {children}
         <Footer />
