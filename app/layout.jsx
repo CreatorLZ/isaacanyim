@@ -9,7 +9,7 @@ const inter = Anybody({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: 'Isaac Chimaroke Anyim',
-  description: 'isaac Chimaroke Anyim',
+  description: 'isaac Chimaroke Anyim|Portfolio',
 }
 
 export default function RootLayout({ children }) {
