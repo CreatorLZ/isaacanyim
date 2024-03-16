@@ -1,6 +1,6 @@
 import { Anybody, Inter } from 'next/font/google'
 import './globals.css'
-
+import { Analytics } from '@vercel/analytics/react'
 //components
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <Navbar />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
