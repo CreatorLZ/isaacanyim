@@ -5,6 +5,7 @@ import moviebox from '/public/moviebox2.gif'
 import carddetails from '/public/carddetails.png'
 import advicegenerator from '/public/advicegenerator.png'
 import ideafundrsc from '/public/ideafundrsc.gif'
+import portfolio from '/public/portfolio.gif'
 import wristy from '/public/wristy.gif'
 import forward from '/public/forward.gif'
 import back from '/public/back.png'
@@ -70,6 +71,15 @@ export default function Projects() {
       image: adresstracker,
       details: 'Get live info of any IP Address.',
       skills: ['React', 'Styled-Components', 'Geo-location'],
+    },
+    {
+      name: 'Portfolio',
+      link: 'https://isaacanyim-iota.vercel.app/',
+      github: 'https://github.com/CreatorLZ/Portfolio',
+      description: 'My portfolio website. slick , fast and beautiful',
+      image: portfolio,
+      details: 'This is the real whats up',
+      skills: ['Next.js', 'Tailwind', 'Framer'],
     },
     {
       name: 'Wristy E-commerce',
