@@ -9,7 +9,7 @@ export default function About() {
       <div className="w-full flex flex-col">
         <h2 className="text-4xl font-black">About Me.</h2>
         <p className=" leading-loose sm:leading-relaxed text-left text-sm md:text-base ">
-          Hi, nice to meet you{'!'}.I {''}m Isaac C Anyim, Frontend developer
+          Hi, nice to meet you{'!'}. I{'''}m Isaac C Anyim, A Frontend developer
           with <strong> 2 years{'+'}</strong> of experience working with various
           frontend technologies to bulid assesible, engaging and user-centric
           websites and webapps, as displayed in the{' '}
