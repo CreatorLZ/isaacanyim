@@ -1,13 +1,13 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-// import Link from './Link';
 import home from '/public/home.png'
 import dark from '/public/dark.png'
 import menu from '/public/menu.png'
 import close from '/public/close.png'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import NavLink from './NavLink'
 
 export default function Navbar() {
   let [isOpen, setIsOpen] = useState(false)
@@ -35,18 +35,20 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="gap-6 items-center px-3 flex">
-        <Link className="hidden md:flex" href="/about">
-          About
-        </Link>
-        <Link className="hidden md:flex" href="/#skills">
-          Skills
-        </Link>
-        <Link className="hidden md:flex" href="/#projects">
-          Projects
-        </Link>
-        <Link className="hidden md:flex" href="/#contact">
-          Contact
-        </Link>
+        <div className="hidden md:flex gap-5">
+          <NavLink className="hidden md:flex" href="/about">
+            About
+          </NavLink>
+          <NavLink className="hidden md:flex" href="/#skills">
+            Skills
+          </NavLink>
+          <NavLink className="hidden md:flex" href="/#projects">
+            Projects
+          </NavLink>
+          <NavLink className="hidden md:flex" href="/#contact">
+            Contact
+          </NavLink>
+        </div>
 
         {/* Toggle menu modal on click */}
         <div className="md:hidden" onClick={openModal}>
@@ -100,21 +102,21 @@ export default function Navbar() {
               >
                 <div className="flex h-full w-full  pt-16  bg-white justify-center p-4 ">
                   <div className="flex flex-col gap-11 items-center text-gray-500 font-black">
-                    <Link onClick={closeModal} href="/">
+                    <NavLink onClick={closeModal} href="/">
                       HOME
-                    </Link>
-                    <Link onClick={closeModal} href="/about">
+                    </NavLink>
+                    <NavLink onClick={closeModal} href="/about">
                       ABOUT
-                    </Link>
-                    <Link onClick={closeModal} href="/#skills">
+                    </NavLink>
+                    <NavLink onClick={closeModal} href="/#skills">
                       SKILLS
-                    </Link>
-                    <Link onClick={closeModal} href="/#projects">
+                    </NavLink>
+                    <NavLink onClick={closeModal} href="/#projects">
                       PROJECTS
-                    </Link>
-                    <Link onClick={closeModal} href="/#contact">
+                    </NavLink>
+                    <NavLink onClick={closeModal} href="/#contact">
                       CONTACT
-                    </Link>
+                    </NavLink>
                   </div>
                   <div
                     className="fixed top-16 right-10 cursor-pointer"

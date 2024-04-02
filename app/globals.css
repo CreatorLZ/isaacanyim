@@ -89,3 +89,33 @@ nav {
     right: 0;
   }
 } */
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  @apply text-gray-700;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 250ms ease-out;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link.active::before {
+  width: 100%;
+}
+.nav-link.active {
+  @apply text-black;
+}
