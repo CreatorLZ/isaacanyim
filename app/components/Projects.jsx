@@ -42,7 +42,7 @@ export default function Projects() {
       link: 'https://ideafundr-seven.vercel.app/',
       github: 'https://github.com/CreatorLZ/ideafundr',
       description:
-        'ideafundr is a platform where inventors are able to shocase their inventions to potential investors with AR technology. A user on sign-up is presented the choice to choose a path as either an inventor or investor.....',
+        'ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space. i.e you can view the products as if they were there right in front of you, wherever you want! A user on sign-up is presented the choice to choose a path as either an inventor or investor.....',
       details: 'Showcase your invention to investors with immersive tech.',
       skills: [
         'React',
