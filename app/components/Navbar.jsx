@@ -102,21 +102,31 @@ export default function Navbar() {
               >
                 <div className="flex h-full w-full  pt-16  bg-white justify-center p-4 ">
                   <div className="flex flex-col gap-11 items-center text-gray-500 font-black">
-                    <NavLink onClick={closeModal} href="/">
-                      HOME
-                    </NavLink>
-                    <NavLink onClick={closeModal} href="/about">
-                      ABOUT
-                    </NavLink>
-                    <NavLink onClick={closeModal} href="/#skills">
-                      SKILLS
-                    </NavLink>
-                    <NavLink onClick={closeModal} href="/#projects">
-                      PROJECTS
-                    </NavLink>
-                    <NavLink onClick={closeModal} href="/#contact">
-                      CONTACT
-                    </NavLink>
+                    <div onClick={closeModal}>
+                      <NavLink onClick={closeModal} href="/">
+                        HOME
+                      </NavLink>
+                    </div>
+                    <div onClick={closeModal}>
+                      <NavLink onClick={closeModal} href="/about">
+                        ABOUT
+                      </NavLink>
+                    </div>
+                    <div onClick={closeModal}>
+                      <NavLink onClick={closeModal} href="/#skills">
+                        SKILLS
+                      </NavLink>
+                    </div>
+                    <div onClick={closeModal}>
+                      <NavLink onClick={closeModal} href="/#projects">
+                        PROJECTS
+                      </NavLink>
+                    </div>
+                    <div onClick={closeModal}>
+                      <NavLink onClick={closeModal} href="/#contact">
+                        CONTACT
+                      </NavLink>
+                    </div>
                   </div>
                   <div
                     className="fixed top-16 right-10 cursor-pointer"

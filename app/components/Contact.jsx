@@ -1,8 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Switch } from '@headlessui/react'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
