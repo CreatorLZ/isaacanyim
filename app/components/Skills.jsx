@@ -7,6 +7,7 @@ import nextjs from '/public/nextjs.png'
 import html from '/public/html.png'
 import css from '/public/css.png'
 import javascript from '/public/javascript.png'
+import typescript from '/public/typescript.png'
 import styledcomponents from '/public/styledcomponents.png'
 import tailwind from '/public/tailwind.png'
 import { motion } from 'framer-motion'
@@ -28,7 +29,8 @@ export default function Skills() {
     { name: 'Next.js', image: nextjs },
     { name: 'Tailwind', image: tailwind },
     { name: 'Styled Components', image: styledcomponents },
-    { name: 'Javascript', image: javascript },
+    { name: 'JavaScript', image: javascript },
+    { name: 'TypeScript', image: typescript },
     { name: 'HTML', image: html },
     { name: 'CSS', image: css },
   ]

@@ -50,6 +50,7 @@ export default function Projects() {
         'Context API',
         'Styled-Components',
         'Swift-XR',
+        'JavaScript',
       ],
     },
     {
@@ -60,7 +61,7 @@ export default function Projects() {
         'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
       image: moviebox,
       details: 'Watch trailers, read reviews of any movie in the world!',
-      skills: ['React', 'TMDB API', 'Styled-Components'],
+      skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
     },
     {
       name: 'IP Address Tracker',
@@ -70,7 +71,7 @@ export default function Projects() {
         'This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.',
       image: adresstracker,
       details: 'Get live info of any IP Address.',
-      skills: ['React', 'Styled-Components', 'Geo-location'],
+      skills: ['React', 'Styled-Components', 'Geo-location', 'JavaScript'],
     },
     {
       name: 'Portfolio',
@@ -79,7 +80,7 @@ export default function Projects() {
       description: 'My portfolio website. slick , fast and beautiful',
       image: portfolio,
       details: 'This is the real whats up',
-      skills: ['Next.js', 'Tailwind', 'Framer'],
+      skills: ['Next.js', 'Tailwind', 'Framer', 'JavaScript'],
     },
     {
       name: 'Wristy E-commerce',
@@ -99,7 +100,7 @@ export default function Projects() {
         'An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.',
       image: advicegenerator,
       details: 'Get random advice.',
-      skills: ['React', 'Adviceslip API', 'Styled-components'],
+      skills: ['React', 'Adviceslip API', 'Styled-components', 'JavaScript'],
     },
     {
       name: 'Card Details',
@@ -110,7 +111,7 @@ export default function Projects() {
       image: carddetails,
       details:
         'A modern way of recording customers card details for online payment.',
-      skills: ['React', 'Styled-components'],
+      skills: ['React', 'Styled-components', 'JavaScript'],
     },
   ]
 
