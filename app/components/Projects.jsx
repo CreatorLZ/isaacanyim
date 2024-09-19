@@ -37,6 +37,16 @@ export default function Projects() {
   }, [selectedProject])
   const projects = [
     {
+      name: 'Moviebox',
+      link: 'https://moviebox-red.vercel.app/',
+      github: 'https://github.com/CreatorLZ/Moviebox',
+      description:
+        'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
+      image: moviebox,
+      details: 'Watch trailers, read reviews of any movie in the world!',
+      skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
+    },
+    {
       name: 'Ideafundr',
       image: ideafundrsc,
       link: 'https://ideafundr-seven.vercel.app/',
@@ -52,16 +62,6 @@ export default function Projects() {
         'Swift-XR',
         'JavaScript',
       ],
-    },
-    {
-      name: 'Moviebox',
-      link: 'https://moviebox-red.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Moviebox',
-      description:
-        'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
-      image: moviebox,
-      details: 'Watch trailers, read reviews of any movie in the world!',
-      skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
     },
     {
       name: 'IP Address Tracker',
