@@ -1,139 +1,149 @@
-'use client'
-import React, { useEffect, useState, Fragment } from 'react'
-import adresstracker from '/public/adresstracker.png'
-import moviebox from '/public/moviebox2.gif'
-import carddetails from '/public/carddetails.png'
-import advicegenerator from '/public/advicegenerator.png'
-import ideafundrsc from '/public/ideafundrsc.gif'
-import portfolio from '/public/portfolio.gif'
-import wristy from '/public/wristy.gif'
-import forward from '/public/forward.gif'
-import back from '/public/back.png'
-import earth from '/public/earth.png'
-import github from '/public/github.png'
-import Image from 'next/image'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
+"use client";
+import React, { useEffect, useState, Fragment } from "react";
+import adresstracker from "/public/adresstracker.png";
+import moviebox from "/public/moviebox2.gif";
+import carddetails from "/public/carddetails.png";
+import advicegenerator from "/public/advicegenerator.png";
+import expressline from "/public/expressline.gif";
+import ideafundrsc from "/public/ideafundrsc.gif";
+import portfolio from "/public/portfolio.gif";
+import wristy from "/public/wristy.gif";
+import forward from "/public/forward.gif";
+import back from "/public/back.png";
+import earth from "/public/earth.png";
+import github from "/public/github.png";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null)
-  const [isShowing, setIsShowing] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isShowing, setIsShowing] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const body = document.body
+    const body = document.body;
 
     // Apply or remove the 'no-scroll' class based on whether a project is selected
     if (selectedProject !== null) {
-      body.classList.add('no-scroll')
+      body.classList.add("no-scroll");
     } else {
-      body.classList.remove('no-scroll')
+      body.classList.remove("no-scroll");
     }
 
     // Cleanup: Remove the 'no-scroll' class when the component is unmounted
     return () => {
-      body.classList.remove('no-scroll')
-    }
-  }, [selectedProject])
+      body.classList.remove("no-scroll");
+    };
+  }, [selectedProject]);
   const projects = [
     {
-      name: 'Moviebox',
-      link: 'https://moviebox-red.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Moviebox',
+      name: "Moviebox",
+      link: "https://moviebox-red.vercel.app/",
+      github: "https://github.com/CreatorLZ/Moviebox",
       description:
-        'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
+        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
       image: moviebox,
-      details: 'Watch trailers, read reviews of any movie in the world!',
-      skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
+      details: "Watch trailers, read reviews of any movie in the world!",
+      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
     },
     {
-      name: 'Ideafundr',
+      name: "Ideafundr",
       image: ideafundrsc,
-      link: 'https://ideafundr-seven.vercel.app/',
-      github: 'https://github.com/CreatorLZ/ideafundr',
+      link: "https://ideafundr-seven.vercel.app/",
+      github: "https://github.com/CreatorLZ/ideafundr",
       description:
-        'ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space. i.e you can view the products as if they were there right in front of you, wherever you want! A user on sign-up is presented the choice to choose a path as either an inventor or investor.....',
-      details: 'Showcase your invention to investors with immersive tech.',
+        "ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space. i.e you can view the products as if they were there right in front of you, wherever you want! A user on sign-up is presented the choice to choose a path as either an inventor or investor.....",
+      details: "Showcase your invention to investors with immersive tech.",
       skills: [
-        'React',
-        'Firebase',
-        'Context API',
-        'Styled-Components',
-        'Swift-XR',
-        'JavaScript',
+        "React",
+        "Firebase",
+        "Context API",
+        "Styled-Components",
+        "Swift-XR",
+        "JavaScript",
       ],
     },
     {
-      name: 'IP Address Tracker',
-      link: 'https://ip-address-tracker-gamma-five.vercel.app/',
-      github: 'https://github.com/CreatorLZ/ip_address_tracker',
-      description:
-        'This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.',
-      image: adresstracker,
-      details: 'Get live info of any IP Address.',
-      skills: ['React', 'Styled-Components', 'Geo-location', 'JavaScript'],
+      name: "ExpressLine Logistics",
+      image: expressline,
+      link: "https://expressline-logistics.vercel.app/",
+      github: "https://github.com/CreatorLZ/expressline_logistics",
+      description: "A logistics company",
+      details: "Expressline Logistics.",
+      skills: ["HTML", "Bootstrap", "CSS", "JavaScript"],
     },
     {
-      name: 'Portfolio',
-      link: 'https://isaacanyim-iota.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Portfolio',
-      description: 'My portfolio website. slick , fast and beautiful',
-      image: portfolio,
-      details: 'This is the real whats up',
-      skills: ['Next.js', 'Tailwind', 'Framer', 'JavaScript'],
-    },
-    {
-      name: 'Wristy E-commerce',
-      link: 'https://vanilla-e-commerce.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Vanilla-e-commerce',
+      name: "Wristy E-commerce",
+      link: "https://vanilla-e-commerce.vercel.app/",
+      github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
       description:
-        'Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.',
+        "Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.",
       image: wristy,
-      details: 'Watch Ecommerce starter template for developers.',
-      skills: ['HTML', 'CSS', 'Javascript'],
+      details: "Watch Ecommerce starter template for developers.",
+      skills: ["HTML", "CSS", "Javascript"],
     },
     {
-      name: 'Advice Generator',
-      link: 'https://advice-generator-nine-beta.vercel.app/',
-      github: 'https://github.com/CreatorLZ/advice-generator',
+      name: "IP Address Tracker",
+      link: "https://ip-address-tracker-gamma-five.vercel.app/",
+      github: "https://github.com/CreatorLZ/ip_address_tracker",
       description:
-        'An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.',
+        "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
+      image: adresstracker,
+      details: "Get live info of any IP Address.",
+      skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
+    },
+    {
+      name: "Portfolio",
+      link: "https://isaacanyim-iota.vercel.app/",
+      github: "https://github.com/CreatorLZ/Portfolio",
+      description: "My portfolio website. slick , fast and beautiful",
+      image: portfolio,
+      details: "This is the real whats up",
+      skills: ["Next.js", "Tailwind", "Framer", "JavaScript"],
+    },
+    {
+      name: "Advice Generator",
+      link: "https://advice-generator-nine-beta.vercel.app/",
+      github: "https://github.com/CreatorLZ/advice-generator",
+      description:
+        "An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.",
       image: advicegenerator,
-      details: 'Get random advice.',
-      skills: ['React', 'Adviceslip API', 'Styled-components', 'JavaScript'],
+      details: "Get random advice.",
+      skills: ["React", "Adviceslip API", "Styled-components", "JavaScript"],
     },
     {
-      name: 'Card Details',
-      link: 'https://interactive-form-eight.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Interactive_form',
+      name: "Card Details",
+      link: "https://interactive-form-eight.vercel.app/",
+      github: "https://github.com/CreatorLZ/Interactive_form",
       description:
-        'This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.',
+        "This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.",
       image: carddetails,
       details:
-        'A modern way of recording customers card details for online payment.',
-      skills: ['React', 'Styled-components', 'JavaScript'],
+        "A modern way of recording customers card details for online payment.",
+      skills: ["React", "Styled-components", "JavaScript"],
     },
-  ]
+  ];
 
   const handleClick = (index) => {
-    setSelectedProject(index)
-    setIsShowing((isShowing) => !isShowing)
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setSelectedProject(index);
+    setIsShowing((isShowing) => !isShowing);
+    setIsMenuOpen(!isMenuOpen);
+  };
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
   const closeDetails = () => {
-    setSelectedProject(null)
-    setIsShowing((isShowing) => !isShowing)
-  }
+    setSelectedProject(null);
+    setIsShowing((isShowing) => !isShowing);
+  };
   const projectAnimate = {
     offscreen: { opacity: 0 },
     onscreen: {
       opacity: 1,
       transition: { duration: 1 },
     },
-  }
+  };
   const detailsAnimate = {
     offscreen: { opacity: 0, y: 100 },
     onscreen: {
@@ -141,7 +151,7 @@ export default function Projects() {
       y: 0,
       transition: { duration: 0.7 },
     },
-  }
+  };
   return (
     <main className="pt-32 " id="projects">
       <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit">
@@ -162,9 +172,9 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20  ">
         {projects.map((project, index) => (
           <motion.div
-            initial={'offscreen'}
-            whileInView={'onscreen'}
-            viewport={{ once: 'true', amount: 0.2 }}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: "true", amount: 0.2 }}
             variants={projectAnimate}
             transition={{ staggerChildren: 0.1 }}
             key={index}
@@ -175,7 +185,7 @@ export default function Projects() {
               src={project.image}
               alt={`${project.name} screenshot`}
               quality={100}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               placeholder="blur"
               blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
               className="h-72 md:h-80 max-w-auto rounded-lg  "
@@ -216,7 +226,7 @@ export default function Projects() {
       <div>
         {selectedProject !== null && (
           <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll pb-24 ">
-            {' '}
+            {" "}
             <div
               className="flex items-center justify-between w-full px-1 py-2"
               onClick={closeDetails}
@@ -302,7 +312,7 @@ export default function Projects() {
                 placeholder="blur"
                 className="cursor-pointer"
               />
-              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{' '}
+              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{" "}
             </div>
             <Link href={projects[selectedProject].github}>
               {projects[selectedProject].github}
@@ -343,5 +353,5 @@ export default function Projects() {
         </div>
       </Link>
     </main>
-  )
+  );
 }
