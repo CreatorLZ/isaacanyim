@@ -60,6 +60,7 @@ export default function Projects() {
         "Firebase",
         "Context API",
         "Styled-Components",
+        "AR",
         "Swift-XR",
         "JavaScript",
       ],
