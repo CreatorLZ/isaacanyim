@@ -102,27 +102,27 @@ export default function Projects() {
       details: "This is the real whats up",
       skills: ["Next.js", "Tailwind", "Framer", "JavaScript"],
     },
-    {
-      name: "Advice Generator",
-      link: "https://advice-generator-nine-beta.vercel.app/",
-      github: "https://github.com/CreatorLZ/advice-generator",
-      description:
-        "An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.",
-      image: advicegenerator,
-      details: "Get random advice.",
-      skills: ["React", "Adviceslip API", "Styled-components", "JavaScript"],
-    },
-    {
-      name: "Card Details",
-      link: "https://interactive-form-eight.vercel.app/",
-      github: "https://github.com/CreatorLZ/Interactive_form",
-      description:
-        "This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.",
-      image: carddetails,
-      details:
-        "A modern way of recording customers card details for online payment.",
-      skills: ["React", "Styled-components", "JavaScript"],
-    },
+    // {
+    //   name: "Advice Generator",
+    //   link: "https://advice-generator-nine-beta.vercel.app/",
+    //   github: "https://github.com/CreatorLZ/advice-generator",
+    //   description:
+    //     "An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.",
+    //   image: advicegenerator,
+    //   details: "Get random advice.",
+    //   skills: ["React", "Adviceslip API", "Styled-components", "JavaScript"],
+    // },
+    // {
+    //   name: "Card Details",
+    //   link: "https://interactive-form-eight.vercel.app/",
+    //   github: "https://github.com/CreatorLZ/Interactive_form",
+    //   description:
+    //     "This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.",
+    //   image: carddetails,
+    //   details:
+    //     "A modern way of recording customers card details for online payment.",
+    //   skills: ["React", "Styled-components", "JavaScript"],
+    // },
   ];
 
   const handleClick = (index) => {
@@ -166,8 +166,7 @@ export default function Projects() {
         ></span>
       </button>
       <p className="text-center font-bold text-base md:text-lg">
-        Here are some projects i{"'"}ve worked on. CLick on any project to
-        preview
+        Here are my most recent projects. CLick on any project to preview
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20  ">
         {projects.map((project, index) => (

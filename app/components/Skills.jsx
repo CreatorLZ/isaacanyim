@@ -1,17 +1,19 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import react from '/public/react.png'
-import nextjs from '/public/nextjs.png'
-import html from '/public/html.png'
-import css from '/public/css.png'
-import javascript from '/public/javascript.png'
-import typescript from '/public/typescript.png'
-import styledcomponents from '/public/styledcomponents.png'
-import tailwind from '/public/tailwind.png'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Image from "next/image";
+import react from "/public/react.png";
+import nextjs from "/public/nextjs.png";
+import html from "/public/html.png";
+import css from "/public/css.png";
+import javascript from "/public/javascript.png";
+import express from "/public/express.png";
+import node2 from "/public/node.png";
+import typescript from "/public/typescript.png";
+import styledcomponents from "/public/styledcomponents.png";
+import tailwind from "/public/tailwind.png";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Skills() {
   const skillAnimate = {
@@ -21,34 +23,36 @@ export default function Skills() {
       y: 0,
       transition: { delay: 0.05 * index, duration: 0.05 * index },
     }),
-  }
-  const [showAllSkills, setShowAllSkills] = useState(false)
+  };
+  const [showAllSkills, setShowAllSkills] = useState(false);
 
   const skills = [
-    { name: 'React.js', image: react },
-    { name: 'Next.js', image: nextjs },
-    { name: 'Tailwind', image: tailwind },
-    { name: 'Styled Components', image: styledcomponents },
-    { name: 'JavaScript', image: javascript },
-    { name: 'TypeScript', image: typescript },
-    { name: 'HTML', image: html },
-    { name: 'CSS', image: css },
-  ]
+    { name: "React.js", image: react },
+    { name: "Next.js", image: nextjs },
+    { name: "Tailwind", image: tailwind },
+    { name: "Styled Components", image: styledcomponents },
+    { name: "JavaScript", image: javascript },
+    { name: "TypeScript", image: typescript },
+    { name: "Node.js", image: node2 },
+    { name: "Express", image: express },
+    { name: "HTML", image: html },
+    { name: "CSS", image: css },
+  ];
   const frameworks = [
-    { name: 'Material UI' },
-    { name: 'Bootstrap' },
-    { name: 'Git' },
-    { name: 'GitHub' },
-    { name: 'Firebase' },
-    { name: 'Redux Toolkit' },
-    { name: 'Context API' },
-    { name: 'Framer Motion' },
-    { name: 'Swift XR' },
-    { name: 'Trello' },
-    { name: 'Slack' },
-    { name: 'More...' },
-  ]
-  const visibleSkills = showAllSkills ? skills : skills.slice(0, 3)
+    { name: "Material UI" },
+    { name: "Bootstrap" },
+    { name: "Git" },
+    { name: "GitHub" },
+    { name: "Firebase" },
+    { name: "Redux Toolkit" },
+    { name: "Context API" },
+    { name: "Framer Motion" },
+    { name: "Swift XR" },
+    // { name: "Trello" },
+    // { name: 'Slack' },
+    { name: "More..." },
+  ];
+  const visibleSkills = showAllSkills ? skills : skills.slice(0, 3);
 
   return (
     <main className="pattern pt-20 pb-20" id="skills">
@@ -88,7 +92,7 @@ export default function Skills() {
               width={40}
               height={40}
               quality={100}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             />
           </div>
         ))}
@@ -103,8 +107,8 @@ export default function Skills() {
               <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
               <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
               <span className="relative">
-                {' '}
-                {showAllSkills ? 'Show Less' : 'Show More'}
+                {" "}
+                {showAllSkills ? "Show Less" : "Show More"}
               </span>
             </span>
             <span
@@ -129,9 +133,9 @@ export default function Skills() {
         <div className="flex flex-wrap gap-5 items-center justify-center w-full pt-1 md:pt-6 lg:pt-10 p-2.5">
           {frameworks.map((framework, index) => (
             <motion.span
-              initial={'offscreen'}
-              whileInView={'onscreen'}
-              viewport={{ once: 'true' }}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: "true" }}
               variants={skillAnimate}
               key={index}
               custom={index}
@@ -143,5 +147,5 @@ export default function Skills() {
         </div>
       </div>
     </main>
-  )
+  );
 }
