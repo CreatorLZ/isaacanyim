@@ -1,19 +1,23 @@
 import { Anybody, Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-//components
+// Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import MouseTracker from "./components/Mousetracker";
 
 const inter = Anybody({ subsets: ["latin"], variable: "--font-inter" });
 
+// Metadata configuration
 export const metadata = {
   title: "Isaac Chimaroke Anyim | Portfolio",
   description: "Isaac Chimaroke Anyim | Frontend Developer",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://isaacanyim-iota.vercel.app"
+  ),
   keywords:
     "Isaac Chimaroke Anyim, Frontend Developer, React, Next.js, Web Development, Portfolio, Developer , node",
   author: "Isaac Chimaroke Anyim",
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     type: "website",
@@ -37,8 +41,16 @@ export const metadata = {
     description: "Isaac Chimaroke Anyim | Frontend Developer",
     image: "/seo.png",
   },
-  themeColor: "#ffffff",
 };
+
+// Export viewport separately
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
+// Export themeColor separately
+export const themeColor = "#ffffff";
 
 export default function RootLayout({ children }) {
   return (
@@ -48,7 +60,6 @@ export default function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <meta name="author" content={metadata.author} />
-        <meta name="viewport" content={metadata.viewport} />
         <meta name="robots" content={metadata.robots} />
         {/* Open Graph Metadata */}
         <meta property="og:type" content={metadata.openGraph.type} />
@@ -81,12 +92,14 @@ export default function RootLayout({ children }) {
           content={metadata.twitter.description}
         />
         <meta name="twitter:image" content={metadata.twitter.image} />
-        <meta name="theme-color" content={metadata.themeColor} />
+        <meta name="theme-color" content={themeColor} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={inter.className}>
         <Navbar />
         {children}
+        <MouseTracker />
         <Analytics />
         <Footer />
       </body>

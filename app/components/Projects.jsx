@@ -84,25 +84,25 @@ export default function Projects() {
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
     },
-    {
-      name: "IP Address Tracker",
-      link: "https://ip-address-tracker-gamma-five.vercel.app/",
-      github: "https://github.com/CreatorLZ/ip_address_tracker",
-      description:
-        "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
-      image: adresstracker,
-      details: "Get live info of any IP Address.",
-      skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
-    },
-    {
-      name: "Portfolio",
-      link: "https://isaacanyim-iota.vercel.app/",
-      github: "https://github.com/CreatorLZ/Portfolio",
-      description: "My portfolio website. slick , fast and beautiful",
-      image: portfolio,
-      details: "This is the real whats up",
-      skills: ["Next.js", "Tailwind", "Framer", "JavaScript"],
-    },
+    // {
+    //   name: "IP Address Tracker",
+    //   link: "https://ip-address-tracker-gamma-five.vercel.app/",
+    //   github: "https://github.com/CreatorLZ/ip_address_tracker",
+    //   description:
+    //     "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
+    //   image: adresstracker,s
+    //   details: "Get live info of any IP Address.",
+    //   skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
+    // },
+    // {
+    //   name: "Portfolio",
+    //   link: "https://isaacanyim-iota.vercel.app/",
+    //   github: "https://github.com/CreatorLZ/Portfolio",
+    //   description: "My portfolio website. slick , fast and beautiful",
+    //   image: portfolio,
+    //   details: "This is the real whats up",
+    //   skills: ["Next.js", "Tailwind", "Framer", "JavaScript"],
+    // },
     // {
     //   name: "Advice Generator",
     //   link: "https://advice-generator-nine-beta.vercel.app/",
