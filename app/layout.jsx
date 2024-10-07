@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import MouseTracker from "./components/Mousetracker";
+import MouseTracker from "./components/MouseTracker";
 
 const inter = Anybody({ subsets: ["latin"], variable: "--font-inter" });
 
