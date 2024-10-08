@@ -1,4 +1,4 @@
-import { Anybody, Inter } from "next/font/google";
+import { Anybody, Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 // Components

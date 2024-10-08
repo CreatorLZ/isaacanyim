@@ -42,6 +42,7 @@ const MouseTracker = () => {
             height: "55px",
             top: 0,
             left: 0,
+            zIndex: 150,
           }}
           animate={{
             x: position.x - 27, // Centering

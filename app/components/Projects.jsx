@@ -14,8 +14,7 @@ import earth from "/public/earth.png";
 import github from "/public/github.png";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-
+import { motion, AnimatePresence } from "framer-motion";
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isShowing, setIsShowing] = useState(false);
@@ -23,19 +22,16 @@ export default function Projects() {
 
   useEffect(() => {
     const body = document.body;
-
-    // Apply or remove the 'no-scroll' class based on whether a project is selected
     if (selectedProject !== null) {
       body.classList.add("no-scroll");
     } else {
       body.classList.remove("no-scroll");
     }
-
-    // Cleanup: Remove the 'no-scroll' class when the component is unmounted
     return () => {
       body.classList.remove("no-scroll");
     };
   }, [selectedProject]);
+
   const projects = [
     {
       name: "Moviebox",
@@ -128,16 +124,30 @@ export default function Projects() {
 
   const handleClick = (index) => {
     setSelectedProject(index);
-    setIsShowing((isShowing) => !isShowing);
+    setIsShowing(true); // Set isShowing to true to show the project detail
     setIsMenuOpen(!isMenuOpen);
   };
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+
   const closeDetails = () => {
     setSelectedProject(null);
-    setIsShowing((isShowing) => !isShowing);
+    setIsShowing(false); // Set isShowing to false to hide the project detail
   };
+
+  // Animation for sliding in from the right
+  const slideInRightAnimate = {
+    hidden: { x: "100%", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: "easeInOut" },
+    },
+    exit: {
+      x: "100%",
+      opacity: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
   const projectAnimate = {
     offscreen: { opacity: 0 },
     onscreen: {
@@ -145,16 +155,10 @@ export default function Projects() {
       transition: { duration: 1 },
     },
   };
-  const detailsAnimate = {
-    offscreen: { opacity: 0, y: 100 },
-    onscreen: {
-      opacity: [0, 1],
-      y: 0,
-      transition: { duration: 0.7 },
-    },
-  };
+
   return (
     <main className="pt-32 " id="projects">
+      {/* Button and description */}
       <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit">
         <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
           <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
@@ -167,9 +171,11 @@ export default function Projects() {
         ></span>
       </button>
       <p className="text-center font-bold text-base md:text-lg">
-        Here are my most recent projects. CLick on any project to preview
+        Here are my most recent projects. Click on any project to preview.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20  ">
+
+      {/* Project grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20">
         {projects.map((project, index) => (
           <motion.div
             initial={"offscreen"}
@@ -188,60 +194,46 @@ export default function Projects() {
               style={{ cursor: "pointer" }}
               placeholder="blur"
               blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
-              className="h-72 md:h-80 max-w-auto rounded-lg  "
+              className="h-72 md:h-80 max-w-auto rounded-lg"
             />
-            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50  md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 md:backdrop-blur-none">
+            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50 md:bg-black md:bg-opacity-55 rounded-lg transition duration-700">
               <div className="flex flex-col text-left gap-2">
-                <motion.p
-                  variants={detailsAnimate}
-                  className="text-white text-2xl font-extrabold "
-                >
+                <motion.p className="text-white text-2xl font-extrabold">
                   {project.name}
                 </motion.p>
-                <motion.p
-                  variants={detailsAnimate}
-                  className="text-gray-100 text-sm leading-normal tracking-wide"
-                >
+                <motion.p className="text-gray-100 text-sm leading-normal tracking-wide">
                   {project.details}
                 </motion.p>
-                <motion.div
-                  variants={detailsAnimate}
-                  className="flex flex-wrap gap-3"
-                >
-                  {project.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="w-fit inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-indigo-700/10"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </motion.div>
               </div>
             </motion.div>
           </motion.div>
         ))}
       </div>
 
-      <div>
+      {/* Project details sliding in from the right */}
+      <AnimatePresence>
         {selectedProject !== null && (
-          <div className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll pb-24 ">
-            {" "}
+          <motion.div
+            key={selectedProject}
+            className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll overflow-x-hidden pb-24"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={slideInRightAnimate}
+          >
             <div
               className="flex items-center justify-between w-full px-1 py-2"
               onClick={closeDetails}
             >
-              <div>
-                <Image
-                  src={back}
-                  alt={back}
-                  quality={100}
-                  height={30}
-                  width={30}
-                  placeholder="blur"
-                  className="cursor-pointer"
-                />
-              </div>
+              <Image
+                src={back}
+                alt="Back"
+                quality={100}
+                height={30}
+                width={30}
+                placeholder="blur"
+                className="cursor-pointer"
+              />
               <Link href="#projects">
                 <div
                   onClick={closeDetails}
@@ -255,7 +247,7 @@ export default function Projects() {
             <p className="text-lg font-extrabold text-black pb-1">
               {projects[selectedProject].name}
             </p>
-            <p className="text-gray-700 text-sm md:text-base pb-4 ">
+            <p className="text-gray-700 text-sm md:text-base pb-4">
               {projects[selectedProject].description}
             </p>
             <Image
@@ -299,7 +291,7 @@ export default function Projects() {
                 Website
               </p>
             </div>
-            <Link href={projects[selectedProject].link}>
+            <Link href={projects[selectedProject].link} target="_blank">
               {projects[selectedProject].link}
             </Link>
             <div className="w-fit gap-3 flex items-center">
@@ -312,12 +304,12 @@ export default function Projects() {
                 placeholder="blur"
                 className="cursor-pointer"
               />
-              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>{" "}
+              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>
             </div>
-            <Link href={projects[selectedProject].github}>
+            <Link href={projects[selectedProject].github} target="_blank">
               {projects[selectedProject].github}
             </Link>
-            <div className="fixed bottom-0 left-0 w-full md:w-1/2 md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
+            <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
               <Link href={projects[selectedProject].link}>
                 <p className="text-white">Open project</p>
               </Link>
@@ -336,19 +328,19 @@ export default function Projects() {
                 />
               </svg>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
-
+      </AnimatePresence>
+      {/* Overlay */}
       {selectedProject !== null && (
         <div
           className="w-full h-full fixed top-0 left-0 bg-black z-10 bg-opacity-50 cursor-pointer"
           onClick={closeDetails}
         ></div>
       )}
-      <Link href="https://github.com/CreatorLZ">
-        <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
-          <p>See more </p>
+      <Link href="https://github.com/CreatorLZ" target="_blank">
+        <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer">
+          <p>See more</p>
           <Image src={forward} alt="forward" width={30} height={30} />
         </div>
       </Link>
