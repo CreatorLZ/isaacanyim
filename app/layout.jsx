@@ -10,13 +10,13 @@ const inter = Anybody({ subsets: ["latin"], variable: "--font-inter" });
 
 // Metadata configuration
 export const metadata = {
-  title: "Isaac Chimaroke Anyim | Portfolio",
-  description: "Isaac Chimaroke Anyim | Frontend Developer",
+  title: "Isaac Chimaroke Anyim | Software Developer",
+  description: "Isaac Chimaroke Anyim | Software Developer",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://isaacanyim-iota.vercel.app"
   ),
   keywords:
-    "Isaac Chimaroke Anyim, Frontend Developer, React, Next.js, Web Development, Portfolio, Developer , node",
+    "Isaac Chimaroke Anyim, Frontend Developer, Software Developer React, Next.js, Web Development, Portfolio, Developer , node",
   author: "Isaac Chimaroke Anyim",
   robots: "index, follow",
   openGraph: {
