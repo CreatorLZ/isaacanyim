@@ -103,7 +103,7 @@ export default function Hero() {
         </AnimatedText>
 
         <Link
-          href="#skills"
+          href="#projects"
           // style={{ border: "2px solid black" }}
           className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
         >
