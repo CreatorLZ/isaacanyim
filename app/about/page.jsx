@@ -134,11 +134,11 @@ export default function About() {
             <div className="absolute inset-0 bg-black opacity-40 rounded-xl"></div>
             <div className="flex flex-col text-left gap-1 md:gap-3">
               <p className="text-gray-300 absolute bottom-20 left-4 text-lg font-semibold">
-                Elite Innovator's Manifesto <br />
+                Elite Innovator{"'"}s Manifesto <br />
               </p>
               <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
                 I'm always building new stuff to improve my skill and be among
-                the top 1%.
+                the top 1{"%"}.
               </h3>
             </div>
           </motion.div>
@@ -148,9 +148,9 @@ export default function About() {
       <div className="pt-10">
         <p className="font-bold">
           Websites that shine go beyond just looking good. They also work
-          flawlessly and are a breeze to navigate. That's where I come in.
-          Through my experience as a freelancer and from personal projects, I've
-          honed my ability to tackle complex technical challenges while
+          flawlessly and are a breeze to navigate. That{"'"}s where I come in.
+          Through my experience as a freelancer and from personal projects, I
+          {"'"}ve honed my ability to tackle complex technical challenges while
           designing websites that are both beautiful and user-friendly. I stay
           on top of the latest web development trends to ensure every aspect of
           your website is optimized for a smooth user experience.
