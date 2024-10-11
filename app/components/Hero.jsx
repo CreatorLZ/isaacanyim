@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Webinar from "/public/coding.png";
 import forward from "/public/forward.gif";
 import { motion } from "framer-motion";
 import Link from "next/link";
