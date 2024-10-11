@@ -171,7 +171,7 @@ export default function Projects() {
           data-rounded="rounded-lg"
         ></span>
       </button>
-      <p className="text-center font-bold text-3xl md:text-4xl">
+      <p className="text-center font-bold text-2xl md:text-4xl">
         Here are my most recent <span className="text-primary ">Projects.</span>{" "}
         Click on any project to preview.
       </p>

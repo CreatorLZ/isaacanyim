@@ -132,11 +132,20 @@ export default function About() {
             style={{ backgroundImage: "url('/cubes.webp')" }}
           >
             <div className="absolute inset-0 bg-black opacity-40 rounded-xl"></div>
-            <div className="flex flex-col text-left gap-1 md:gap-3">
+            {/* <div className="flex flex-col text-left gap-1 md:gap-3">
               <p className="text-gray-300 absolute bottom-20 left-4 text-lg font-semibold">
                 Elite Innovator{"'"}s Manifesto <br />
               </p>
               <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
+                I{"'"}m always building new stuff to improve my skill and be
+                among the top 1{"%"}.
+              </h3>
+            </div> */}
+            <div className="flex flex-col text-left gap-1 md:gap-3 z-10">
+              <p className="text-gray-400 text-lg font-semibold">
+                The inside scoop <br />
+              </p>
+              <h3 className=" text-left text-white text-2xl font-bold md:text-3xl">
                 I{"'"}m always building new stuff to improve my skill and be
                 among the top 1{"%"}.
               </h3>
@@ -145,7 +154,7 @@ export default function About() {
         </motion.div>
         {/* second section end */}
       </div>
-      <div className="pt-10">
+      <div className="pt-20">
         <p className="font-bold">
           Websites that shine go beyond just looking good. They also work
           flawlessly and are a breeze to navigate. That{"'"}s where I come in.
