@@ -99,7 +99,7 @@ export default function About() {
               style={{ backgroundImage: "url('/legos.webp')" }}
             >
               <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-              <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
+              <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
                 <h3 className=" text-white text-2xl font-bold md:text-3xl">
                   Tech Ethusiast With A Passion To Build
                 </h3>
@@ -111,10 +111,10 @@ export default function About() {
               className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5 gap-2"
               style={{ backgroundImage: "url('/calm2.jpg')" }}
             >
-              <div className="absolute inset-0 bg-black opacity-30 rounded-xl"></div>
+              <div className="absolute inset-0 bg-black opacity-70 rounded-xl"></div>
               <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
                 <h3 className=" text-white text-2xl font-bold md:text-3xl">
-                  Want us to start a project together?
+                  Want us to build a project together?
                 </h3>
                 <Link
                   href="#contact"
