@@ -1,9 +1,10 @@
-'use client'
-import Image from 'next/image'
-import Webinar from '/public/coding.png'
-import forward from '/public/forward.gif'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+"use client";
+import Image from "next/image";
+import Webinar from "/public/coding.png";
+import forward from "/public/forward.gif";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { AnimatedText } from "./AnimatedText";
 
 export default function Hero() {
   const detailsAnimate = {
@@ -13,7 +14,7 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
   const descAnimate = {
     offscreen: { opacity: 0, y: 10 },
     onscreen: {
@@ -21,46 +22,149 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 1.5,
+      },
+    },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 70 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
+  const containerVariants2 = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 1.5,
+      },
+    },
+  };
+
+  const itemVariants2 = {
+    hidden: { x: 80 },
+    visible: {
+      x: 0,
+      transition: { duration: 1.5 },
+    },
+  };
+  const itemVariants3 = {
+    hidden: { x: -70 },
+    visible: {
+      x: 0,
+      transition: { duration: 1.5 },
+    },
+  };
+
   return (
     <motion.main
-      initial={'offscreen'}
-      whileInView={'onscreen'}
-      viewport={{ once: 'true', amount: 0.5 }}
+      initial={"offscreen"}
+      whileInView={"onscreen"}
+      viewport={{ once: "true", amount: 0.5 }}
       transition={{ staggerChildren: 0.1 }}
       className="text-center flex-col pb-0"
     >
-      <motion.h1
-        variants={detailsAnimate}
-        className="text-gray-700 text-2xl md:text-4xl tracking-normal  pb-0  font-black"
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0 }}
+        variants={containerVariants2}
+        style={{ height: "70vh" }}
+        className=" flex flex-col items-center justify-center md:justify-start "
       >
-        Hi👋🏾, I{"'"}M ISAAC
-        <br />A FRONTEND DEVELOPER
-      </motion.h1>
-      <br />
+        <motion.h1
+          variants={itemVariants2}
+          className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
+        >
+          HI👋🏾{"!"}, I{"'"}M ISAAC{","}
+          <br />
+        </motion.h1>
+        <motion.h1
+          variants={itemVariants3}
+          className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
+        >
+          A FRONTEND DEVELOPER
+        </motion.h1>
+        {/* <br /> */}
+        <AnimatedText className="leading-loose text-base md:text-xl pb-10">
+          I create captivating, immersive and user-friendly digital journeys.
+        </AnimatedText>
 
-      <motion.p
-        variants={descAnimate}
-        className="leading-loose text-sm md:text-base"
+        <Link
+          href="#skills"
+          // style={{ border: "2px solid black" }}
+          className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
+        >
+          <div className="text-gray-700 text-base font-serif">
+            EXPLORE PROJECTS
+          </div>
+        </Link>
+      </motion.div>
+      {/* first section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={containerVariants}
+        className="flex flex-col md:flex-row gap-8"
       >
-        As a <strong>results-driven web developer</strong> , I specialize in
-        creating <strong>accessible</strong> and <strong>user-centric </strong>
-        experiences that seamlessly combine aesthetics with engagement. My
-        enthusiasm lies in the art of designing captivating,{' '}
-        <strong> user-friendly</strong>, and immersive digital journeys.
-      </motion.p>
-      <div className="w-full flex items-center justify-center">
-        <div>
-          <Image
-            src={Webinar}
-            alt="person"
-            quality={100}
-            placeholder="blur"
-            style={{ cursor: 'pointer' }}
-            className="h-72 md:h-80 w-full  rounded-lg"
-          />
+        <motion.div
+          variants={itemVariants}
+          className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-96 md:w-3/5"
+          style={{ backgroundImage: "url('/mega2.webp')" }}
+        >
+          <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
+          <h3 className="absolute text-left bottom-4 left-4 text-white text-2xl font-bold md:w-2/3 md:text-3xl">
+            I focus on working closely with clients, ensuring clear and open
+            communication
+          </h3>
+        </motion.div>
+        <div className="flex flex-col md:w-2/5 md:h-96 gap-4">
+          <motion.div
+            variants={itemVariants}
+            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
+            style={{ backgroundImage: "url('/continent.png')" }}
+          >
+            <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
+            <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
+              <h3 className=" text-white text-2xl font-bold md:text-3xl">
+                I am flexible for communication across timezones
+              </h3>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
+            style={{ backgroundImage: "url('/techstack.webp')" }}
+          >
+            <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
+            <div className="flex flex-col text-left gap-1 md:gap-3">
+              <p className="text-gray-400 absolute bottom-20 left-4 text-lg font-semibold">
+                I stay on top of
+              </p>
+              <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
+                Best and modern web development practices
+              </h3>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
+      {/* first section end */}
+
       <Link href="/about">
         <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
           <p>See more about me </p>
@@ -68,5 +172,5 @@ export default function Hero() {
         </div>
       </Link>
     </motion.main>
-  )
+  );
 }

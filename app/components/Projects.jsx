@@ -149,10 +149,11 @@ export default function Projects() {
   };
 
   const projectAnimate = {
-    offscreen: { opacity: 0 },
+    offscreen: { opacity: 0, y: 90 },
     onscreen: {
       opacity: 1,
-      transition: { duration: 1 },
+      y: 0,
+      transition: { duration: 1.5 },
     },
   };
 
@@ -170,8 +171,9 @@ export default function Projects() {
           data-rounded="rounded-lg"
         ></span>
       </button>
-      <p className="text-center font-bold text-base md:text-lg">
-        Here are my most recent projects. Click on any project to preview.
+      <p className="text-center font-bold text-3xl md:text-4xl">
+        The <span className="text-primary font-serif">Elite Dev's</span>{" "}
+        Manifesto. Click on any project to preview.
       </p>
 
       {/* Project grid */}
@@ -180,7 +182,7 @@ export default function Projects() {
           <motion.div
             initial={"offscreen"}
             whileInView={"onscreen"}
-            viewport={{ once: "true", amount: 0.2 }}
+            viewport={{ once: "true", amount: 0.4 }}
             variants={projectAnimate}
             transition={{ staggerChildren: 0.1 }}
             key={index}
@@ -204,6 +206,16 @@ export default function Projects() {
                 <motion.p className="text-gray-100 text-sm leading-normal tracking-wide">
                   {project.details}
                 </motion.p>
+                <div className="flex flex-wrap gap-3 mt-3">
+                  {project.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="w-fit inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-indigo-700/10"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>

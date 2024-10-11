@@ -57,7 +57,7 @@ const MouseTracker = () => {
         >
           {/* Pulsating Effect */}
           <motion.div
-            className="absolute inset-0 rounded-full bg-purple-500"
+            className="absolute inset-0 rounded-full bg-primary"
             initial={{ opacity: 0.2 }}
             animate={{
               scale: isHoveringLink ? [1, 1.1, 1] : [1, 1.05, 1],
@@ -76,7 +76,7 @@ const MouseTracker = () => {
             className="absolute inset-0 rounded-full"
             style={{
               border: "1px solid",
-              borderColor: isHoveringLink ? "#9b5de5" : "#9b5de5",
+              borderColor: isHoveringLink ? "#7856ff" : "#7856ff",
             }}
             animate={{
               scale: isHoveringLink ? 1.8 : 1,
@@ -91,7 +91,7 @@ const MouseTracker = () => {
 
           {/* Inner Dot (which acts as the actual cursor) */}
           <motion.div
-            className="absolute rounded-full bg-purple-500"
+            className="absolute rounded-full bg-primary"
             style={{
               width: "8px",
               height: "8px",

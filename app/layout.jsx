@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MouseTracker from "./components/MouseTracker";
 
-const inter = Anybody({ subsets: ["latin"], variable: "--font-inter" });
+const anybody = Anybody({ subsets: ["latin"], variable: "--font-anybody" });
 
 // Metadata configuration
 export const metadata = {
@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={anybody.className}>
         <Navbar />
         {children}
         <MouseTracker />
