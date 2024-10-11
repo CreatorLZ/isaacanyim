@@ -137,8 +137,8 @@ export default function About() {
                 Elite Innovator{"'"}s Manifesto <br />
               </p>
               <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
-                I'm always building new stuff to improve my skill and be among
-                the top 1{"%"}.
+                I{"'"}m always building new stuff to improve my skill and be
+                among the top 1{"%"}.
               </h3>
             </div>
           </motion.div>
