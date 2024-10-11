@@ -119,10 +119,10 @@ nav {
 .nav-link.active {
   @apply text-black;
 }
-@font-face {
+/* @font-face {
   font-family: 'Anybody';
   src: url('/fonts/Anybody-Regular.woff2') format('woff2'),
        url('/fonts/Anybody-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
+} */
