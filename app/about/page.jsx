@@ -43,7 +43,7 @@ export default function About() {
           <motion.div
             variants={itemVariants}
             className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-96 md:w-3/5"
-            style={{ backgroundImage: "url('/mega2.webp')" }}
+            style={{ backgroundImage: "url('/Mega2.webp')" }}
           >
             <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
             <h3 className="absolute text-left bottom-4 left-4 text-white text-2xl font-bold md:w-2/3 md:text-3xl">
