@@ -47,9 +47,8 @@ export default function Skills() {
     { name: "Redux Toolkit" },
     { name: "Context API" },
     { name: "Framer Motion" },
+    { name: "Vite" },
     { name: "Swift XR" },
-    // { name: "Trello" },
-    // { name: 'Slack' },
     { name: "More..." },
   ];
   const visibleSkills = showAllSkills ? skills : skills.slice(0, 3);
