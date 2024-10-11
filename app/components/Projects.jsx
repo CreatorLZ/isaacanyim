@@ -172,8 +172,8 @@ export default function Projects() {
         ></span>
       </button>
       <p className="text-center font-bold text-3xl md:text-4xl">
-        The <span className="text-primary font-serif">Elite Dev{"'"}s</span>{" "}
-        Manifesto. Click on any project to preview.
+        Here are my most recent <span className="text-primary ">Projects.</span>{" "}
+        Click on any project to preview.
       </p>
 
       {/* Project grid */}
