@@ -76,7 +76,7 @@ export default function About() {
                   I stay on top of
                 </p>
                 <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
-                  Best and modern web development practices
+                  The Best Software Development practices
                 </h3>
               </div>
             </motion.div>

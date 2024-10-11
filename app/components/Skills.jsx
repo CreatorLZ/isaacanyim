@@ -67,7 +67,7 @@ export default function Skills() {
           data-rounded="rounded-lg"
         ></span>
       </button>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 items-center pt-1 md:pt-6 lg:pt-10 p-2.5 w-full justify-between sm:justify-normal">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 items-center pt-1 md:pt-6 lg:pt-10 p-2.5 md:px-24 w-full justify-between sm:justify-normal">
         {visibleSkills.map((skill, index) => (
           <div
             key={index}
