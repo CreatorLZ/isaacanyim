@@ -81,14 +81,14 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        style={{ height: "70vh" }}
-        className=" flex flex-col items-center justify-center md:justify-start "
+        style={{ height: "60vh" }}
+        className=" flex flex-col items-center justify-center md:justify-start  "
       >
         <motion.h1
           variants={itemVariants2}
           className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
         >
-          HI👋🏾{"!"}, I{"'"}M ISAAC{","}
+          HI👋🏾{"!"} I{"'"}M ISAAC
           <br />
         </motion.h1>
         <motion.h1
@@ -98,8 +98,8 @@ export default function Hero() {
           A FRONTEND DEVELOPER
         </motion.h1>
         {/* <br /> */}
-        <AnimatedText className="leading-loose text-base md:text-xl pb-10">
-          I create captivating, immersive and user-friendly digital journeys.
+        <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
+          I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
 
         <Link
@@ -138,7 +138,7 @@ export default function Hero() {
             style={{ backgroundImage: "url('/continent.png')" }}
           >
             <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-            <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
+            <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
               <h3 className=" text-white text-2xl font-bold md:text-3xl">
                 I am flexible for communication across timezones
               </h3>

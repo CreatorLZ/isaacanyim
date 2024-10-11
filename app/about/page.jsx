@@ -58,7 +58,7 @@ export default function About() {
               style={{ backgroundImage: "url('/continent.png')" }}
             >
               <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-              <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
+              <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
                 <h3 className=" text-white text-2xl font-bold md:text-3xl">
                   I am flexible for communication across timezones
                 </h3>
