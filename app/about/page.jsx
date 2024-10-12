@@ -5,6 +5,7 @@ import Contact from "../components/Contact";
 import Socials from "../components/Socials";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { AnimatedText } from "../components/AnimatedText";
 
 export default function About() {
   const containerVariants = {
@@ -147,15 +148,15 @@ export default function About() {
         {/* second section end */}
       </div>
       <div className="pt-20">
-        <p className="font-bold">
+        <AnimatedText className="text-sm leading-loose">
           Websites that shine go beyond just looking good. They also work
-          flawlessly and are a breeze to navigate. That{"'"}s where I come in.
+          flawlessly and are a breeze to navigate. That is where I come in.
           Through my experience as a freelancer and from personal projects, I
-          {"'"}ve honed my ability to tackle complex technical challenges while
+          have honed my ability to tackle complex technical challenges while
           designing websites that are both beautiful and user-friendly. I stay
-          on top of the latest web development trends to ensure every aspect of
-          your website is optimized for a smooth user experience.
-        </p>
+          on top of the latest software development trends to ensure every
+          aspect of your website is optimized for a smooth user experience.
+        </AnimatedText>
       </div>
       <Socials />
       <Contact id="contact" />
