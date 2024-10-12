@@ -107,9 +107,7 @@ export default function Hero() {
           // style={{ border: "2px solid black" }}
           className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
         >
-          <div className="text-gray-700 text-base font-serif">
-            EXPLORE PROJECTS
-          </div>
+          <div className="text-gray-700 text-base">EXPLORE PROJECTS</div>
         </Link>
       </motion.div>
       {/* first section */}
@@ -126,7 +124,7 @@ export default function Hero() {
           style={{ backgroundImage: "url('/Mega2.webp')" }}
         >
           <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
-          <h3 className="absolute text-left bottom-4 left-4 text-white text-2xl font-bold md:w-2/3 md:text-3xl">
+          <h3 className="absolute text-left bottom-4 left-4 text-white text-xl font-bold md:w-2/3 md:text-3xl">
             I focus on working closely with clients, ensuring clear and open
             communication
           </h3>
@@ -139,7 +137,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
             <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-              <h3 className=" text-white text-2xl font-bold md:text-3xl">
+              <h3 className=" text-white text-xl font-bold md:text-3xl">
                 I am flexible for communication across timezones
               </h3>
             </div>
@@ -155,7 +153,7 @@ export default function Hero() {
               <p className="text-gray-400 absolute bottom-20 left-4 text-lg font-semibold">
                 I stay on top of
               </p>
-              <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
+              <h3 className="absolute bottom-4 left-4 text-white text-xl font-bold md:text-3xl">
                 The Best Software Development practices
               </h3>
             </div>

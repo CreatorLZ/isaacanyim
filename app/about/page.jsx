@@ -46,7 +46,7 @@ export default function About() {
             style={{ backgroundImage: "url('/Mega2.webp')" }}
           >
             <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
-            <h3 className="absolute text-left bottom-4 left-4 text-white text-2xl font-bold md:w-2/3 md:text-3xl">
+            <h3 className="absolute text-left bottom-4 left-4 text-white text-xl font-bold md:w-2/3 md:text-3xl">
               I focus on working closely with clients, ensuring clear and open
               communication
             </h3>
@@ -59,7 +59,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
               <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-                <h3 className=" text-white text-2xl font-bold md:text-3xl">
+                <h3 className=" text-white text-xl font-bold md:text-3xl">
                   I am flexible for communication across timezones
                 </h3>
               </div>
@@ -75,7 +75,7 @@ export default function About() {
                 <p className="text-gray-400 absolute bottom-20 left-4 text-lg font-semibold">
                   I stay on top of
                 </p>
-                <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
+                <h3 className="absolute bottom-4 left-4 text-white text-xl font-bold md:text-3xl">
                   The Best Software Development practices
                 </h3>
               </div>
@@ -100,7 +100,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
               <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-                <h3 className=" text-white text-2xl font-bold md:text-3xl">
+                <h3 className=" text-white text-xl font-bold md:text-3xl">
                   Tech Ethusiast With A Passion To Build
                 </h3>
               </div>
@@ -113,7 +113,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-black opacity-70 rounded-xl"></div>
               <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
-                <h3 className=" text-white text-2xl font-bold md:text-3xl">
+                <h3 className=" text-white text-xl font-bold md:text-3xl">
                   Want us to build a project together?
                 </h3>
                 <Link
@@ -132,20 +132,12 @@ export default function About() {
             style={{ backgroundImage: "url('/cubes.webp')" }}
           >
             <div className="absolute inset-0 bg-black opacity-40 rounded-xl"></div>
-            {/* <div className="flex flex-col text-left gap-1 md:gap-3">
-              <p className="text-gray-300 absolute bottom-20 left-4 text-lg font-semibold">
-                Elite Innovator{"'"}s Manifesto <br />
-              </p>
-              <h3 className="absolute bottom-4 left-4 text-white text-2xl font-bold md:text-3xl">
-                I{"'"}m always building new stuff to improve my skill and be
-                among the top 1{"%"}.
-              </h3>
-            </div> */}
+
             <div className="flex flex-col text-left gap-1 md:gap-3 z-10">
               <p className="text-gray-400 text-lg font-semibold">
                 The inside scoop <br />
               </p>
-              <h3 className=" text-left text-white text-2xl font-bold md:text-3xl">
+              <h3 className=" text-left text-white text-xl font-bold md:text-3xl">
                 I{"'"}m always building new stuff to improve my skill and be
                 among the top 1{"%"}.
               </h3>

@@ -49,7 +49,7 @@ export default function Projects() {
       link: "https://ideafundr-seven.vercel.app/",
       github: "https://github.com/CreatorLZ/ideafundr",
       description:
-        "ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space. i.e you can view the products as if they were there right in front of you, wherever you want! A user on sign-up is presented the choice to choose a path as either an inventor or investor.....",
+        "ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space with ar technology on their device. A user on sign-up is presented the choice to choose a path as either an inventor or investor.....",
       details: "Showcase your invention to investors with immersive tech.",
       skills: [
         "React",
@@ -67,7 +67,7 @@ export default function Projects() {
       link: "https://expressline-logistics.vercel.app/",
       github: "https://github.com/CreatorLZ/expressline_logistics",
       description: "A logistics company",
-      details: "Expressline Logistics.",
+      details: "An international Logistics company",
       skills: ["HTML", "Bootstrap", "CSS", "JavaScript"],
     },
     {
@@ -80,16 +80,16 @@ export default function Projects() {
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
     },
-    // {
-    //   name: "IP Address Tracker",
-    //   link: "https://ip-address-tracker-gamma-five.vercel.app/",
-    //   github: "https://github.com/CreatorLZ/ip_address_tracker",
-    //   description:
-    //     "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
-    //   image: adresstracker,s
-    //   details: "Get live info of any IP Address.",
-    //   skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
-    // },
+    {
+      name: "IP Address Tracker",
+      link: "https://ip-address-tracker-gamma-five.vercel.app/",
+      github: "https://github.com/CreatorLZ/ip_address_tracker",
+      description:
+        "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
+      image: adresstracker,
+      details: "Get live info of any IP Address.",
+      skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
+    },
     // {
     //   name: "Portfolio",
     //   link: "https://isaacanyim-iota.vercel.app/",
