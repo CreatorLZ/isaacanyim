@@ -135,15 +135,15 @@ export default function Projects() {
 
   // Animation for sliding in from the right
   const slideInRightAnimate = {
-    hidden: { x: "100%", opacity: 0 },
+    hidden: { x: "100%" },
     visible: {
       x: 0,
-      opacity: 1,
+
       transition: { duration: 0.7, ease: "easeInOut" },
     },
     exit: {
       x: "100%",
-      opacity: 0,
+
       transition: { duration: 0.7, ease: "easeOut" },
     },
   };
@@ -171,7 +171,7 @@ export default function Projects() {
           data-rounded="rounded-lg"
         ></span>
       </button>
-      <p className="text-center font-bold text-2xl md:text-4xl">
+      <p className="text-center font-bold text-xl md:text-4xl">
         Here are my most recent <span className="text-primary ">Projects.</span>{" "}
         Click on any project to preview.
       </p>
