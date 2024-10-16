@@ -1,23 +1,23 @@
-'use client'
-import Image from 'next/image'
-import Link from 'next/link'
-import home from '/public/home.png'
-import dark from '/public/dark.png'
-import menu from '/public/menu.png'
-import close from '/public/close.png'
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import NavLink from './NavLink'
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import home from "/public/home.png";
+import dark from "/public/dark.png";
+import menu from "/public/menu.png";
+import close from "/public/close.png";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   return (
@@ -30,35 +30,35 @@ export default function Navbar() {
             width={60}
             height={60}
             quality={100}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           />
         </Link>
       </div>
-      <div className="gap-6 items-center px-3 flex">
-        <div className="hidden md:flex gap-5">
-          <NavLink className="hidden md:flex" href="/about">
+      <div className="gap-6 items-center px-6 md:px-3 flex   ">
+        <div className="flex gap-5 ">
+          <NavLink className="flex md:flex" href="/about">
             About
           </NavLink>
-          <NavLink className="hidden md:flex" href="/#skills">
+          <NavLink className=" md:flex" href="/#skills">
             Skills
           </NavLink>
-          <NavLink className="hidden md:flex" href="/#projects">
+          <NavLink className=" md:flex" href="/#projects">
             Projects
           </NavLink>
-          <NavLink className="hidden md:flex" href="/#contact">
+          <NavLink className=" md:flex" href="/#contact">
             Contact
           </NavLink>
         </div>
 
         {/* Toggle menu modal on click */}
-        <div className="md:hidden" onClick={openModal}>
+        <div className="md:hidden hidden" onClick={openModal}>
           <Image
             src={menu}
             alt="menu"
             width={30}
             height={30}
             quality={100}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           />
         </div>
 
@@ -138,7 +138,7 @@ export default function Navbar() {
                       width={30}
                       height={30}
                       quality={100}
-                      style={{ cursor: 'pointer' }}
+                      style={{ cursor: "pointer" }}
                     />
                   </div>
                 </div>
@@ -184,5 +184,5 @@ export default function Navbar() {
         )} */}
       </div>
     </nav>
-  )
+  );
 }
