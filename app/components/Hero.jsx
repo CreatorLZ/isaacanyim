@@ -81,7 +81,7 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        style={{ height: "55vh" }}
+        style={{ height: "75vh" }}
         className=" flex flex-col items-center justify-center md:justify-start  "
       >
         <motion.h1

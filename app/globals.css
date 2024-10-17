@@ -29,7 +29,7 @@ body {
 }
 
 main {
-  @apply px-2 md:px-10 lg:px-14 text-left w-full h-full;
+  @apply px-2 md:px-6 lg:px-6 text-left w-full h-full;
   p {
     @apply text-gray-700;
   }
