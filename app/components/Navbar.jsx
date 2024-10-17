@@ -35,7 +35,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="gap-6 items-center px-6 md:px-3 flex   ">
-        <div className="flex gap-5 ">
+        <div className="flex gap-5 items-end justify-end ">
           <NavLink className="flex md:flex" href="/about">
             About
           </NavLink>
