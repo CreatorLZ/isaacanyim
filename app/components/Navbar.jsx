@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav>
       <div>
-        <Link href="/" className="hidden md:flex">
+        <Link href="/" className="">
           <Image
             src={home}
             alt="Home logo"
@@ -34,7 +34,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="gap-6 items-center px-6 md:px-3 flex w-screen md:w-fit justify-between   ">
+      <div className="gap-6 items-center px-6 md:px-3 hidden md:flex w-screen md:w-fit justify-between   ">
         <div className="flex gap-5 items-end justify-end ">
           <NavLink className="flex md:flex" href="/about">
             <span className="relative z-10 block px-1 md:px-3 py-3 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
@@ -82,16 +82,31 @@ export default function Navbar() {
           </NavLink>
         </div>
 
-        {/* Toggle menu modal on click */}
-        <div className="md:hidden hidden" onClick={openModal}>
+        {/* <div>
           <Image
-            src={menu}
-            alt="menu"
+            src={dark}
+            alt="dark mode"
             width={30}
             height={30}
             quality={100}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: 'pointer' }}
           />
+        </div> */}
+      </div>
+      <div className="gap-6 items-center px-6 md:px-3 flex  justify-between md:hidden   ">
+        <div className="flex gap-5 items-end justify-end ">
+          <NavLink className="flex md:flex" href="/about">
+            <div className="text-gray-700 font-bold">About</div>
+          </NavLink>
+          <NavLink className=" md:flex" href="/#skills">
+            <div className="text-gray-700 font-bold">skills</div>
+          </NavLink>
+          <NavLink className=" md:flex" href="/#projects">
+            <div className="text-gray-700 font-bold">Projects</div>
+          </NavLink>
+          <NavLink className=" md:flex" href="/#contact">
+            <div className="text-gray-700 font-bold">Contact</div>
+          </NavLink>
         </div>
 
         {/* <div>
@@ -104,116 +119,6 @@ export default function Navbar() {
             style={{ cursor: 'pointer' }}
           />
         </div> */}
-
-        <Transition appear show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div
-                className="fixed inset-0 bg-black bg-opacity-25"
-                onClick={closeModal}
-              />
-            </Transition.Child>
-
-            <div className="fixed top-0 h-full w-full">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <div className="flex h-full w-full  pt-16  bg-white justify-center p-4 ">
-                  <div className="flex flex-col gap-11 items-center text-gray-500 font-black">
-                    <div onClick={closeModal}>
-                      <NavLink onClick={closeModal} href="/">
-                        HOME
-                      </NavLink>
-                    </div>
-                    <div onClick={closeModal}>
-                      <NavLink onClick={closeModal} href="/about">
-                        ABOUT
-                      </NavLink>
-                    </div>
-                    <div onClick={closeModal}>
-                      <NavLink onClick={closeModal} href="/#skills">
-                        SKILLS
-                      </NavLink>
-                    </div>
-                    <div onClick={closeModal}>
-                      <NavLink onClick={closeModal} href="/#projects">
-                        PROJECTS
-                      </NavLink>
-                    </div>
-                    <div onClick={closeModal}>
-                      <NavLink onClick={closeModal} href="/#contact">
-                        CONTACT
-                      </NavLink>
-                    </div>
-                  </div>
-                  <div
-                    className="fixed top-16 right-10 cursor-pointer"
-                    onClick={closeModal}
-                  >
-                    <Image
-                      src={close}
-                      alt="close"
-                      width={30}
-                      height={30}
-                      quality={100}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </div>
-                </div>
-              </Transition.Child>
-            </div>
-          </Dialog>
-        </Transition>
-        {/* {isMenuOpen && (
-          <div
-            className={`transition-all duration-500 delay-200 fixed left-0 w-full h-full bg-white  ${
-              isMenuOpen
-                ? 'opacity-100 visible top-0'
-                : 'opacity-0 invisible -top-full'
-            }`}
-          >
-            <div className="flex  justify-center w-full pt-16">
-              <div className="flex flex-col gap-10 items-center text-gray-700 font-black">
-                <Link onClick={toggleMenu} href="#about">
-                  ABOUT
-                </Link>
-                <Link onClick={toggleMenu} href="#projects">
-                  PROJECTS
-                </Link>
-                <Link onClick={toggleMenu} href="#contact">
-                  CONTACT
-                </Link>
-              </div>
-              <div
-                className="fixed top-16 right-10 cursor-pointer"
-                onClick={toggleMenu}
-              >
-                <Image
-                  src={close}
-                  alt="close"
-                  width={30}
-                  height={30}
-                  quality={100}
-                  style={{ cursor: 'pointer' }}
-                />
-              </div>
-            </div>
-          </div>
-        )} */}
       </div>
     </nav>
   );
