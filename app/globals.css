@@ -101,7 +101,7 @@ nav {
 .nav-link::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 0;
   width: 0;
   height: 2px;
@@ -123,3 +123,6 @@ nav {
 /* nav{
   @apply sticky top-0 backdrop-blur-lg h-8 py-8 z-50
 } */
+.btn-style {
+  @apply px-4 py-2 bg-white border border-black text-black font-bold rounded-lg hover:bg-black hover:text-white transition-colors;
+}

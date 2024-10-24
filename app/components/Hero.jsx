@@ -105,9 +105,20 @@ export default function Hero() {
         <Link
           href="#projects"
           // style={{ border: "2px solid black" }}
-          className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
+          // className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
         >
-          <div className="text-gray-700 text-base">EXPLORE PROJECTS</div>
+          {/* <div className="text-gray-700 text-base">EXPLORE PROJECTS</div> */}
+          <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit ">
+            <span className="relative z-10 block px-5 py-5 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
+              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
+              <span className="relative">EXPLORE PROJECTS</span>
+            </span>
+            <span
+              className="absolute bottom-0 right-0 w-full h-16 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
+              data-rounded="rounded-lg"
+            ></span>
+          </button>
         </Link>
       </motion.div>
       {/* first section */}
