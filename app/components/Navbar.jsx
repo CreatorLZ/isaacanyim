@@ -96,16 +96,16 @@ export default function Navbar() {
       <div className="gap-6 items-center px-6 md:px-3 flex  justify-between md:hidden   ">
         <div className="flex gap-5 items-end justify-end ">
           <NavLink className="flex md:flex" href="/about">
-            <div className="text-gray-700 font-bold">About</div>
+            <div className="text-gray-700 font-semibold">About</div>
           </NavLink>
           <NavLink className=" md:flex" href="/#skills">
-            <div className="text-gray-700 font-bold">skills</div>
+            <div className="text-gray-700 font-semibold">skills</div>
           </NavLink>
           <NavLink className=" md:flex" href="/#projects">
-            <div className="text-gray-700 font-bold">Projects</div>
+            <div className="text-gray-700 font-semibold">Projects</div>
           </NavLink>
           <NavLink className=" md:flex" href="/#contact">
-            <div className="text-gray-700 font-bold">Contact</div>
+            <div className="text-gray-700 font-semibold">Contact</div>
           </NavLink>
         </div>
 
