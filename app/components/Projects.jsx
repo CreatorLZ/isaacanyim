@@ -2,6 +2,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import adresstracker from "/public/adresstracker.png";
 import moviebox from "/public/moviebox2.gif";
+import taskwise from "/public/Taskwise.gif";
 import carddetails from "/public/carddetails.png";
 import advicegenerator from "/public/advicegenerator.png";
 import expressline from "/public/expressline.gif";
@@ -33,6 +34,29 @@ export default function Projects() {
   }, [selectedProject]);
 
   const projects = [
+    {
+      name: "Taskwise",
+      link: "https://taskwise-three.vercel.app/",
+      github: "https://github.com/CreatorLZ/taskwise",
+      description:
+        "Smart task manager that helps you keep track of your daily tasks. Taskwise is a simple and easy-to-use task manager that helps you keep track of your daily tasks. It is designed to be simple and easy to use, with a clean and intuitive interface that makes it easy to stay organized and focused. With Taskwise, you can create tasks, set due dates, and track your progress as you work through your to-do list. You can also set reminders and notifications to help you stay on track and meet your deadlines. Taskwise is designed to be flexible and customizable, so you can use it in a way that works best for you. Whether you need a simple to-do list or a more advanced task manager, Taskwise has you covered.",
+      image: taskwise,
+      details:
+        "Smart task manager that helps you keep track of your daily tasks.",
+      skills: [
+        "TypeScript",
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express",
+        "Tailwind",
+        "Vite",
+        "NLP",
+        "h1-inference",
+        "shadcn",
+      ],
+    },
+
     {
       name: "Moviebox",
       link: "https://moviebox-red.vercel.app/",
