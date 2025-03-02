@@ -50,6 +50,8 @@ export default function Projects() {
         "MongoDB",
         "Express",
         "Tailwind",
+        "Zustand",
+        "React-Query",
         "Vite",
         "NLP",
         "h1-inference",
