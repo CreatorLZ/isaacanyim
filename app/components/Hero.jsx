@@ -95,18 +95,14 @@ export default function Hero() {
           variants={itemVariants3}
           className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
         >
-          A FRONTEND DEVELOPER
+          A SOFTWARE DEVELOPER
         </motion.h1>
         {/* <br /> */}
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
           I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
 
-        <Link
-          href="#projects"
-          // style={{ border: "2px solid black" }}
-          // className="w-full border-2 border-gray-700 flex items-center rounded-md justify-center p-5 md:p-4 cursor-pointer md:w-1/5"
-        >
+        <Link href="#projects">
           {/* <div className="text-gray-700 text-base">EXPLORE PROJECTS</div> */}
           <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit ">
             <span className="relative z-10 block px-5 py-5 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
