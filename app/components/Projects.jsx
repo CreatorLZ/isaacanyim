@@ -348,7 +348,7 @@ export default function Projects() {
               {projects[selectedProject].github}
             </Link>
             <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
-              <Link href={projects[selectedProject].link}>
+              <Link href={projects[selectedProject].link} target="_blank">
                 <p className="text-white">Open project</p>
               </Link>
               <svg
