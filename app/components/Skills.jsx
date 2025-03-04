@@ -45,6 +45,8 @@ export default function Skills() {
     { name: "GitHub" },
     { name: "Firebase" },
     { name: "Redux Toolkit" },
+    { name: "Zustand" },
+    { name: "React Query" },
     { name: "Context API" },
     { name: "Framer Motion" },
     { name: "Vite" },
