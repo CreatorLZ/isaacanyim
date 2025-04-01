@@ -13,6 +13,7 @@ import github from "/public/github.png";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import NavLink from "./NavLink";
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isShowing, setIsShowing] = useState(false);
@@ -227,7 +228,7 @@ export default function Projects() {
             variants={slideInRightAnimate}
           >
             <div
-              className="flex items-center justify-between w-full px-1 py-2"
+              className="flex items-center justify-between w-full px-1 pb-2 pt-6"
               onClick={closeDetails}
             >
               <Image
@@ -296,9 +297,9 @@ export default function Projects() {
                 Website
               </p>
             </div>
-            <Link href={projects[selectedProject].link} target="_blank">
+            <NavLink href={projects[selectedProject].link} target="_blank">
               {projects[selectedProject].link}
-            </Link>
+            </NavLink>
             <div className="w-fit gap-3 flex items-center">
               <Image
                 src={github}
@@ -311,9 +312,9 @@ export default function Projects() {
               />
               <p className="text-base font-bold text-black pb-1 pt-7">Github</p>
             </div>
-            <Link href={projects[selectedProject].github} target="_blank">
+            <NavLink href={projects[selectedProject].github} target="_blank">
               {projects[selectedProject].github}
-            </Link>
+            </NavLink>
             <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
               <Link href={projects[selectedProject].link} target="_blank">
                 <p className="text-white">Open project</p>
