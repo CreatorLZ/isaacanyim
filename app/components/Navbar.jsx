@@ -56,7 +56,7 @@ export default function Navbar() {
       </div>
 
       <div className="lg:gap-6 gap-0 items-center px-0 md:px-3 py-3 flex  justify-between w-full lg:w-fit">
-        <div className="flex gap-5 lg:gap-10 items-center lg:items-end justify-end ">
+        <div className="flex gap-5 lg:gap-10 items-center lg:items-end justify-center w-full lg:w-fit ">
           <NavLink className="flex md:flex" href="/">
             <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
               Home
