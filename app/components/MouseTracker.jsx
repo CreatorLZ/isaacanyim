@@ -8,6 +8,11 @@ const MouseTracker = () => {
   const [isHoveringLink, setIsHoveringLink] = useState(false);
 
   useEffect(() => {
+    // Set initial position to center of page
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    setPosition({ x: centerX, y: centerY });
+
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };

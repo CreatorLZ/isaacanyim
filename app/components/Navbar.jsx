@@ -6,7 +6,7 @@ import dark from "/public/dark.png";
 import menu from "/public/menu.png";
 import close from "/public/close.png";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import NavLink from "./NavLink";
 
 export default function Navbar() {
@@ -20,9 +20,29 @@ export default function Navbar() {
     setIsOpen(true);
   }
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav>
-      <div>
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 flex justify-between items-center px-6 pb-4 md:px-3 md:pb-2 w-full pt-0 ${
+        isScrolled ? "bg-white/70 backdrop-blur-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="hidden lg:block">
         <Link href="/" className="">
           <Image
             src={home}
@@ -34,91 +54,35 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="gap-6 items-center px-6 md:px-3 hidden md:flex w-screen md:w-fit justify-between   ">
-        <div className="flex gap-5 items-end justify-end ">
+
+      <div className="lg:gap-6 gap-0 items-center px-0 md:px-3 py-3 flex  justify-between w-full lg:w-fit">
+        <div className="flex gap-5 lg:gap-10 items-center lg:items-end justify-end ">
+          <NavLink className="flex md:flex" href="/">
+            <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
+              Home
+            </div>
+          </NavLink>
           <NavLink className="flex md:flex" href="/about">
-            <span className="relative z-10 block px-1 md:px-3 py-3 overflow-hidden font-medium leading-tight text-gray-700 transition-colors duration-300 ease-out border-2 border-gray-700 rounded-lg group-hover:text-white">
-              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative text-gray-700"> About</span>
-            </span>
-            <span
-              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-700 rounded-lg group-hover:mb-0 group-hover:mr-0"
-              data-rounded="rounded-lg"
-            ></span>
+            <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
+              About
+            </div>
           </NavLink>
           <NavLink className=" md:flex" href="/#skills">
-            <span className="relative z-10 block px-1 md:px-3 py-3 overflow-hidden font-medium leading-tight text-gray-700 transition-colors duration-300 ease-out border-2 border-gray-700 rounded-lg group-hover:text-white">
-              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative text-gray-700"> Skills</span>
-            </span>
-            <span
-              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-700 rounded-lg group-hover:mb-0 group-hover:mr-0"
-              data-rounded="rounded-lg"
-            ></span>
+            <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
+              skills
+            </div>
           </NavLink>
           <NavLink className=" md:flex" href="/#projects">
-            <span className="relative z-10 block  px-1 md:px-3 py-3 overflow-hidden font-medium leading-tight text-gray-700 transition-colors duration-300 ease-out border-2 border-gray-700 rounded-lg group-hover:text-white">
-              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative text-gray-700"> Projects</span>
-            </span>
-            <span
-              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-700 rounded-lg group-hover:mb-0 group-hover:mr-0"
-              data-rounded="rounded-lg"
-            ></span>
+            <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
+              Projects
+            </div>
           </NavLink>
           <NavLink className=" md:flex" href="/#contact">
-            <span className="relative z-10 block  px-1 md:px-3 py-3 overflow-hidden font-medium leading-tight text-gray-700 transition-colors duration-300 ease-out border-2 border-gray-700 rounded-lg group-hover:text-white">
-              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative text-gray-700"> Contact</span>
-            </span>
-            <span
-              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-700 rounded-lg group-hover:mb-0 group-hover:mr-0"
-              data-rounded="rounded-lg"
-            ></span>
+            <div className="text-gray-700 text-sm lg:text-base font-normal lg:font-bold">
+              Contact
+            </div>
           </NavLink>
         </div>
-
-        {/* <div>
-          <Image
-            src={dark}
-            alt="dark mode"
-            width={30}
-            height={30}
-            quality={100}
-            style={{ cursor: 'pointer' }}
-          />
-        </div> */}
-      </div>
-      <div className="gap-6 items-center px-6 md:px-3 flex  justify-between md:hidden   ">
-        <div className="flex gap-5 items-end justify-end ">
-          <NavLink className="flex md:flex" href="/about">
-            <div className="text-gray-700 font-normal">About</div>
-          </NavLink>
-          <NavLink className=" md:flex" href="/#skills">
-            <div className="text-gray-700 font-normal">skills</div>
-          </NavLink>
-          <NavLink className=" md:flex" href="/#projects">
-            <div className="text-gray-700 font-normal">Projects</div>
-          </NavLink>
-          <NavLink className=" md:flex" href="/#contact">
-            <div className="text-gray-700 font-normal">Contact</div>
-          </NavLink>
-        </div>
-
-        {/* <div>
-          <Image
-            src={dark}
-            alt="dark mode"
-            width={30}
-            height={30}
-            quality={100}
-            style={{ cursor: 'pointer' }}
-          />
-        </div> */}
       </div>
     </nav>
   );

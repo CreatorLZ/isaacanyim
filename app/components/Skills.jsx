@@ -74,16 +74,16 @@ export default function Skills() {
             key={index}
             className="relative w-full md:w-72 h-48 border border-gray-400 items-center justify-center flex flex-col text-center "
           >
-            <div className="absolute top-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-12px] mt-[-15px] text-5xl font-light">
+            <div className="absolute top-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-12px] mt-[-13px] text-2xl font-light">
               +
             </div>
-            <div className="absolute top-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-13px] mt-[-15px] text-5xl font-light">
+            <div className="absolute top-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-13px] mt-[-13px] text-2xl font-light">
               +
             </div>
-            <div className="absolute bottom-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-11px] mb-[-10px] text-5xl font-light">
+            <div className="absolute bottom-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-11px] mb-[-10px] text-2xl font-light">
               +
             </div>
-            <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-11px] mb-[-10px] text-5xl font-light">
+            <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-11px] mb-[-10px] text-2xl font-light">
               +
             </div>
             <h3 className="font-bold text-3xl ">{skill.name}</h3>

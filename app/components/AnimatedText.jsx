@@ -31,7 +31,7 @@ export const AnimatedText = ({ children, className = "" }) => {
       const timer = setTimeout(() => {
         setDisplayedText((prev) => prev + text[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 40);
+      }, 20);
 
       return () => clearTimeout(timer);
     }

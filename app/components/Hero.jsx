@@ -81,19 +81,19 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        style={{ height: "75vh" }}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal  "
+        // style={{ height: "75vh" }}
+        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-12 h-[75vh] lg:[100vh] lg:gap-5 "
       >
         <motion.h1
           variants={itemVariants2}
-          className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
+          className="text-gray-700 text-3xl md:text-7xl tracking-normal font-extrabold  pb-0"
         >
           HI👋🏾{"!"} I{"'"}M ISAAC
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-black"
+          className="text-gray-700 text-3xl md:text-7xl tracking-normal  pb-0  font-extrabold"
         >
           A SOFTWARE DEVELOPER
         </motion.h1>

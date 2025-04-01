@@ -148,7 +148,7 @@ export default function About() {
         {/* second section end */}
       </div>
       <div className="pt-20">
-        <AnimatedText className="text-sm leading-loose md:text-base">
+        <p className="text-sm leading-loose md:text-base">
           Websites that shine go beyond just looking good. They also work
           flawlessly and are a breeze to navigate. That is where I come in.
           Through my experience as a freelancer and from personal projects, I
@@ -156,7 +156,7 @@ export default function About() {
           designing websites that are both beautiful and user-friendly. I stay
           on top of the latest software development trends to ensure every
           aspect of your website is optimized for a smooth user experience.
-        </AnimatedText>
+        </p>
       </div>
       <Socials />
       <Contact id="contact" />

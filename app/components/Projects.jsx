@@ -3,11 +3,8 @@ import React, { useEffect, useState, Fragment } from "react";
 import adresstracker from "/public/adresstracker.png";
 import moviebox from "/public/moviebox2.gif";
 import taskwise from "/public/Taskwise.gif";
-import carddetails from "/public/carddetails.png";
-import advicegenerator from "/public/advicegenerator.png";
 import expressline from "/public/expressline.gif";
 import ideafundrsc from "/public/ideafundrsc.gif";
-import portfolio from "/public/portfolio.gif";
 import wristy from "/public/wristy.gif";
 import forward from "/public/forward.gif";
 import back from "/public/back.png";
@@ -116,36 +113,6 @@ export default function Projects() {
       details: "Get live info of any IP Address.",
       skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
     },
-    // {
-    //   name: "Portfolio",
-    //   link: "https://isaacanyim-iota.vercel.app/",
-    //   github: "https://github.com/CreatorLZ/Portfolio",
-    //   description: "My portfolio website. slick , fast and beautiful",
-    //   image: portfolio,
-    //   details: "This is the real whats up",
-    //   skills: ["Next.js", "Tailwind", "Framer", "JavaScript"],
-    // },
-    // {
-    //   name: "Advice Generator",
-    //   link: "https://advice-generator-nine-beta.vercel.app/",
-    //   github: "https://github.com/CreatorLZ/advice-generator",
-    //   description:
-    //     "An app that generates freindly, hilarious, simple, complex, whatever... just name it, advice snippets to brighten your day!.",
-    //   image: advicegenerator,
-    //   details: "Get random advice.",
-    //   skills: ["React", "Adviceslip API", "Styled-components", "JavaScript"],
-    // },
-    // {
-    //   name: "Card Details",
-    //   link: "https://interactive-form-eight.vercel.app/",
-    //   github: "https://github.com/CreatorLZ/Interactive_form",
-    //   description:
-    //     "This Case study demonstrates a modern implementation of a user-centric interface for recording card details for online transactions.",
-    //   image: carddetails,
-    //   details:
-    //     "A modern way of recording customers card details for online payment.",
-    //   skills: ["React", "Styled-components", "JavaScript"],
-    // },
   ];
 
   const handleClick = (index) => {

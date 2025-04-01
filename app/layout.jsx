@@ -1,4 +1,4 @@
-import { Anybody, Inter, Poppins } from "next/font/google";
+import { Anybody, Inter, Poppins, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 // Components
@@ -7,6 +7,11 @@ import Footer from "./components/Footer";
 import MouseTracker from "./components/MouseTracker";
 
 const anybody = Anybody({ subsets: ["latin"], variable: "--font-anybody" });
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+});
 
 // Metadata configuration
 export const metadata = {
@@ -94,9 +99,12 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content={metadata.twitter.image} />
         <meta name="theme-color" content={themeColor} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Favicon links */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
-      <body className={anybody.className}>
+      <body className={spaceMono.className}>
         <Navbar />
         {children}
         <MouseTracker />
