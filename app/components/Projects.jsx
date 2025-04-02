@@ -166,7 +166,7 @@ export default function Projects() {
         ></span>
       </button>
       <p className="text-center font-bold text-xl md:text-4xl">
-        Here are my most recent <span className="text-primary ">Projects.</span>{" "}
+        Here are some of my <span className="text-primary ">Projects.</span>{" "}
         Click on any project to preview.
       </p>
 
