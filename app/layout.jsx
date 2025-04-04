@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MouseTracker from "./components/MouseTracker";
+import BackgroundWrapper from "./components/background-wrapper";
 
 const anybody = Anybody({ subsets: ["latin"], variable: "--font-anybody" });
 const spaceMono = Space_Mono({
@@ -105,11 +106,13 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body className={spaceMono.className}>
-        <Navbar />
-        {children}
-        <MouseTracker />
-        <Analytics />
-        <Footer />
+        <BackgroundWrapper>
+          <Navbar />
+          {children}
+          <MouseTracker />
+          <Analytics />
+          <Footer />
+        </BackgroundWrapper>
       </body>
     </html>
   );
