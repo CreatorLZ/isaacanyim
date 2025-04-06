@@ -28,8 +28,8 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        staggerChildren: 0.1,
-        duration: 1.5,
+        staggerChildren: 0.3,
+        duration: 2,
       },
     },
   };
@@ -38,7 +38,12 @@ export default function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: {
+        duration: 1.2,
+        type: "spring",
+        bounce: 0.2,
+        stiffness: 40,
+      },
     },
   };
 
@@ -47,8 +52,8 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        duration: 1.5,
+        staggerChildren: 0.3,
+        duration: 2,
       },
     },
   };
@@ -129,7 +134,7 @@ export default function Hero() {
       >
         <motion.div
           variants={itemVariants}
-          className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-96 md:w-3/5"
+          className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-[80vh] md:w-3/5"
           style={{ backgroundImage: "url('/Mega2.webp')" }}
         >
           <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
@@ -138,10 +143,10 @@ export default function Hero() {
             communication
           </h3>
         </motion.div>
-        <div className="flex flex-col md:w-2/5 md:h-96 gap-4">
+        <div className="flex flex-col md:w-2/5 md:h-[80vh] gap-4">
           <motion.div
             variants={itemVariants}
-            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
+            className="relative bg-cover rounded-xl bg-center h-52 md:h-[50%] w-full flex justify-start items-end p-5"
             style={{ backgroundImage: "url('/continent.png')" }}
           >
             <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
@@ -154,7 +159,7 @@ export default function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
+            className="relative bg-cover rounded-xl bg-center h-52 md:h-[50%] w-full flex justify-start items-end p-5"
             style={{ backgroundImage: "url('/techstack.webp')" }}
           >
             <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>

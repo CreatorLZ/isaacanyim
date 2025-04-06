@@ -24,7 +24,7 @@ export function Squares({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Remove the dark background
+    // can change the background color here
     canvas.style.background = "transparent";
 
     const resizeCanvas = () => {
@@ -63,8 +63,6 @@ export function Squares({
           ctx.strokeRect(squareX, squareY, squareSize, squareSize);
         }
       }
-
-      // Removed the radial gradient overlay
     };
 
     const updateAnimation = () => {

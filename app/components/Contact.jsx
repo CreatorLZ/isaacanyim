@@ -1,46 +1,46 @@
-'use client'
-import { useState, useRef, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
+"use client";
+import { useState, useRef, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Contact() {
-  const [success, setSuccess] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const form = useRef()
-  const timeoutRef = useRef(null)
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const form = useRef();
+  const timeoutRef = useRef(null);
   const sendEmail = (e) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
     emailjs
-      .sendForm('service_3ac0rlk', 'template_3buadfm', form.current, {
-        publicKey: 'Y8NL1S8n8lUf5ZZ0N',
+      .sendForm("service_3ac0rlk", "template_3buadfm", form.current, {
+        publicKey: "Y8NL1S8n8lUf5ZZ0N",
       })
       .then(
         () => {
-          console.log('SUCCESS!')
-          setIsLoading(false)
-          setSuccess(true)
-          e.target.reset()
+          console.log("SUCCESS!");
+          setIsLoading(false);
+          setSuccess(true);
+          e.target.reset();
         },
         (error) => {
-          console.log('FAILED...', error.text)
-          setIsLoading(false)
-        },
-      )
-  }
+          console.log("FAILED...", error.text);
+          setIsLoading(false);
+        }
+      );
+  };
   // Handle success message disappearance after timeout
   useEffect(() => {
     if (success) {
       timeoutRef.current = setTimeout(() => {
-        setSuccess(false) // Set success state to false after timeout
-      }, 5000)
+        setSuccess(false); // Set success state to false after timeout
+      }, 5000);
     }
 
-    return () => clearTimeout(timeoutRef.current) // Cleanup on unmount
-  }, [success])
+    return () => clearTimeout(timeoutRef.current); // Cleanup on unmount
+  }, [success]);
 
   return (
     <div
@@ -51,17 +51,22 @@ export default function Contact() {
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
       >
-        {' '}
+        {" "}
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Contact.
+          Let{"'"}s <span className="text-primary">Talk{"!"}</span>
         </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
           Get in touch or shoot me an email directly on
           <br />
-          <strong>isaacchimarokeanyim@gmail.com</strong>
+          <a
+            href="mailto:isaacchimarokeanyim@gmail.com"
+            className="text-primary hover:underline"
+          >
+            <strong>isaacchimarokeanyim@gmail.com</strong>
+          </a>
         </p>
       </div>
       <form
@@ -119,7 +124,7 @@ export default function Contact() {
                 id="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-sm sm:text-sm sm:leading-6"
-                defaultValue={''}
+                defaultValue={""}
               />
             </div>
           </div>
@@ -131,7 +136,7 @@ export default function Contact() {
             className="block w-full rounded-md bg-primary px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             disabled={isLoading}
           >
-            {isLoading ? 'Sending...' : 'Send Message'}
+            {isLoading ? "Sending..." : "Send Message"}
           </button>
         </div>
       </form>
@@ -156,5 +161,5 @@ export default function Contact() {
         </div>
       )}
     </div>
-  )
+  );
 }

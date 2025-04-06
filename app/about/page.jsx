@@ -89,7 +89,7 @@ export default function About() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
           className="flex flex-col md:flex-row gap-8"
         >

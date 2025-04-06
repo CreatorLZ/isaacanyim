@@ -101,7 +101,7 @@ nav {
   width: 100%;
 }
 .nav-link.active {
-  @apply text-black;
+  @apply text-primary;
 }
 
 /* nav{
