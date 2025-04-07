@@ -66,7 +66,7 @@ export default function Timeline() {
     {
       title: "Design",
       content:
-        "I approach design from a functional perspective, focusing on creating intuitive user experiences rather than just aesthetics. While I may not have a traditional design background or Dribbble portfolio, I've developed a strong eye for effective UI/UX through hands-on development. My projects demonstrate this balance. I consistently prioritize clean layouts, intuitive navigation, and performance optimization to ensure designs not only look good but also work effectively for users.",
+        "I approach design from a functional and aesthetic perspective, focusing on creating intuitive user experiences delivered with stunning aesthetics. While I may not have a traditional design background or Dribbble portfolio, I've developed a strong eye for effective UI/UX through hands-on development. My projects demonstrate this balance. I consistently prioritize clean layouts, intuitive navigation, and performance optimization to ensure designs not only look good but also work effectively for users.",
     },
   ];
 
