@@ -93,14 +93,14 @@ export default function Hero() {
           variants={itemVariants2}
           className="text-gray-700 text-3xl md:text-7xl tracking-normal font-extrabold  pb-0"
         >
-          HI👋🏾{"!"} I{"'"}M ISAAC
+          HI👋🏾{"!"}, I{"'"}M ISAAC,
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
           className="text-gray-700 text-3xl md:text-7xl tracking-normal  pb-0  font-extrabold"
         >
-          A SOFTWARE DEVELOPER
+          A SOFTWARE DEVELOPER.
         </motion.h1>
         {/* <br /> */}
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">

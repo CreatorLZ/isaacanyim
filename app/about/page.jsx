@@ -6,6 +6,7 @@ import Socials from "../components/Socials";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AnimatedText } from "../components/AnimatedText";
+import Timeline from "../components/Timeline";
 
 export default function About() {
   const containerVariants = {
@@ -28,11 +29,11 @@ export default function About() {
   };
 
   return (
-    <main>
+    <main className="py-12">
       <div className="w-full flex flex-col">
         <h2 className="text-4xl font-black">About Me.</h2>
       </div>
-      <div className="w-full min-h-screen flex flex-col bg-transparent gap-8">
+      <div className="w-full min-h-screen flex flex-col bg-transparent gap-8 lg:py-4">
         {/* first section */}
         <motion.div
           initial="hidden"
@@ -147,17 +148,27 @@ export default function About() {
         </motion.div>
         {/* second section end */}
       </div>
-      <div className="pt-20">
-        <p className="text-sm leading-loose md:text-base">
-          Websites that shine go beyond just looking good. They also work
-          flawlessly and are a breeze to navigate. That is where I come in.
-          Through my experience as a freelancer and from personal projects, I
-          have honed my ability to tackle complex technical challenges while
-          designing websites that are both beautiful and user-friendly. I stay
-          on top of the latest software development trends to ensure every
-          aspect of your website is optimized for a smooth user experience.
-        </p>
-      </div>
+      <Timeline />
+
+      <motion.div
+        className="pt-20 px-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="w-full flex flex-col">
+          <h2 className="text-4xl font-black">My journey.</h2>
+        </div>
+        <blockquote className="text-sm leading-loose md:text-base text-gray-700 ">
+          My journey as a Software developer began with a simple curiosity about
+          how websites work, which quickly turned into a full-blown
+          obsession.Eversince, I have spent countless hours learning and
+          experimenting with different technologies, and I am constantly seeking
+          new challenges to push my skills to the next level.
+        </blockquote>
+      </motion.div>
+
       <Socials />
       <Contact id="contact" />
     </main>
