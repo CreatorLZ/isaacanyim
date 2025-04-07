@@ -102,7 +102,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
               <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-                <h3 className=" text-white text-xl font-bold md:text-3xl">
+                <h3 className=" text-white text-xl font-bold md:text-3xl flex  items-center text-center justify-center h-full gap-4">
                   Tech Ethusiast With A Passion To Build
                 </h3>
               </div>

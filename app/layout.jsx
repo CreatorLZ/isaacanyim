@@ -16,8 +16,8 @@ const spaceMono = Space_Mono({
 
 // Metadata configuration
 export const metadata = {
-  title: "Isaac Chimaroke Anyim | Software Developer",
-  description: "Isaac Chimaroke Anyim | Software Developer",
+  title: "Isaac Chimaroke Anyim",
+  description: "Isaac Chimaroke Anyim",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://isaacanyim-iota.vercel.app"
   ),

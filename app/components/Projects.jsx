@@ -52,8 +52,7 @@ export default function Projects() {
         "React-Query",
         "Vite",
         "NLP",
-        "h1-inference",
-        "shadcn",
+        "huggingface-inference",
       ],
     },
 
@@ -221,7 +220,7 @@ export default function Projects() {
         {selectedProject !== null && (
           <motion.div
             key={selectedProject}
-            className="fixed top-0 right-0 w-full h-full md:w-1/2 z-20 bg-white px-5 py-10 overflow-scroll overflow-x-hidden pb-24"
+            className="fixed top-0 right-0 w-full h-full md:w-1/2 z-50 bg-white px-0 py-10 overflow-scroll overflow-x-hidden pb-24"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -250,10 +249,10 @@ export default function Projects() {
               </Link>
             </div>
             <hr className="pb-10" />
-            <p className="text-lg font-extrabold text-black pb-1">
+            <p className="text-lg font-extrabold text-black pb-1 px-5">
               {projects[selectedProject].name}
             </p>
-            <p className="text-gray-700 text-sm md:text-base pb-4">
+            <p className="text-gray-700 text-sm md:text-base pb-4 px-5">
               {projects[selectedProject].description}
             </p>
             <Image
@@ -262,16 +261,18 @@ export default function Projects() {
               quality={100}
               placeholder="blur"
               blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
-              className="h-72 md:h-80 max-w-auto rounded-lg"
+              className="h-72 md:h-80 max-w-auto rounded-lg px-5"
             />
-            <p className="text-base font-bold text-black pb-1 pt-7">About</p>
-            <p className="text-sm md:text-base">
+            <p className="text-base font-bold text-black pb-1 pt-7 px-5">
+              About
+            </p>
+            <p className="text-sm md:text-base px-5">
               {projects[selectedProject].details}
             </p>
-            <p className="text-base font-bold text-black pb-1 pt-7">
+            <p className="text-base font-bold text-black pb-1 pt-7 px-5">
               Technologies
             </p>
-            <div className="mt-5">
+            <div className="mt-5 px-5">
               <div className="flex flex-wrap gap-3 mt-3">
                 {projects[selectedProject].skills.map((skill, skillIndex) => (
                   <span
@@ -283,7 +284,7 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-            <div className="w-fit gap-1 flex items-center">
+            <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
               <Image
                 src={earth}
                 alt="earth icon"
@@ -293,14 +294,16 @@ export default function Projects() {
                 placeholder="blur"
                 className="cursor-pointer"
               />
-              <p className="text-base font-bold text-black pb-1 pt-7">
-                Website
-              </p>
+              <p className="text-base font-bold text-black">Website</p>
             </div>
-            <NavLink href={projects[selectedProject].link} target="_blank">
+            <Link
+              className="px-5 hover:underline"
+              href={projects[selectedProject].link}
+              target="_blank"
+            >
               {projects[selectedProject].link}
-            </NavLink>
-            <div className="w-fit gap-3 flex items-center">
+            </Link>
+            <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
               <Image
                 src={github}
                 alt="github icon"
@@ -310,12 +313,16 @@ export default function Projects() {
                 placeholder="blur"
                 className="cursor-pointer"
               />
-              <p className="text-base font-bold text-black pb-1 pt-7">Github</p>
+              <p className="text-base font-bold text-black">Github</p>
             </div>
-            <NavLink href={projects[selectedProject].github} target="_blank">
+            <Link
+              className="px-5 hover:underline"
+              href={projects[selectedProject].github}
+              target="_blank"
+            >
               {projects[selectedProject].github}
-            </NavLink>
-            <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 font">
+            </Link>
+            <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 z-50">
               <Link href={projects[selectedProject].link} target="_blank">
                 <p className="text-white">Open project</p>
               </Link>
