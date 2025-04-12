@@ -29,129 +29,37 @@ export default function About() {
   };
 
   return (
-    <main className="py-12">
+    <main className="py-12 lg:px-24">
       <div className="w-full flex flex-col">
-        <h2 className="text-4xl font-black">About Me.</h2>
+        <h2 className="text-4xl font-extrabold">About Me.</h2>
       </div>
-      <div className="w-full min-h-screen flex flex-col bg-transparent gap-8 lg:py-4">
-        {/* first section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={containerVariants}
-          className="flex flex-col md:flex-row gap-8"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-96 md:w-3/5"
-            style={{ backgroundImage: "url('/Mega2.webp')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
-            <h3 className="absolute text-left bottom-4 left-4 text-white text-xl font-bold md:w-2/3 md:text-3xl">
-              I focus on working closely with clients, ensuring clear and open
-              communication
-            </h3>
-          </motion.div>
-          <div className="flex flex-col md:w-2/5 md:h-96 gap-4">
-            <motion.div
-              variants={itemVariants}
-              className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
-              style={{ backgroundImage: "url('/continent.png')" }}
-            >
-              <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-              <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-                <h3 className=" text-white text-xl font-bold md:text-3xl">
-                  I am flexible for communication across timezones
-                </h3>
-              </div>
-            </motion.div>
 
-            <motion.div
-              variants={itemVariants}
-              className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
-              style={{ backgroundImage: "url('/techstack.webp')" }}
-            >
-              <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-              <div className="flex flex-col text-left gap-1 md:gap-3">
-                <p className="text-gray-300 absolute bottom-20 left-4 text-lg font-semibold">
-                  I stay on top of
-                </p>
-                <h3 className="absolute bottom-4 left-4 text-white text-xl font-bold md:text-3xl">
-                  The Best Software Development practices
-                </h3>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-        {/* first section end */}
+      <motion.div
+        className="pt-6 g:px-10 px-0 "
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <blockquote className="text-sm leading-loose md:text-sm text-gray-800  ">
+          Hello there. I am a software developer from Nigeria, Working on
+          software development and web design with enthusiasm for a diverse
+          range of topics. I find great joy in contributing to open-source,
+          crafting engaging content, creating art, and building interactive,
+          elegant websites.
+          <br /> <br /> In my free time, I explore advancements in artificial
+          intelligence and love diving into coding projects, or getting lost in
+          a good book.
+          <br /> <br /> I am a firm believer in the power of technology to
+          transform lives and communities, and I am committed to using my skills
+          to make a positive impact in the world.
+        </blockquote>
+      </motion.div>
 
-        {/* second section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={containerVariants}
-          className="flex flex-col md:flex-row gap-8"
-        >
-          <div className="flex flex-col md:w-2/5 md:h-96 gap-4">
-            <motion.div
-              variants={itemVariants}
-              className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5"
-              style={{ backgroundImage: "url('/legos.webp')" }}
-            >
-              <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
-              <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
-                <h3 className=" text-white text-xl font-bold md:text-3xl flex  items-center text-center justify-center h-full gap-4">
-                  Tech Ethusiast With A Passion To Build
-                </h3>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end p-5 gap-2"
-              style={{ backgroundImage: "url('/calm2.jpg')" }}
-            >
-              <div className="absolute inset-0 bg-black opacity-70 rounded-xl"></div>
-              <div className="flex flex-col z-10 items-center text-center justify-center h-full gap-4">
-                <h3 className=" text-white text-xl font-bold md:text-3xl">
-                  Want us to build a project together?
-                </h3>
-                <Link
-                  href="#contact"
-                  style={{ border: "2px solid lightgray" }}
-                  className="w-2/3 flex items-center rounded-md justify-center py-3 cursor-pointer md:w-2/3 text-gray-300"
-                >
-                  <div>Contact me</div>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-          <motion.div
-            variants={itemVariants}
-            className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-96 md:w-3/5"
-            style={{ backgroundImage: "url('/cubes.webp')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-40 rounded-xl"></div>
-
-            <div className="flex flex-col text-left gap-1 md:gap-3 z-10">
-              <p className="text-gray-300 text-lg font-semibold">
-                The inside scoop <br />
-              </p>
-              <h3 className=" text-left text-white text-xl font-bold md:text-3xl">
-                I{"'"}m always building new stuff to improve my skill and be
-                among the top 1{"%"}.
-              </h3>
-            </div>
-          </motion.div>
-        </motion.div>
-        {/* second section end */}
-      </div>
       <Timeline />
 
       <motion.div
-        className="pt-20 px-10"
+        className="pt-20 lg:px-10 px-0"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -160,7 +68,7 @@ export default function About() {
         <div className="w-full flex flex-col">
           <h2 className="text-4xl font-black">My journey.</h2>
         </div>
-        <blockquote className="text-sm leading-loose md:text-base text-gray-700 ">
+        <blockquote className="text-sm leading-loose md:text-sm text-gray-800 ">
           My journey as a Software developer began with a simple curiosity about
           how websites work, which quickly turned into a full-blown
           obsession.Eversince, I have spent countless hours learning and

@@ -24,7 +24,7 @@ const TimelineItem = ({ title, content, viewLink = null, index, isLast }) => {
 
       {/* Content */}
       <div className="pb-16 flex-1">
-        <div className="flex items-center justify-between mb-2">
+        <div className="lg:flex items-center justify-between mb-2">
           <h3 className="text-xl font-bold">{title}</h3>
           {viewLink && (
             <Link
