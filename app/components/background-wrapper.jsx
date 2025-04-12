@@ -12,7 +12,7 @@ export default function BackgroundWrapper({ children }) {
           speed={0.1}
           borderColor="#cccccc"
           hoverFillColor="rgba(200, 200, 200, 0.3)"
-          squareSize={120}
+          squareSize={150}
         />
       </div>
 
