@@ -29,7 +29,7 @@ const TimelineItem = ({ title, content, viewLink = null, index, isLast }) => {
           {viewLink && (
             <Link
               href={viewLink.url}
-              className="text-sm underline"
+              className="text-sm underline "
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -37,7 +37,7 @@ const TimelineItem = ({ title, content, viewLink = null, index, isLast }) => {
             </Link>
           )}
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed">{content}</p>
+        <p className="text-gray-700 text-sm leading-loose">{content}</p>
       </div>
     </motion.div>
   );
