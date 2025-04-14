@@ -87,7 +87,8 @@ export default function Projects() {
     {
       name: "ExpressLine Logistics",
       image: expressline,
-      link: "https://expressline-logistics.vercel.app/",
+      // link: "https://expressline-logistics.vercel.app/",
+      link: "https://expresslinecouriers.com/",
       github: "https://github.com/CreatorLZ/expressline_logistics",
       description: "A logistics company",
       details: "An international Logistics company",
