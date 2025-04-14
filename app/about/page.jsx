@@ -5,7 +5,7 @@ import Contact from "../components/Contact";
 import Socials from "../components/Socials";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { AnimatedText } from "../components/AnimatedText";
+// import { AnimatedText } from "../components/AnimatedText";
 import Timeline from "../components/Timeline";
 
 export default function About() {
@@ -68,13 +68,13 @@ export default function About() {
         <div className="w-full flex flex-col">
           <h2 className="text-4xl font-black">My journey.</h2>
         </div>
-        <AnimatedText className="text-sm leading-loose md:text-sm text-gray-800 ">
+        <p className="text-sm leading-loose md:text-sm text-gray-800 ">
           My journey as a Software developer began with a simple curiosity about
           how websites work, which quickly turned into a full-blown
           obsession.Eversince, I have spent countless hours learning and
           experimenting with different technologies. I am constantly seeking new
           challenges to push my skills to the next level.
-        </AnimatedText>
+        </p>
       </motion.div>
 
       <Socials />
