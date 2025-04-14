@@ -72,8 +72,8 @@ export default function About() {
           My journey as a Software developer began with a simple curiosity about
           how websites work, which quickly turned into a full-blown
           obsession.Eversince, I have spent countless hours learning and
-          experimenting with different technologies, and I am constantly seeking
-          new challenges to push my skills to the next level.
+          experimenting with different technologies. I am constantly seeking new
+          challenges to push my skills to the next level.
         </AnimatedText>
       </motion.div>
 
