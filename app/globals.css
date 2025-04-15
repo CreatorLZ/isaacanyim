@@ -10,18 +10,6 @@ html {
   @apply scroll-smooth;
 }
 body {
-  /* background:
-    linear-gradient(
-      to right,
-      rgba(235, 240, 250, 0.7),
-      rgba(235, 240, 250, 0.7)
-    ),
-    linear-gradient(
-      to left,
-      rgba(235, 240, 250, 0.7),
-      rgba(235, 240, 250, 0.7)
-    ),
-    url('/graphnew.png') no-repeat center center fixed; */
   background-color: rgba(
     235,
     240,
@@ -31,7 +19,7 @@ body {
   background-size: cover;
   position: relative;
   width: 100%;
-  @apply pb-20 scroll-smooth;
+  scroll-behavior: smooth;
 }
 
 main {

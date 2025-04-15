@@ -93,7 +93,7 @@ export default function Hero() {
           variants={itemVariants2}
           className="text-gray-700 text-3xl md:text-7xl tracking-normal font-extrabold  pb-0"
         >
-          HI👋🏾{"!"}, I{"'"}M ISAAC,
+          HI👋🏾{"!"} I{"'"}M ISAAC
           <br />
         </motion.h1>
         <motion.h1
@@ -102,18 +102,16 @@ export default function Hero() {
         >
           A SOFTWARE DEVELOPER.
         </motion.h1>
-        {/* <br /> */}
+        {/* /* <br /> */}
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
           I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
-
         <Link href="#projects">
-          {/* <div className="text-gray-700 text-base">EXPLORE PROJECTS</div> */}
           <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit ">
             <span className="relative z-10 block px-5 py-5 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
               <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
               <span className="absolute left-0 w-80 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative text-gray-700 hover:text-white">
+              <span className="relative group-hover:text-white transition-colors duration-300">
                 EXPLORE PROJECTS
               </span>
             </span>

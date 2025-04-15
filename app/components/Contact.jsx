@@ -9,10 +9,58 @@ function classNames(...classes) {
 export default function Contact() {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
   const form = useRef();
   const timeoutRef = useRef(null);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.user_name.trim()) {
+      newErrors.user_name = "Name is required";
+    }
+
+    if (!formData.user_email.trim()) {
+      newErrors.user_email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.user_email)) {
+      newErrors.user_email = "Please enter a valid email";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setIsLoading(true);
     emailjs
       .sendForm("service_3ac0rlk", "template_3buadfm", form.current, {
@@ -23,6 +71,7 @@ export default function Contact() {
           console.log("SUCCESS!");
           setIsLoading(false);
           setSuccess(true);
+          setFormData({ user_name: "", user_email: "", message: "" });
           e.target.reset();
         },
         (error) => {
@@ -31,6 +80,7 @@ export default function Contact() {
         }
       );
   };
+
   // Handle success message disappearance after timeout
   useEffect(() => {
     if (success) {
@@ -87,9 +137,16 @@ export default function Contact() {
                 type="text"
                 name="user_name"
                 id="name"
-                autoComplete="name"
-                className="block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="What's your name?"
+                value={formData.user_name}
+                onChange={handleInputChange}
+                className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
+                  errors.user_name ? "ring-red-500" : "ring-gray-300"
+                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
               />
+              {errors.user_name && (
+                <p className="mt-1 text-sm text-red-500">{errors.user_name}</p>
+              )}
             </div>
           </div>
 
@@ -105,9 +162,16 @@ export default function Contact() {
                 type="email"
                 name="user_email"
                 id="email"
-                autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="your.email@example.com"
+                value={formData.user_email}
+                onChange={handleInputChange}
+                className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
+                  errors.user_email ? "ring-red-500" : "ring-gray-300"
+                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
               />
+              {errors.user_email && (
+                <p className="mt-1 text-sm text-red-500">{errors.user_email}</p>
+              )}
             </div>
           </div>
 
@@ -123,9 +187,16 @@ export default function Contact() {
                 name="message"
                 id="message"
                 rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-sm sm:text-sm sm:leading-6"
-                defaultValue={""}
+                placeholder="What would you like to discuss?"
+                value={formData.message}
+                onChange={handleInputChange}
+                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ${
+                  errors.message ? "ring-red-500" : "ring-gray-300"
+                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-sm sm:text-sm sm:leading-6`}
               />
+              {errors.message && (
+                <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+              )}
             </div>
           </div>
         </div>
