@@ -30,8 +30,8 @@ export default function About() {
 
   return (
     <main className="py-12 lg:px-24">
-      <div className="w-full flex flex-col">
-        <h2 className="text-4xl font-extrabold">About Me.</h2>
+      <div className="w-full flex flex-col lg:px-10 px-0">
+        <h2 className="text-4xl lg:text-6xl font-extrabold">About Me.</h2>
       </div>
 
       <motion.div

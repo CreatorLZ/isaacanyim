@@ -3,8 +3,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Cog, Layers, Palette } from "lucide-react";
 
-const TimelineItem = ({ title, content, viewLink = null, index, isLast }) => {
+const TimelineItem = ({
+  title,
+  content,
+  viewLink = null,
+  index,
+  isLast,
+  icon: Icon,
+}) => {
   return (
     <motion.div
       className="flex gap-6 relative lg:px-10 lg:py-4"
@@ -25,7 +33,10 @@ const TimelineItem = ({ title, content, viewLink = null, index, isLast }) => {
       {/* Content */}
       <div className="pb-16 flex-1">
         <div className="lg:flex items-center justify-between mb-2">
-          <h3 className="text-xl font-bold">{title}</h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-xl font-bold">{title}</h3>
+            <Icon />
+          </div>
           {viewLink && (
             <Link
               href={viewLink.url}
@@ -53,6 +64,7 @@ export default function Timeline() {
         text: "View Github",
         url: "https://github.com/CreatorLZ",
       },
+      icon: Cog,
     },
     {
       title: "Product",
@@ -62,11 +74,13 @@ export default function Timeline() {
         text: "View Products",
         url: "/#projects",
       },
+      icon: Layers,
     },
     {
       title: "Design",
       content:
         "I approach design from a functional and aesthetic perspective, focusing on creating intuitive user experiences delivered with stunning aesthetics. While I may not have a traditional design background or Dribbble portfolio, I've developed a strong eye for effective UI/UX through hands-on development. My projects demonstrate this balance. I consistently prioritize clean layouts, intuitive navigation, and performance optimization to ensure designs not only look good but also work effectively for users.",
+      icon: Palette,
     },
   ];
 
@@ -80,7 +94,8 @@ export default function Timeline() {
             content={item.content}
             viewLink={item.viewLink}
             index={index}
-            // isLast={index === timelineItems.length - 1} // Pass isLast prop
+            icon={item.icon}
+            isLast={index === timelineItems.length - 1}
           />
         ))}
       </div>
