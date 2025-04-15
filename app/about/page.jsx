@@ -35,7 +35,7 @@ export default function About() {
       </div>
 
       <motion.div
-        className="pt-6 g:px-10 px-0 "
+        className="pt-6 lg:px-10 px-0 "
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}

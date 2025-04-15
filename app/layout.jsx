@@ -100,15 +100,6 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content={metadata.twitter.image} />
         <meta name="theme-color" content={themeColor} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Favicon links */}
-        {/* <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          href="/favicon-32x32.png"
-          type="image/png"
-          sizes="32x32"
-        />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
       </head>
       <body className={spaceMono.className}>
         <BackgroundWrapper>
