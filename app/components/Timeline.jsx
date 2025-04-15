@@ -24,10 +24,8 @@ const TimelineItem = ({
       {/* Timeline line and dot */}
       <div className="flex flex-col items-center relative">
         <div className="w-5 h-5 rounded-full bg-white border-2 border-gray-700 z-10"></div>
-        {/* Vertical line connecting to the next dot, hidden for the last item */}
-        {!isLast && (
-          <div className="absolute top-5 left-2.5 w-0.5 bg-gray-700 h-[calc(100%+1rem)]"></div>
-        )}
+        {/* Vertical line connecting to the next dot */}
+        <div className="absolute top-5 left-2.5 w-0.5 bg-gray-700 h-[calc(100%+1rem)]"></div>
       </div>
 
       {/* Content */}
