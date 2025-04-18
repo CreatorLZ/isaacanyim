@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Cog, Layers, Palette } from "lucide-react";
@@ -33,7 +31,54 @@ const TimelineItem = ({
         <div className="lg:flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-xl font-bold">{title}</h3>
-            <Icon />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.3 }}
+              className="text-gray-700"
+            >
+              {title === "Engineering" && (
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 3,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "linear",
+                  }}
+                >
+                  <Icon size={20} />
+                </motion.div>
+              )}
+              {title === "Product" && (
+                <motion.div
+                  initial={{ y: 0 }}
+                  animate={{ y: [-2, 0, -2] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Icon size={20} />
+                </motion.div>
+              )}
+              {title === "Design" && (
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    color: ["#374151", "#6366F1", "#374151"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Icon size={20} />
+                </motion.div>
+              )}
+            </motion.div>
           </div>
           {viewLink && (
             <Link
