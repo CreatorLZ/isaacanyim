@@ -1,4 +1,4 @@
-import { Anybody, Unbounded } from "next/font/google"; // Replaced Space_Mono with Unbounded
+import { Anybody, Inter, Poppins, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 // Components
@@ -8,12 +8,12 @@ import MouseTracker from "./components/MouseTracker";
 import BackgroundWrapper from "./components/background-wrapper";
 import LenisProvider from "./components/LenisProvider";
 
-// Initialize fonts
 const anybody = Anybody({ subsets: ["latin"], variable: "--font-anybody" });
-const unbounded = Unbounded({
-  subsets: ["latin"], // Specify required subsets
-  display: "swap", // Prevent Flash of Invisible Text (FOIT)
-  variable: "--font-unbounded", // CSS variable for Tailwind or custom CSS
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
 });
 
 // Metadata configuration
@@ -62,7 +62,7 @@ export const themeColor = "#ffffff";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={unbounded.variable}>
+    <html lang="en">
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
         {/* Twitter Metadata */}
         <meta name="twitter:card" content={metadata.twitter.card} />
         <meta name="twitter:site" content={metadata.twitter.site} />
-        <meta name="textwitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
         <meta
           name="twitter:description"
           content={metadata.twitter.description}
@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content={themeColor} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
+      <body className={spaceMono.className}>
         <BackgroundWrapper>
           <Navbar />
           {children}

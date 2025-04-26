@@ -91,16 +91,16 @@ export default function Hero() {
       >
         <motion.h1
           variants={itemVariants2}
-          className="text-gray-700 text-3xl md:text-6xl tracking-normal font-extrabold  pb-0"
+          className="text-gray-700 text-3xl md:text-7xl tracking-normal font-extrabold  pb-0"
         >
-          Hi, I{"'"}m Isaac
+          HI, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className="text-gray-700 text-3xl md:text-6xl tracking-normal  pb-0  font-extrabold"
+          className="text-gray-700 text-3xl md:text-7xl tracking-normal  pb-0  font-extrabold"
         >
-          A Software Developer.
+          A SOFTWARE DEVELOPER.
         </motion.h1>
         {/* /* <br /> */}
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
