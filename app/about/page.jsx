@@ -42,7 +42,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <blockquote className="text-sm leading-loose md:text-sm text-gray-800  ">
-          Hello there. I am a software developer from Nigeria, Working on
+          Hello there. I am a software developer from Nigeria. I work on
           software development and web design with enthusiasm for a diverse
           range of topics. I find great joy in contributing to open-source,
           crafting engaging content, creating art, and building interactive,
