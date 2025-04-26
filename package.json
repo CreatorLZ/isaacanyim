@@ -12,6 +12,7 @@
     "@emailjs/browser": "^4.3.3",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/forms": "^0.5.7",
     "@vercel/analytics": "^1.2.2",
     "framer-motion": "^11.0.12",

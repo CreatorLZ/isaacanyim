@@ -20,6 +20,7 @@ body {
   position: relative;
   width: 100%;
   scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 main {
@@ -97,4 +98,9 @@ nav {
 } */
 .btn-style {
   @apply px-4 py-2 bg-white border border-black text-black font-bold rounded-lg hover:bg-black hover:text-white transition-colors;
+}
+#root,
+[data-scroll-container] {
+  min-height: 100vh;
+  will-change: transform; /* Optimize for smooth animations */
 }
