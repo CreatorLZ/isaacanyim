@@ -1,12 +1,23 @@
 "use client";
-
-import React from "react";
 import Contact from "../components/Contact";
 import Socials from "../components/Socials";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from "next/image";
+import react from "/public/react.png";
+import nextjs from "/public/nextjs.png";
+import html from "/public/html.png";
+import css from "/public/css.png";
+import javascript from "/public/javascript.png";
+import mongodb from "/public/mongodb.png";
+import sql from "/public/sql.png";
+import express from "/public/express.png";
+import node2 from "/public/node.png";
+import typescript from "/public/typescript.png";
+import styledcomponents from "/public/styledcomponents.png";
+import tailwind from "/public/tailwind.png";
 // import { AnimatedText } from "../components/AnimatedText";
 import Timeline from "../components/Timeline";
+import InfiniteSlider from "../components/InfiniteSlider";
 
 export default function About() {
   const containerVariants = {
@@ -18,6 +29,21 @@ export default function About() {
       },
     },
   };
+
+  const skills = [
+    { name: "JavaScript", image: javascript },
+    { name: "TypeScript", image: typescript },
+    { name: "Node.js", image: node2 },
+    { name: "Express", image: express },
+    { name: "SQL", image: sql },
+    { name: "MongoDB", image: mongodb },
+    { name: "React.js", image: react },
+    { name: "Next.js", image: nextjs },
+    { name: "Tailwind", image: tailwind },
+    { name: "Styled Components", image: styledcomponents },
+    { name: "HTML", image: html },
+    { name: "CSS", image: css },
+  ];
 
   const itemVariants = {
     hidden: { opacity: 0, y: 70 },
@@ -41,7 +67,7 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <blockquote className="text-sm leading-loose md:text-sm text-gray-800  ">
+        <p className="text-sm leading-loose md:text-sm text-gray-800  ">
           Hello there. I am a software developer from Nigeria. I work on
           software development and web design with enthusiasm for a diverse
           range of topics. I find great joy in contributing to open-source,
@@ -53,8 +79,37 @@ export default function About() {
           <br /> <br /> I am a firm believer in the power of technology to
           transform lives and communities, and I am committed to using my skills
           to make a positive impact in the world.
-        </blockquote>
+        </p>
       </motion.div>
+
+      {/* Skills Image Slider */}
+      <div className="w-full md:px-8">
+        <div className="w-full overflow-hidden">
+          <InfiniteSlider
+            duration={90}
+            durationOnHover={120}
+            gap={40}
+            className="py-2"
+          >
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center h-24 min-w-[120px] shrink-0 bg-transparent rounded-md px-4 py-3  transition-all"
+              >
+                <div className="relative w-10 h-10 mb-2">
+                  <Image
+                    src={skill.image || "/placeholder.svg"}
+                    alt={`${skill.name} logo`}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    quality={100}
+                  />
+                </div>
+              </div>
+            ))}
+          </InfiniteSlider>
+        </div>
+      </div>
 
       <Timeline />
 
