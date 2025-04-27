@@ -181,19 +181,21 @@ export default function Contact() {
           </span>
         </h2>
         <motion.p
-          className="mt-2 text-lg leading-8 text-gray-600"
+          className="mt-6 text-base leading-relaxed text-gray-600 md:text-base md:leading-8"
           variants={itemVariants}
         >
-          Get in touch or shoot me an email directly on
-          <br />
+          Whether you're looking to collaborate, have a project in mind, or
+          simply want to connect — I'm always open to new opportunities. Feel
+          free to send me a message here or directly{" "}
           <motion.a
             href="mailto:isaacchimarokeanyim@gmail.com"
-            className="text-primary hover:underline"
+            className="text-primary font-semibold hover:underline inline-block"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <strong>isaacchimarokeanyim@gmail.com</strong>
-          </motion.a>
+            reach out via email
+          </motion.a>{" "}
+          and let's start a conversation!
         </motion.p>
       </motion.div>
 
