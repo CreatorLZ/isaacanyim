@@ -89,7 +89,7 @@ export default function Hero() {
       whileInView={"onscreen"}
       viewport={{ once: "true", amount: 0.5 }}
       transition={{ staggerChildren: 0.1 }}
-      className="text-center flex-col pb-0"
+      className="text-center flex-col pb-0 "
     >
       <motion.div
         initial="hidden"
