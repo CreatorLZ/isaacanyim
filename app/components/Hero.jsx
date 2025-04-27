@@ -5,6 +5,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { AnimatedText } from "./AnimatedText";
 
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+// Configure Plus Jakarta Sans
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+});
+
 export default function Hero() {
   const detailsAnimate = {
     offscreen: { opacity: 0, y: -10 },
@@ -87,18 +97,18 @@ export default function Hero() {
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
         // style={{ height: "75vh" }}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-12 h-[75vh] lg:[100vh] lg:gap-5 "
+        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-12 h-[75vh] lg:h-[100vh] lg:gap-14 "
       >
         <motion.h1
           variants={itemVariants2}
-          className="text-gray-700 text-3xl md:text-7xl tracking-normal font-extrabold  pb-0"
+          className={`text-gray-700 text-3xl md:text-[65px] tracking-normal pb-0 font-extrabold `}
         >
-          HI, I{"'"}M ISAAC.
+          HEY, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className="text-gray-700 text-3xl md:text-7xl tracking-normal  pb-0  font-extrabold"
+          className={`text-gray-700 text-3xl md:text-[65px] tracking-normal pb-0 font-extrabold `}
         >
           A SOFTWARE DEVELOPER.
         </motion.h1>
@@ -107,18 +117,8 @@ export default function Hero() {
           I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
         <Link href="#projects">
-          <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit ">
-            <span className="relative z-10 block px-5 py-5 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-              <span className="absolute left-0 w-80 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-              <span className="relative group-hover:text-white transition-colors duration-300">
-                EXPLORE PROJECTS
-              </span>
-            </span>
-            <span
-              className="absolute bottom-0 right-0 w-full h-16 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
-              data-rounded="rounded-lg"
-            ></span>
+          <button className="px-8 py-5  border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] ">
+            EXPLORE PROJECTS
           </button>
         </Link>
       </motion.div>

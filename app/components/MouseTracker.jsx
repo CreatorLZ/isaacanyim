@@ -62,7 +62,7 @@ const MouseTracker = () => {
         >
           {/* Pulsating Effect */}
           <motion.div
-            className="absolute inset-0 rounded-full bg-primary"
+            className="absolute inset-0 rounded-full bg-transparent"
             initial={{ opacity: 0.2 }}
             animate={{
               scale: isHoveringLink ? [1, 1.1, 1] : [1, 1.05, 1],

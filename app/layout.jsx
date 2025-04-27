@@ -1,4 +1,4 @@
-import { Anybody, Inter, Poppins, Space_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Anybody, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 // Components
@@ -13,6 +13,12 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-space-mono",
+  display: "swap",
+});
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plus-jakarta-sans",
   display: "swap",
 });
 
@@ -62,7 +68,10 @@ export const themeColor = "#ffffff";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${spaceMono.variable} ${plusJakartaSans.variable}`}
+    >
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
@@ -105,11 +114,13 @@ export default function RootLayout({ children }) {
       </head>
       <body className={spaceMono.className}>
         <BackgroundWrapper>
+          {/* <LenisProvider> */}
           <Navbar />
           {children}
           <MouseTracker />
           <Analytics />
           <Footer />
+          {/* </LenisProvider> */}
         </BackgroundWrapper>
       </body>
     </html>

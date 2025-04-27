@@ -154,16 +154,8 @@ export default function Projects() {
   return (
     <main className="pt-32 " id="projects">
       {/* Button and description */}
-      <button className="relative inline-block text-lg group mb-12 md:mb-7 w-fit">
-        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-black transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-          <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-          <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-primary group-hover:-rotate-180 ease"></span>
-          <span className="relative">Projects</span>
-        </span>
-        <span
-          className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
-          data-rounded="rounded-lg"
-        ></span>
+      <button className="px-2 py-2 mb-10 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] ">
+        PROJECTS
       </button>
       <p className="text-center font-bold text-xl md:text-4xl">
         Here are some of my <span className="text-primary ">Projects.</span>{" "}

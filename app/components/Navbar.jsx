@@ -2,10 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import home from "/public/home.png";
-import dark from "/public/dark.png";
-import menu from "/public/menu.png";
-import close from "/public/close.png";
-import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import NavLink from "./NavLink";
 
@@ -38,7 +34,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 flex justify-between items-center px-6 pb-4 md:px-3 md:pb-2 w-full pt-0 ${
+      className={`sticky top-0 z-50 transition-all duration-300 flex justify-between items-center px-6 pb-4 md:px-6 md:pb-2 w-full pt-0 ${
         isScrolled ? "bg-white/70 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
