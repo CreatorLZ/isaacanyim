@@ -135,7 +135,7 @@ export default function Hero() {
           className="relative bg-cover rounded-xl bg-center h-52 w-full flex justify-start items-end md:items-center p-5 md:h-[80vh] md:w-3/5"
           style={{ backgroundImage: "url('/Mega2.webp')" }}
         >
-          <div className="absolute inset-0 bg-black opacity-35 rounded-xl"></div>
+          <div className="absolute inset-0 bg-black opacity-15 rounded-xl"></div>
           <h3 className="absolute text-left bottom-4 left-4 text-white text-xl font-bold md:w-2/3 md:text-3xl">
             I focus on working closely with clients, ensuring clear and open
             communication
@@ -147,7 +147,7 @@ export default function Hero() {
             className="relative bg-cover rounded-xl bg-center h-52 md:h-[50%] w-full flex justify-start items-end p-5"
             style={{ backgroundImage: "url('/continent.png')" }}
           >
-            <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-45 rounded-xl"></div>
             <div className="flex flex-col z-10 items-center text-left justify-center h-full gap-4">
               <h3 className=" text-white text-xl font-bold md:text-3xl">
                 I am flexible for communication across timezones
@@ -160,7 +160,7 @@ export default function Hero() {
             className="relative bg-cover rounded-xl bg-center h-52 md:h-[50%] w-full flex justify-start items-end p-5"
             style={{ backgroundImage: "url('/techstack.webp')" }}
           >
-            <div className="absolute inset-0 bg-black opacity-65 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-55 rounded-xl"></div>
             <div className="flex flex-col text-left gap-1 md:gap-3">
               <p className="text-gray-300 absolute bottom-20 left-4 text-lg font-semibold">
                 I stay on top of

@@ -123,7 +123,7 @@ export default function Skills() {
                 {frameworks.map((framework, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-center h-16 min-w-[180px] shrink-0 bg-indigo-50 rounded-md px-6 ring-1 ring-inset ring-indigo-700/10 hover:bg-indigo-100 transition-colors"
+                    className="flex items-center justify-center lg:h-16 h-10 lg:min-w-[180px]  shrink-0 bg-indigo-50 rounded-md lg:px-6 px-2 ring-1 ring-inset ring-indigo-700/10 hover:bg-indigo-100 transition-colors"
                   >
                     <div className="font-medium text-black">
                       {framework.name}

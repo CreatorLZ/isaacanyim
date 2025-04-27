@@ -30,6 +30,8 @@ export default function About() {
     },
   };
 
+  const words = ["Crafting,", "Shaping,", "Engineering", "—", "My", "Process."];
+
   const skills = [
     { name: "JavaScript", image: javascript },
     { name: "TypeScript", image: typescript },
@@ -86,8 +88,8 @@ export default function About() {
       <div className="w-full md:px-8">
         <div className="w-full overflow-hidden">
           <InfiniteSlider
-            duration={90}
-            durationOnHover={120}
+            duration={30}
+            durationOnHover={60}
             gap={40}
             className="py-2"
           >
@@ -110,7 +112,39 @@ export default function About() {
           </InfiniteSlider>
         </div>
       </div>
-
+      <div className="w-full flex flex-col pt-20 lg:px-10 px-0">
+        <motion.div
+          className="text-4xl font-black flex flex-wrap gap-2"
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15, // small delay between each word
+              },
+            },
+          }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          {words.map((word, index) => (
+            <motion.span
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className="inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
       <Timeline />
 
       <motion.div
