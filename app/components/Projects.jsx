@@ -163,7 +163,7 @@ export default function Projects() {
       </p>
 
       {/* Project grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20 lg:px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20 ">
         {projects.map((project, index) => (
           <motion.div
             initial={"offscreen"}
