@@ -184,9 +184,9 @@ export default function Contact() {
           className="mt-6 text-base leading-relaxed text-gray-600 md:text-base md:leading-8"
           variants={itemVariants}
         >
-          Whether you're looking to collaborate, have a project in mind, or
-          simply want to connect — I'm always open to new opportunities. Feel
-          free to send me a message here or directly{" "}
+          Whether you{"'"}re looking to collaborate, have a project in mind, or
+          simply want to connect — I{"'"}m always open to new opportunities.
+          Feel free to send me a message here or directly{" "}
           <motion.a
             href="mailto:isaacchimarokeanyim@gmail.com"
             className="text-primary font-semibold hover:underline inline-block"
