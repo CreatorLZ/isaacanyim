@@ -110,7 +110,7 @@ export default function Hero() {
           variants={itemVariants3}
           className={`text-gray-700 text-3xl md:text-[65px] tracking-normal pb-0 font-extrabold `}
         >
-          A SOFTWARE ENGINEER.
+          A SOFTWARE DEVELOPER.
         </motion.h1>
         {/* /* <br /> */}
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
