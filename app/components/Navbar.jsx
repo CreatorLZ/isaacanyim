@@ -153,7 +153,7 @@ export default function Navbar() {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <Link
-                href="/meetup"
+                href="/#contact"
                 className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 hidden lg:flex items-center text-sm uppercase font-bold tracking-wider transition-colors group"
               >
                 HIRE ME
