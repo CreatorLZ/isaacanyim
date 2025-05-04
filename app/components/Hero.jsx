@@ -98,7 +98,7 @@ export default function Hero() {
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
         // style={{ height: "75vh" }}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-12 h-[75vh] lg:h-[100vh] lg:gap-14 "
+        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[75vh] lg:h-[100vh] lg:gap-14 "
       >
         <motion.h1
           variants={itemVariants2}
