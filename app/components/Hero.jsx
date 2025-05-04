@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatedText } from "./AnimatedText";
 
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { ArrowRight } from "lucide-react";
 
 // Configure Plus Jakarta Sans
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -116,9 +117,10 @@ export default function Hero() {
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
           I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
-        <Link href="#projects">
-          <button className="px-8 py-5  border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] ">
-            EXPLORE PROJECTS
+        <Link href="#contact">
+          <button className="group px-8 py-5 lg:px-16  border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
+            HIRE ME
+            <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </button>
         </Link>
       </motion.div>

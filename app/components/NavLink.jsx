@@ -1,16 +1,21 @@
-'use client'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+"use client";
 
-const NavLink = ({ href, children }) => {
-  const pathname = usePathname()
-  const isActive = pathname === href
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export default function NavLink({ href, className = "", children, onClick }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
 
   return (
-    <Link href={href} className={`nav-link ${isActive ? 'active' : ''}`}>
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`${className} ${
+        isActive ? "text-primary bg-gray-200 rounded-xl px-3 py-3" : ""
+      } transition-all duration-200`}
+    >
       {children}
     </Link>
-  )
+  );
 }
-
-export default NavLink

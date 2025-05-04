@@ -32,7 +32,7 @@ h2 {
   @apply text-2xl tracking-normal leading-relaxed pb-8 font-medium text-black;
 }
 nav {
-  @apply w-full flex justify-between pb-10 pt-5 items-center px-0 md:px-4 lg:px-24;
+  @apply w-full flex justify-between py-1 items-center px-0 md:px-4 lg:px-4;
 }
 .pattern {
   background-image: radial-gradient(#a3a1a1 2px, transparent 2px);
