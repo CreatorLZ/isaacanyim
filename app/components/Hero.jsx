@@ -84,6 +84,31 @@ export default function Hero() {
     },
   };
 
+  // Add this new variant near your other animation variants
+  const buttonVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
     <motion.main
       initial={"offscreen"}
@@ -117,12 +142,19 @@ export default function Hero() {
         <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
           I create captivating, immersive & user-friendly digital journeys.
         </AnimatedText>
-        <Link href="#contact">
-          <button className=" font-bold group px-8 py-5 lg:px-16  border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
-            HIRE ME
-            <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
-          </button>
-        </Link>
+        <motion.div
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
+          whileHover="hover"
+        >
+          <Link href="#contact">
+            <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
+              HIRE ME
+              <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
+            </button>
+          </Link>
+        </motion.div>
       </motion.div>
       {/* first section */}
       <motion.div

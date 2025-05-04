@@ -6,6 +6,7 @@ import { AlignRight, ArrowRight, Menu, X } from "lucide-react";
 import NavLink from "./NavLink";
 import Image from "next/image";
 import home from "/public/home.png";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,6 +55,22 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
 
+  const navItemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <>
       <nav
@@ -64,58 +81,85 @@ export default function Navbar() {
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <Image
-                src={home}
-                alt="Home logo"
-                width={50}
-                height={50}
-                quality={100}
-                style={{ cursor: "pointer" }}
-              />
-            </Link>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link href="/" className="flex items-center">
+                <Image
+                  src={home}
+                  alt="Home logo"
+                  width={50}
+                  height={50}
+                  quality={100}
+                  style={{ cursor: "pointer" }}
+                />
+              </Link>
+            </motion.div>
 
             {/* Navigation Links - Desktop */}
-            <div className="hidden md:flex items-center space-x-8 border border-gray-300 px-4 py-2 rounded-full ml-24">
-              <NavLink
-                href="/"
-                className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
-              >
-                HOME
-              </NavLink>
-              <NavLink
-                href="/about"
-                className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
-              >
-                ABOUT
-              </NavLink>
-              <NavLink
-                href="/#skills"
-                className="text-gray-700 hover:text-primary text-sm uppercase font-bold  tracking-wider"
-              >
-                SKILLS
-              </NavLink>
-              <NavLink
-                href="/#projects"
-                className="text-gray-700 hover:text-primary text-sm uppercase font-bold  tracking-wider"
-              >
-                PROJECTS
-              </NavLink>
-              <NavLink
-                href="/#contact"
-                className="text-gray-700 hover:text-primary text-sm uppercase font-bold  tracking-wider"
-              >
-                CONTACT
-              </NavLink>
-            </div>
-
-            <Link
-              href="/meetup"
-              className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 hidden lg:flex items-center text-sm uppercase font-bold  tracking-wider transition-colors group"
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="hidden md:flex items-center space-x-8 border border-gray-300 px-4 py-4 rounded-full ml-24"
             >
-              HIRE ME
-              <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
-            </Link>
+              <motion.div variants={navItemVariants}>
+                <NavLink
+                  href="/"
+                  className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
+                >
+                  HOME
+                </NavLink>
+              </motion.div>
+              <motion.div variants={navItemVariants}>
+                <NavLink
+                  href="/about"
+                  className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
+                >
+                  ABOUT
+                </NavLink>
+              </motion.div>
+              <motion.div variants={navItemVariants}>
+                <NavLink
+                  href="/#skills"
+                  className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
+                >
+                  SKILLS
+                </NavLink>
+              </motion.div>
+              <motion.div variants={navItemVariants}>
+                <NavLink
+                  href="/#projects"
+                  className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
+                >
+                  PROJECTS
+                </NavLink>
+              </motion.div>
+              <motion.div variants={navItemVariants}>
+                <NavLink
+                  href="/#contact"
+                  className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
+                >
+                  CONTACT
+                </NavLink>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <Link
+                href="/meetup"
+                className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 hidden lg:flex items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+              >
+                HIRE ME
+                <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
+              </Link>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
