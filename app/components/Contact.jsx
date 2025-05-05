@@ -161,7 +161,7 @@ export default function Contact() {
         className="mx-auto max-w-2xl text-center"
         variants={itemVariants}
       >
-        <h2 className="text-3xl lg:text-7xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 ">
           Let{"'"}s{" "}
           <span className="text-primary inline-block relative">
             {/* Animated letters */}
@@ -181,7 +181,7 @@ export default function Contact() {
           </span>
         </h2>
         <motion.p
-          className="mt-6 text-base leading-relaxed text-gray-600 md:text-base md:leading-8"
+          className="mt-6 text-sm leading-relaxed text-gray-600 md:text-base md:leading-8"
           variants={itemVariants}
         >
           Whether you{"'"}re looking to collaborate, have a project in mind, or

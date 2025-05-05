@@ -122,19 +122,18 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        // style={{ height: "75vh" }}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[75vh] lg:h-[100vh] lg:gap-14 "
+        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[85vh] lg:h-[100vh] md:gap-14 gap-3 "
       >
         <motion.h1
           variants={itemVariants2}
-          className={`text-gray-700 text-3xl md:text-[65px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[65px] tracking-normal pb-0 font-extrabold `}
         >
           HEY, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className={`text-gray-700 text-3xl md:text-[65px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[65px] tracking-normal pb-0 font-extrabold `}
         >
           A SOFTWARE DEVELOPER.
         </motion.h1>
@@ -148,11 +147,18 @@ export default function Hero() {
           whileInView="visible"
           whileHover="hover"
         >
-          <Link href="#contact">
+          <Link href="#contact" className="hidden lg:flex">
             <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
               HIRE ME
               <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
             </button>
+          </Link>
+          <Link
+            href="/#contact"
+            className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+          >
+            HIRE ME
+            <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </Link>
         </motion.div>
       </motion.div>
@@ -208,12 +214,21 @@ export default function Hero() {
       </motion.div>
       {/* first section end */}
 
-      <Link href="/about">
-        <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer ">
-          <p>See more about me </p>
-          <Image src={forward} alt="forward" width={30} height={30} />
-        </div>
-      </Link>
+      <div className="w-full flex items-center justify-center lg:pt-10 pt-7 ">
+        <Link href="/about" className="hidden lg:flex">
+          <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
+            SEE MORE
+            <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
+          </button>
+        </Link>
+        <Link
+          href="/about"
+          className=" lg:hidden flex  justify-center ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3  items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+        >
+          See more
+          <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
+        </Link>
+      </div>
     </motion.main>
   );
 }
