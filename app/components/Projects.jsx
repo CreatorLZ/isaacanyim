@@ -55,17 +55,6 @@ export default function Projects() {
         "huggingface-inference",
       ],
     },
-
-    {
-      name: "Moviebox",
-      link: "https://moviebox-red.vercel.app/",
-      github: "https://github.com/CreatorLZ/Moviebox",
-      description:
-        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
-      image: moviebox,
-      details: "Watch trailers, read reviews of any movie in the world!",
-      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
-    },
     {
       name: "Ideafundr",
       image: ideafundrsc,
@@ -85,16 +74,6 @@ export default function Projects() {
       ],
     },
     {
-      name: "ExpressLine Logistics",
-      image: expressline,
-      // link: "https://expressline-logistics.vercel.app/",
-      link: "https://expresslinecouriers.com/",
-      github: "https://github.com/CreatorLZ/expressline_logistics",
-      description: "A logistics company",
-      details: "An international Logistics company",
-      skills: ["HTML", "Bootstrap", "CSS", "JavaScript"],
-    },
-    {
       name: "Wristy E-commerce",
       link: "https://vanilla-e-commerce.vercel.app/",
       github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
@@ -104,6 +83,28 @@ export default function Projects() {
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
     },
+    {
+      name: "ExpressLine Logistics",
+      image: expressline,
+      // link: "https://expressline-logistics.vercel.app/",
+      link: "https://expresslinecouriers.com/",
+      github: "https://github.com/CreatorLZ/expressline_logistics",
+      description: "A logistics company",
+      details: "An international Logistics company",
+      skills: ["HTML", "Bootstrap", "CSS", "JavaScript"],
+    },
+
+    {
+      name: "Moviebox",
+      link: "https://moviebox-red.vercel.app/",
+      github: "https://github.com/CreatorLZ/Moviebox",
+      description:
+        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
+      image: moviebox,
+      details: "Watch trailers, read reviews of any movie in the world!",
+      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
+    },
+
     {
       name: "IP Address Tracker",
       link: "https://ip-address-tracker-gamma-five.vercel.app/",

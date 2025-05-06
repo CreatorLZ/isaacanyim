@@ -61,15 +61,73 @@ export default function Skills() {
   ];
   const visibleSkills = showAllSkills ? skills : skills.slice(0, 3);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const skillCardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.2 },
+    },
+  };
+
   return (
-    <main className=" pt-20 lg:pb-0 overflow-hidden" id="skills">
+    <motion.main
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="pt-20 lg:pb-0 overflow-hidden"
+      id="skills"
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <button className="px-2 py-2 mb-8 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] ">
+        <motion.button
+          variants={buttonVariants}
+          whileHover="hover"
+          className="px-2 py-2 mb-8 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+        >
           SKILLS
-        </button>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 items-center pt-1 md:pt-6 lg:pt-10 p-2.5 md:px-24 w-full justify-between sm:justify-normal">
+        </motion.button>
+
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 items-center pt-1 md:pt-6 lg:pt-10 p-2.5 md:px-24 w-full justify-between sm:justify-normal"
+        >
           {visibleSkills.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative w-full md:w-72 h-48 border border-gray-400 items-center justify-center flex flex-col text-center"
             >
@@ -94,17 +152,26 @@ export default function Skills() {
                 quality={100}
                 style={{ cursor: "pointer" }}
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
-        <div className="flex justify-center mt-4">
+        </motion.div>
+
+        <motion.div
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex justify-center mt-4"
+        >
           <Link href="#skills" className="hidden lg:flex">
-            <button
-              className="px-8 py-5 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] "
+            <motion.button
+              whileHover="hover"
+              variants={buttonVariants}
+              className="px-8 py-5 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
               onClick={() => setShowAllSkills(!showAllSkills)}
             >
               {showAllSkills ? "Show Less" : "Show More"}
-            </button>
+            </motion.button>
           </Link>
           <Link
             href="/#skills"
@@ -113,14 +180,30 @@ export default function Skills() {
             {showAllSkills ? "Show Less" : "Show More"}
             <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </Link>
-        </div>
-        <div className="pt-20 flex flex-col">
-          <button className="px-2 py-2 w-fit border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] ">
-            I can go on and on..
-          </button>
+        </motion.div>
 
-          {/* Frameworks Slider */}
-          <div className="mt-10 w-full md:px-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="pt-20 flex flex-col"
+        >
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            className="px-2 py-2 w-fit border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+          >
+            I can go on and on..
+          </motion.button>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-10 w-full md:px-24"
+          >
             <div className="w-full overflow-hidden">
               <InfiniteSlider
                 duration={20}
@@ -140,9 +223,9 @@ export default function Skills() {
                 ))}
               </InfiniteSlider>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </main>
+    </motion.main>
   );
 }

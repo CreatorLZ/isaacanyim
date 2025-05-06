@@ -84,7 +84,7 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
             >
               <Link href="/" className="flex items-center">
                 <Image
@@ -150,7 +150,7 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
             >
               <Link
                 href="/#contact"
@@ -162,7 +162,12 @@ export default function Navbar() {
             </motion.div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            <motion.div
+              className="md:hidden flex items-center"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
+            >
               <button
                 type="button"
                 className="text-gray-700 hover:text-gray-900 focus:outline-none"
@@ -175,7 +180,7 @@ export default function Navbar() {
                   <AlignRight className="h-6 w-6" />
                 )}
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </nav>
@@ -240,7 +245,7 @@ export default function Navbar() {
             Contact
           </NavLink>
           <Link
-            href="/meetup"
+            href="/#contact"
             className="mt-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex items-center justify-between text-lg font-medium w-full transition-colors"
             onClick={closeMenu}
           >
