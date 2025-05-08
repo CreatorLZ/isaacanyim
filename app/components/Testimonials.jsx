@@ -60,7 +60,8 @@ const Testimonials = () => {
               <div>
                 <h3 className="text-black font-semibold">{testimonial.name}</h3>
                 <p className="text-gray-500 text-sm">
-                  {testimonial.role} at {testimonial.company}
+                  {testimonial.role}
+                  {/* at {testimonial.company} */}
                 </p>
               </div>
             </div>
