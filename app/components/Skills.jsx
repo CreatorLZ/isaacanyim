@@ -176,6 +176,7 @@ export default function Skills() {
           <Link
             href="/#skills"
             className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+            onClick={() => setShowAllSkills(!showAllSkills)}
           >
             {showAllSkills ? "Show Less" : "Show More"}
             <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />

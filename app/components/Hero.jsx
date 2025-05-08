@@ -150,6 +150,9 @@ export default function Hero() {
         delay: 0.8,
         ease: "easeOut",
       },
+      viewport: {
+        once: true,
+      },
     },
     hover: {
       scale: 1.05,
@@ -209,6 +212,7 @@ export default function Hero() {
           initial="hidden"
           whileInView="visible"
           whileHover="hover"
+          viewport={{ once: true }}
         >
           <Link href="#contact" className="hidden lg:flex">
             <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
@@ -312,7 +316,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.div
-                className="backdrop-blur-md border-2 border-gray-200 rounded-lg p-6 py-12 overflow-hidden relative group transition-all duration-300 hover:shadow-lg"
+                className="backdrop-blur-md border-2 border-gray-200 rounded-lg p-6 py-[18px] overflow-hidden relative group transition-all duration-300 hover:shadow-lg"
                 whileHover={{
                   boxShadow:
                     "0 10px 15px -3px rgba(120, 86, 255, 0.3), 0 4px 6px -2px rgba(120, 86, 255, 0.2)",
@@ -321,20 +325,45 @@ export default function Hero() {
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#7856ff]/0 group-hover:to-[#7856ff]/20 transition-all duration-500 z-10"></div>
 
-                <div className="flex flex-wrap justify-center gap-4">
-                  <div className="w-full flex-wrap flex items-center gap-3">
-                    {frameworks.map((framework, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-center lg:h-fit h-fit lg:w-fit shrink-0 bg-indigo-50 rounded-md lg:px-6 px-2 ring-1 ring-inset ring-indigo-700/10 hover:bg-indigo-100 transition-colors"
-                      >
-                        <div className="font-medium text-black flex items-center">
-                          {framework.icon}
-                          {framework.name}
+                {/* Section Title */}
+                {/* <h3 className="text-xl font-bold mb-6 text-left">
+                  My Qualities
+                </h3> */}
+
+                {/* Grid layout for qualities */}
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3">
+                  {frameworks.map((framework, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative overflow-visible py-1 pl-0 " // Added padding to accommodate overlapping icon
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="bg-white/20 rounded-lg p-2 shadow-md border border-gray-100 flex items-center text-left gap-4 h-full hover:shadow-lg transition-all duration-300 relative  group/item ">
+                        {/* 3D Icon Container with Perspective Effect */}
+                        <div
+                          className="absolute -top-0 -left-2 w-6 h-6 rounded-md overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#8A66FF] to-[#6644E0] transform group-hover/item:-rotate-12 transition-all duration-300 shadow-lg z-10"
+                          style={{ perspective: "1000px" }}
+                        >
+                          {/* Icon content remains the same */}
+                          <div className="absolute inset-0 w-full h-full bg-black opacity-20 rounded-tl-md"></div>
+                          <div className="absolute bottom-0 right-0 w-full h-1/2 bg-white opacity-10 rounded-br-md"></div>
+                          <div className="absolute -inset-2 bg-white/5 transform rotate-45 group-hover/item:rotate-90 transition-transform duration-500"></div>
+                          <div className="relative z-10 text-white transform group-hover/item:scale-110 transition-transform duration-300 drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] flex items-center justify-center w-full h-full">
+                            {framework.icon}
+                          </div>
                         </div>
+
+                        {/* Quality text - adjusted padding to accommodate icon */}
+                        <span className="font-medium text-xs text-gray-800 pl-6 group-hover/item:text-[#7856ff] transition-colors duration-300">
+                          {framework.name}
+                        </span>
+
+                        {/* Subtle animated corner decoration */}
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-[#7856ff]/0 to-[#7856ff]/20 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-tl-lg"></div>
                       </div>
-                    ))}
-                  </div>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
             </motion.div>
@@ -356,9 +385,9 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Link href="/#contact" className="block w-full py-2">
+              <Link href="/#contact" className="block w-full ">
                 <motion.div
-                  className="border-2 border-gray-200 rounded-lg overflow-hidden relative group transition-all duration-300 hover:shadow-lg backdrop-blur-md"
+                  className="border-2 border-gray-200 rounded-lg overflow-hidden relative group transition-all duration-300 hover:shadow-lg backdrop-blur-md py-[17px]"
                   whileHover={{
                     boxShadow:
                       "0 10px 15px -3px rgba(120, 86, 255, 0.3), 0 4px 6px -2px rgba(120, 86, 255, 0.2)",
