@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Stephen cherewore",
     role: "Startup Founder",
     company: "InnovateX",
     image: "/images/avatar2.jpg",
@@ -23,11 +23,11 @@ const testimonials = [
   {
     id: 3,
     name: "Emma Williams",
-    role: "Digital Marketing Director",
+    role: "Digital Marketer",
     company: "GrowthLabs",
     image: "/images/avatar3.jpg",
     content:
-      "Isaac's expertise in building fast, SEO-friendly web applications has significantly improved our online presence. His implementation of Next.js and modern frontend practices resulted in a 40% increase in our website's performance metrics.",
+      "Isaac's expertise in building fast, SEO-friendly web applications has significantly improved our online presence. His work resulted in a 40% increase in our website's performance metrics.",
   },
 ];
 
