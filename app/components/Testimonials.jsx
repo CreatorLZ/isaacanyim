@@ -33,7 +33,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="bg-transparent py-12 lg:pt-20 lg:pb-6">
+    <div className="bg-transparent py-12 lg:pt-36 lg:pb-6">
       <p className="text-center font-bold text-xl md:text-4xl pb-8">
         Testimonials
       </p>
