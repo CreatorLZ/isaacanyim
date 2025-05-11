@@ -1,11 +1,11 @@
 import InfiniteSlider from "./InfiniteSlider";
 import ProjectCard from "./Projectcard";
 import adresstracker from "/public/adresstracker.png";
-import moviebox from "/public/moviebox2.gif";
-import taskwise from "/public/Taskwise.gif";
-import expressline from "/public/expressline.gif";
-import ideafundrsc from "/public/ideafundrsc.gif";
-import wristy from "/public/wristy.gif";
+import moviebox from "/public/moviebox.png";
+import taskwise from "/public/taskwise.png";
+import expressline from "/public/expressline.png";
+import ideafundrsc from "/public/ideafundr.png";
+import wristy from "/public/wristy.png";
 
 const projects = [
   {

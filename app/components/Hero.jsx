@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
 import { AnimatedText } from "./AnimatedText";
 import Girlfriend from "/public/Girlfriend.jpg";
 import web1 from "/public/web1.jpg";
@@ -188,25 +189,47 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[65vh] lg:h-[90vh] md:gap-14 gap-4 "
+        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[65vh] lg:h-[100vh] md:gap-14 gap-4 "
       >
+        <p className="hidden items-center gap-2 text-sm text-gray-600 mb-0">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          available for new projects
+        </p>
         <motion.h1
           variants={itemVariants2}
-          className={`text-gray-700 text-4xl lg:text-[65px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-4xl lg:text-[70px] tracking-normal pb-0 font-extrabold `}
         >
           HEY, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className={`text-gray-700 text-4xl lg:text-[65px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-4xl lg:text-[70px] tracking-normal pb-0 font-extrabold `}
         >
           A SOFTWARE DEVELOPER.
         </motion.h1>
         {/* /* <br /> */}
-        <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
+        {/* <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
           I create captivating, immersive & user-friendly digital journeys.
-        </AnimatedText>
+        </AnimatedText> */}
+        <TypeAnimation
+          sequence={[
+            "I create captivating, immersive & user-friendly digital journeys.",
+            1000, // Wait 1 second before repeating
+          ]}
+          wrapper="p" // Use a paragraph tag as the wrapper
+          speed={70} // Typing speed (higher is faster)
+          style={{
+            // fontSize: "1rem",
+            lineHeight: "2",
+            paddingBottom: "2.5rem",
+          }}
+          className="leading-loose text-sm lg:text-lg pb-10 text-gray-700"
+          repeat={Infinity} // Loop the animation
+        />
         <motion.div
           variants={buttonVariants}
           initial="hidden"

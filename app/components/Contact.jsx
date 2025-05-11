@@ -180,6 +180,7 @@ export default function Contact() {
             ))}
           </span>
         </h2>
+
         <motion.p
           className="mt-6 text-sm leading-relaxed text-gray-600 md:text-base md:leading-8"
           variants={itemVariants}
