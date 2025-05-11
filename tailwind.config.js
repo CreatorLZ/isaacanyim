@@ -16,6 +16,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-anybody)"],
       },
+      backdropBlur: {
+        xs: "2px",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
