@@ -159,8 +159,8 @@ export default function Projects() {
         PROJECTS
       </button>
       <p className="text-center font-bold text-xl md:text-4xl">
-        Here are some of my <span className="text-primary ">Projects.</span>{" "}
-        Click on any project to preview.
+        Some Featured <span className="text-primary ">Projects.</span> Click on
+        any project to preview.
       </p>
 
       {/* Project grid */}
