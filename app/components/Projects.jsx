@@ -14,6 +14,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import NavLink from "./NavLink";
+
+// Add this helper function at the top of your file after the imports
+const isGifImage = (src) => {
+  if (typeof src === "string") {
+    return src.endsWith(".gif");
+  }
+  // For webpack imported images, check the src property
+  return src?.src?.endsWith?.(".gif") || false;
+};
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isShowing, setIsShowing] = useState(false);
@@ -179,6 +189,7 @@ export default function Projects() {
             <Image
               src={project.image}
               alt={`${project.name} screenshot`}
+              unoptimized={isGifImage(project.image)}
               quality={100}
               style={{ cursor: "pointer" }}
               placeholder="blur"
@@ -252,6 +263,7 @@ export default function Projects() {
             <Image
               src={projects[selectedProject].image}
               alt={`${projects[selectedProject].name} screenshot`}
+              unoptimized={isGifImage(projects[selectedProject].image)}
               quality={100}
               placeholder="blur"
               blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="

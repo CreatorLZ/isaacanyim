@@ -31,15 +31,24 @@ const Services = () => {
               <Image
                 src={web1}
                 alt="Web Design"
-                quality={100}
+                quality={75}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4dHRsdHR4dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDARAXFxsdGh0yHR0yHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                 className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={code}
                 alt="Code"
-                quality={100}
+                quality={75}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4dHRsdHR4dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDARAXFxsdGh0yHR0yHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                 className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
@@ -54,15 +63,23 @@ const Services = () => {
               <Image
                 src={web2}
                 alt="Web Development "
-                quality={100}
+                quality={75}
                 fill
-                className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110 "
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
+                className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={web1}
                 alt="Website Development"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
@@ -79,6 +96,10 @@ const Services = () => {
                 alt="Framer Development"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
@@ -86,6 +107,10 @@ const Services = () => {
                 alt="Development"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
@@ -104,6 +129,10 @@ const Services = () => {
                 alt="Social Media Graphics"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
@@ -111,6 +140,10 @@ const Services = () => {
                 alt="Graphics"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
@@ -129,6 +162,10 @@ const Services = () => {
                 alt="Pitch Decks"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
@@ -136,6 +173,10 @@ const Services = () => {
                 alt="Decks"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
@@ -152,6 +193,10 @@ const Services = () => {
                 alt="Branding"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
@@ -159,6 +204,10 @@ const Services = () => {
                 alt="Brand"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
                 className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
