@@ -53,7 +53,7 @@ const Services = () => {
               />
             </div>
           </div>
-          <h3 className="text-sm font-bold text-center">Website Design</h3>
+          <h3 className="text-sm font-bold text-center">Web Apps</h3>
         </div>
 
         {/* Mobile App Design Card */}

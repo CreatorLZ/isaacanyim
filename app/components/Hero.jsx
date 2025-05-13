@@ -200,14 +200,14 @@ export default function Hero() {
         </p>
         <motion.h1
           variants={itemVariants2}
-          className={`text-gray-700 text-4xl lg:text-[70px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[70px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
         >
           HEY, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className={`text-gray-700 text-4xl lg:text-[70px] tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[70px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
         >
           A SOFTWARE DEVELOPER.
         </motion.h1>
