@@ -9,6 +9,8 @@ import automation3 from "/public/automation3.jpg";
 import automation4 from "/public/automation4.jpg";
 import seo1 from "/public/seo1.jpg";
 import seo2 from "/public/seo2.jpg";
+import webapp1 from "/public/webapp1.jpg";
+import webapp2 from "/public/webapp2.jpg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -25,11 +27,11 @@ const Services = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Web Design Card */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
-          <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+        <div className="backdrop-blur-xs bg-white/10   border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)]  p-4 transition-all duration-300 group">
+          <div className="h-40 relative  mb-3 flex items-center justify-center">
+            <div className="relative w-24 h-24">
               <Image
-                src={web1}
+                src={webapp1}
                 alt="Web Design"
                 quality={75}
                 fill
@@ -38,10 +40,10 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4dHRsdHR4dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDARAXFxsdGh0yHR0yHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md  absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
-                src={code}
+                src={webapp2}
                 alt="Code"
                 quality={75}
                 fill
@@ -49,7 +51,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4dHRsdHR4dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDARAXFxsdGh0yHR0yHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md  absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
@@ -57,9 +59,9 @@ const Services = () => {
         </div>
 
         {/* Mobile App Design Card */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)]  p-4 transition-all duration-300 group">
           <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+            <div className="relative w-24 h-24">
               <Image
                 src={web2}
                 alt="Web Development "
@@ -69,7 +71,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md  absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={web1}
@@ -80,7 +82,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
@@ -88,9 +90,9 @@ const Services = () => {
         </div>
 
         {/* Framer Development Card */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)]  p-4 transition-all duration-300 group">
           <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+            <div className="relative w-24 h-24">
               <Image
                 src={seo1}
                 alt="Framer Development"
@@ -100,7 +102,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-fill rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                className="object-fill rounded-md absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={seo2}
@@ -111,7 +113,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-fill rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-fill rounded-md absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
@@ -121,9 +123,9 @@ const Services = () => {
         </div>
 
         {/* Social Media Graphics */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)]  p-4 transition-all duration-300 group">
           <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+            <div className="relative w-24 h-24">
               <Image
                 src={automation4}
                 alt="Social Media Graphics"
@@ -133,7 +135,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                className="object-fill rounded-md  absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={automation3}
@@ -144,7 +146,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md  absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
@@ -154,9 +156,9 @@ const Services = () => {
         </div>
 
         {/* Pitch Decks */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] p-4 transition-all duration-300 group">
           <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+            <div className="relative w-24 h-24">
               <Image
                 src={product2}
                 alt="Pitch Decks"
@@ -166,7 +168,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md  absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={product1}
@@ -177,7 +179,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
@@ -185,9 +187,9 @@ const Services = () => {
         </div>
 
         {/* Branding */}
-        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] rounded-lg p-4 transition-all duration-300 group">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_4px_6px_0_rgba(31,38,135,0.25)] p-4 transition-all duration-300 group">
           <div className="h-40 relative rounded-md mb-3 flex items-center justify-center">
-            <div className="relative w-28 h-28">
+            <div className="relative w-24 h-24">
               <Image
                 src={product1}
                 alt="Branding"
@@ -196,8 +198,8 @@ const Services = () => {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading="eager"
                 placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform -translate-x-4 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
+                // Generate appropriate blur data URL for each image
+                className="object-cover rounded-md absolute transform -translate-x-4 -translate-y-0 -rotate-12 transition-all duration-300 group-hover:-rotate-[24deg] group-hover:scale-110"
               />
               <Image
                 src={product2}
@@ -208,7 +210,7 @@ const Services = () => {
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,..." // Generate appropriate blur data URL for each image
-                className="object-cover rounded-lg absolute transform translate-x-4 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
+                className="object-cover rounded-md absolute transform translate-x-12 rotate-12 transition-all duration-300 group-hover:rotate-[24deg] group-hover:scale-110"
               />
             </div>
           </div>
