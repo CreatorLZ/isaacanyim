@@ -237,17 +237,17 @@ export default function Hero() {
           whileHover="hover"
           viewport={{ once: true }}
         >
-          <Link href="#contact" className="hidden lg:flex">
+          <Link href="/about" className="hidden lg:flex">
             <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
-              HIRE ME
+              LEARN MORE
               <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
             </button>
           </Link>
           <Link
-            href="/#contact"
+            href="/about"
             className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-colors group"
           >
-            HIRE ME
+            LEARN MORE
             <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </Link>
         </motion.div>
