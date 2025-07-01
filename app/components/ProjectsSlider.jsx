@@ -104,7 +104,7 @@ const ProjectsSlider = () => {
             key={index}
             name={project.name}
             image={project.image}
-            link={project.link}
+            // link={project.link}
           />
         ))}
       </InfiniteSlider>
