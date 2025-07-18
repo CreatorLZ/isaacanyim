@@ -85,6 +85,16 @@ export default function Projects() {
       ],
     },
     {
+      name: "Silkywriters",
+      image: silkywriters,
+      link: "https://silkywriters.vercel.app/",
+      // github: "https://github.com/CreatorLZ/expressline_logistics",
+      description:
+        "Your trusted partner for academic writing, research, and Youtube scripts. We deliver precision, depth, and creativity to bring your ideas to life.",
+      details: "Official website for Silkywriters, a writing agency.",
+      skills: ["Typescript", "Tailwind CSS", "React", "Framer-motion"],
+    },
+    {
       name: "Wristy E-commerce",
       link: "https://vanilla-e-commerce.vercel.app/",
       github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
@@ -94,17 +104,7 @@ export default function Projects() {
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
     },
-    {
-      name: "Silkywriters",
-      image: silkywriters,
-      // link: "https://expressline-logistics.vercel.app/",
-      link: "https://silkywriters.vercel.app/",
-      // github: "https://github.com/CreatorLZ/expressline_logistics",
-      description:
-        "Your trusted partner for academic writing, research, and Youtube scripts. We deliver precision, depth, and creativity to bring your ideas to life.",
-      details: "Official website for Silkywriters, a writing agency.",
-      skills: ["Typescript", "Tailwind CSS", "React", "Framer-motion"],
-    },
+
     {
       name: "ExpressLine Logistics",
       image: expressline,
