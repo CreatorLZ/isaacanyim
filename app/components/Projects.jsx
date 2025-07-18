@@ -3,6 +3,7 @@ import React, { useEffect, useState, Fragment } from "react";
 import adresstracker from "/public/adresstracker.png";
 import moviebox from "/public/moviebox2.gif";
 import taskwise from "/public/Taskwise.gif";
+import silkywriters from "/public/silkywriters.gif";
 import expressline from "/public/expressline.gif";
 import ideafundrsc from "/public/ideafundrsc.gif";
 import wristy from "/public/wristy.gif";
@@ -92,6 +93,17 @@ export default function Projects() {
       image: wristy,
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
+    },
+    {
+      name: "Silkywriters",
+      image: silkywriters,
+      // link: "https://expressline-logistics.vercel.app/",
+      link: "https://silkywriters.vercel.app/",
+      // github: "https://github.com/CreatorLZ/expressline_logistics",
+      description:
+        "Your trusted partner for academic writing, research, and Youtube scripts. We deliver precision, depth, and creativity to bring your ideas to life.",
+      details: "Official website for Silkywriters, a writing agency.",
+      skills: ["Typescript", "Tailwind CSS", "React", "Framer-motion"],
     },
     {
       name: "ExpressLine Logistics",
@@ -309,25 +321,29 @@ export default function Projects() {
             >
               {projects[selectedProject].link}
             </Link>
-            <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
-              <Image
-                src={github}
-                alt="github icon"
-                quality={100}
-                height={20}
-                width={20}
-                placeholder="blur"
-                className="cursor-pointer"
-              />
-              <p className="text-base font-bold text-black">Github</p>
-            </div>
-            <Link
-              className="px-5 hover:underline"
-              href={projects[selectedProject].github}
-              target="_blank"
-            >
-              {projects[selectedProject].github}
-            </Link>
+            {projects[selectedProject].github && (
+              <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
+                <Image
+                  src={github}
+                  alt="github icon"
+                  quality={100}
+                  height={20}
+                  width={20}
+                  placeholder="blur"
+                  className="cursor-pointer"
+                />
+                <p className="text-base font-bold text-black">Github</p>
+              </div>
+            )}
+            {projects[selectedProject].github && (
+              <Link
+                className="px-5 hover:underline"
+                href={projects[selectedProject].github}
+                target="_blank"
+              >
+                {projects[selectedProject].github}
+              </Link>
+            )}
             <div className="sticky md:sticky -bottom-24 left-0 w-full md:w-full md:left-1/2 h-fit gap-2 p-5 bg-black text-white text-sm sm:text-base flex items-center justify-center mt-7 z-50">
               <Link href={projects[selectedProject].link} target="_blank">
                 <p className="text-white">Open project</p>
