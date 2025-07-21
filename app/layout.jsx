@@ -38,7 +38,7 @@ export const metadata = {
     locale: "en_US",
     url: "https://isaacanyim-iota.vercel.app/",
     title: "Isaac Chimaroke Anyim Portfolio Website",
-    description: "Isaac Chimaroke Anyim | Frontend Developer",
+    description: "Isaac Chimaroke Anyim | Fullstack Developer",
     images: [
       {
         url: "/seo.png",
@@ -52,7 +52,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "@CreatorLZ",
     title: "Isaac Chimaroke Anyim | Portfolio",
-    description: "Isaac Chimaroke Anyim | Frontend Developer",
+    description: "Isaac Chimaroke Anyim | Fullstack Developer",
     image: "/seo.png",
   },
 };
