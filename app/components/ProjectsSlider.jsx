@@ -6,6 +6,7 @@ import taskwise from "/public/taskwise.png";
 import expressline from "/public/expressline.png";
 import ideafundrsc from "/public/ideafundr.png";
 import wristy from "/public/wristy.png";
+import silkywriters from "/public/silkywriters.png";
 
 const projects = [
   {
@@ -48,6 +49,16 @@ const projects = [
       "Swift-XR",
       "JavaScript",
     ],
+  },
+  {
+    name: "Silkywriters",
+    image: silkywriters,
+    link: "https://silkywriters.vercel.app/",
+    // github: "https://github.com/CreatorLZ/expressline_logistics",
+    description:
+      "Your trusted partner for academic writing, research, and Youtube scripts. We deliver precision, depth, and creativity to bring your ideas to life.",
+    details: "Official website for Silkywriters, a writing agency.",
+    skills: ["Typescript", "Tailwind CSS", "React", "Framer-motion"],
   },
   {
     name: "Wristy E-commerce",
