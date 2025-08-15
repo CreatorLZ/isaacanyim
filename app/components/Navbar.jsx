@@ -223,13 +223,13 @@ export default function Navbar() {
           >
             About
           </NavLink>
-          {/* <NavLink
+          <NavLink
             href="/#skills"
             className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
             onClick={closeMenu}
           >
             Skills
-          </NavLink> */}
+          </NavLink>
           <NavLink
             href="/#projects"
             className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
