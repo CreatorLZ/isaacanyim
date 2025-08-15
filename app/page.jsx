@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <Hero />
       <ProjectsSlider />
-      <Services />
+      {/* <Services /> */}
       <Skills />
       <Projects />
       <Testimonials />
