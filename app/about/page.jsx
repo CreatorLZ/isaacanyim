@@ -76,7 +76,7 @@ export default function About() {
           open-source, diving headfirst into coding projects, shit posting into
           the void on x, and building interactive, elegant websites.
           <br /> <br /> In my free time, I explore advancements in artificial
-          intelligence and machine learning, or getting lost in a good book.
+          intelligence and machine learning, or get lost in a good book.
           <br /> <br /> I am a firm believer in the power of technology to
           transform lives and communities, and I am committed to using my skills
           to make a positive impact in the world.
