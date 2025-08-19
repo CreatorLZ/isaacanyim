@@ -110,7 +110,7 @@ export default function Skills() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="pt-0 lg:pb-0 lg:pt-0 overflow-hidden"
+      className="pt-20 lg:pb-0 lg:pt-20 overflow-hidden"
       id="skills"
     >
       <div className="max-w-7xl mx-auto px-4">
