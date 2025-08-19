@@ -121,14 +121,14 @@ export default function Navbar() {
                   ABOUT
                 </NavLink>
               </motion.div>
-              {/* <motion.div variants={navItemVariants}>
+              <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#skills"
                   className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
                 >
                   SKILLS
                 </NavLink>
-              </motion.div> */}
+              </motion.div>
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#projects"
