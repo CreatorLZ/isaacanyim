@@ -9,10 +9,10 @@ export default function BackgroundWrapper({ children }) {
       <div className="fixed inset-0 z-[-1]">
         <Squares
           direction="right"
-          speed={0.1}
+          speed={0.2}
           borderColor="#cccccc"
           hoverFillColor="rgba(200, 200, 200, 0.3)"
-          squareSize={150}
+          squareSize={170}
         />
       </div>
 
