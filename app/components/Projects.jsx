@@ -94,15 +94,16 @@ export default function Projects() {
       details: "Official website for Silkywriters, a writing agency.",
       skills: ["Typescript", "Tailwind CSS", "React", "Framer-motion"],
     },
+
     {
-      name: "Wristy E-commerce",
-      link: "https://vanilla-e-commerce.vercel.app/",
-      github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
+      name: "Moviebox",
+      link: "https://moviebox-red.vercel.app/",
+      github: "https://github.com/CreatorLZ/Moviebox",
       description:
-        "Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.",
-      image: wristy,
-      details: "Watch Ecommerce starter template for developers.",
-      skills: ["HTML", "CSS", "Javascript"],
+        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
+      image: moviebox,
+      details: "Watch trailers, read reviews of any movie in the world!",
+      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
     },
 
     {
@@ -117,14 +118,14 @@ export default function Projects() {
     },
 
     {
-      name: "Moviebox",
-      link: "https://moviebox-red.vercel.app/",
-      github: "https://github.com/CreatorLZ/Moviebox",
+      name: "Wristy E-commerce",
+      link: "https://vanilla-e-commerce.vercel.app/",
+      github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
       description:
-        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
-      image: moviebox,
-      details: "Watch trailers, read reviews of any movie in the world!",
-      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
+        "Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.",
+      image: wristy,
+      details: "Watch Ecommerce starter template for developers.",
+      skills: ["HTML", "CSS", "Javascript"],
     },
 
     {
