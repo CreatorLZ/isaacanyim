@@ -17,7 +17,7 @@ export default function BackgroundWrapper({ children }) {
       </div>
 
       {/* Content layer */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-1 0">{children}</div>
     </div>
   );
 }
