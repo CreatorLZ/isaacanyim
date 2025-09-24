@@ -44,21 +44,21 @@ export default function Skills() {
     { name: "HTML", image: html },
     { name: "CSS", image: css },
   ];
-  const frameworks = [
-    { name: "Material UI" },
-    { name: "Bootstrap" },
-    { name: "Git" },
-    { name: "GitHub" },
-    { name: "Firebase" },
-    { name: "Redux Toolkit" },
-    { name: "Zustand" },
-    { name: "React Query" },
-    { name: "Context API" },
-    { name: "Framer Motion" },
-    { name: "Vite" },
-    { name: "Swift XR" },
-    { name: "More..." },
-  ];
+  // const frameworks = [
+  //   { name: "Material UI" },
+  //   { name: "Bootstrap" },
+  //   { name: "Git" },
+  //   { name: "GitHub" },
+  //   { name: "Firebase" },
+  //   { name: "Redux Toolkit" },
+  //   { name: "Zustand" },
+  //   { name: "React Query" },
+  //   { name: "Context API" },
+  //   { name: "Framer Motion" },
+  //   { name: "Vite" },
+  //   { name: "Swift XR" },
+  //   { name: "More..." },
+  // ];
   const visibleSkills = showAllSkills ? skills : skills.slice(0, 3);
 
   const containerVariants = {
@@ -72,22 +72,22 @@ export default function Skills() {
     },
   };
 
-  const skillCardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
+  // const skillCardVariants = {
+  //   hidden: {
+  //     opacity: 0,
+  //     y: 20,
+  //     scale: 0.95,
+  //   },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     scale: 1,
+  //     transition: {
+  //       duration: 0.5,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
 
   const buttonVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -113,7 +113,7 @@ export default function Skills() {
       className="pt-20 lg:pb-0 lg:pt-20 overflow-hidden"
       id="skills"
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         <motion.button
           variants={buttonVariants}
           whileHover="hover"
@@ -181,50 +181,6 @@ export default function Skills() {
             {showAllSkills ? "Show Less" : "Show More"}
             <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </Link>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="pt-20 flex flex-col"
-        >
-          <motion.button
-            variants={buttonVariants}
-            whileHover="hover"
-            className="px-2 py-2 w-fit border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
-          >
-            I can go on and on..
-          </motion.button>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-10 w-full md:px-24"
-          >
-            <div className="w-full overflow-hidden">
-              <InfiniteSlider
-                duration={20}
-                durationOnHover={60}
-                gap={24}
-                className="py-6 "
-              >
-                {frameworks.map((framework, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-center lg:h-16 h-10 lg:min-w-[180px]  shrink-0 bg-indigo-50 rounded-md lg:px-6 px-2 ring-1 ring-inset ring-indigo-700/10 hover:bg-indigo-100 transition-colors"
-                  >
-                    <div className="font-medium text-black">
-                      {framework.name}
-                    </div>
-                  </div>
-                ))}
-              </InfiniteSlider>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </motion.main>

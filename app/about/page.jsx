@@ -111,7 +111,7 @@ export default function About() {
           </InfiniteSlider>
         </div>
       </div>
-      <div className="w-full flex flex-col pt-20 lg:px-10 px-0">
+      {/* <div className="w-full flex flex-col pt-20 lg:px-10 px-0">
         <motion.div
           className="text-4xl font-black flex flex-wrap gap-2"
           initial="hidden"
@@ -144,9 +144,9 @@ export default function About() {
           ))}
         </motion.div>
       </div>
-      <Timeline />
+      <Timeline /> */}
 
-      <motion.div
+      {/* <motion.div
         className="pt-20 lg:px-10 px-0"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export default function About() {
           experimenting with different technologies. I am constantly seeking new
           challenges to push my skills to the next level.
         </p>
-      </motion.div>
+      </motion.div> */}
 
       <Socials />
       <Contact id="contact" />
