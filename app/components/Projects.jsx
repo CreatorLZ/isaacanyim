@@ -67,6 +67,16 @@ export default function Projects() {
       ],
     },
     {
+      name: "Moviebox",
+      link: "https://moviebox-red.vercel.app/",
+      github: "https://github.com/CreatorLZ/Moviebox",
+      description:
+        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
+      image: moviebox,
+      details: "Watch trailers, read reviews of any movie in the world!",
+      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
+    },
+    {
       name: "Ideafundr",
       image: ideafundrsc,
       link: "https://ideafundr-seven.vercel.app/",
@@ -96,17 +106,6 @@ export default function Projects() {
     },
 
     {
-      name: "Moviebox",
-      link: "https://moviebox-red.vercel.app/",
-      github: "https://github.com/CreatorLZ/Moviebox",
-      description:
-        "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
-      image: moviebox,
-      details: "Watch trailers, read reviews of any movie in the world!",
-      skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
-    },
-
-    {
       name: "ExpressLine Logistics",
       image: expressline,
       // link: "https://expressline-logistics.vercel.app/",
@@ -128,16 +127,16 @@ export default function Projects() {
       skills: ["HTML", "CSS", "Javascript"],
     },
 
-    {
-      name: "IP Address Tracker",
-      link: "https://ip-address-tracker-gamma-five.vercel.app/",
-      github: "https://github.com/CreatorLZ/ip_address_tracker",
-      description:
-        "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
-      image: adresstracker,
-      details: "Get live info of any IP Address.",
-      skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
-    },
+    // {
+    //   name: "IP Address Tracker",
+    //   link: "https://ip-address-tracker-gamma-five.vercel.app/",
+    //   github: "https://github.com/CreatorLZ/ip_address_tracker",
+    //   description:
+    //     "This is a webapp that allows users to get live information about any IP address entered into the search input. The app features a live map that shows precise location info as taken from entered ip addresses.",
+    //   image: adresstracker,
+    //   details: "Get live info of any IP Address.",
+    //   skills: ["React", "Styled-Components", "Geo-location", "JavaScript"],
+    // },
   ];
 
   const handleClick = (index) => {
