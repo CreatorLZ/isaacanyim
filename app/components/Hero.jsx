@@ -217,7 +217,7 @@ export default function Hero() {
         </AnimatedText> */}
         <TypeAnimation
           sequence={[
-            "I create captivating, immersive & user-friendly digital journeys.",
+            "I build functional, captivating & user-friendly stuff.",
             1000, // Wait 1 second before repeating
           ]}
           wrapper="p" // Use a paragraph tag as the wrapper

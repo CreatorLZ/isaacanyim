@@ -73,8 +73,8 @@ export default function About() {
           Hello Hello. I am isaac, a software developer from Nigeria. I work on
           full-stack software development for the web with enthusiasm for a
           diverse range of topics. I find great joy in contributing to
-          open-source, diving headfirst into coding projects, shit posting into
-          the void on x, and building interactive, elegant websites.
+          open-source, diving headfirst into coding projects, and building
+          interactive, elegant websites.
           <br /> <br /> In my free time, I explore advancements in artificial
           intelligence and machine learning, or get lost in a good book.
           <br /> <br /> I am a firm believer in the power of technology to
