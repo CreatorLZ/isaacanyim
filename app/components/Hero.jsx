@@ -200,16 +200,16 @@ export default function Hero() {
         </p>
         <motion.h1
           variants={itemVariants2}
-          className={`text-gray-700 text-3xl lg:text-[70px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
         >
           HEY, I{"'"}M ISAAC.
           <br />
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className={`text-gray-700 text-3xl lg:text-[70px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-tight pb-0 font-extrabold `}
         >
-          A SOFTWARE DEVELOPER.
+          A FULLSTACK DEVELOPER.
         </motion.h1>
         {/* /* <br /> */}
         {/* <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
@@ -227,7 +227,7 @@ export default function Hero() {
             lineHeight: "2",
             paddingBottom: "2.5rem",
           }}
-          className="leading-loose text-sm lg:text-lg pb-10 text-gray-700"
+          className="leading-loose text-sm lg:text-base pb-10 text-gray-700"
           repeat={Infinity} // Loop the animation
         />
         <motion.div
