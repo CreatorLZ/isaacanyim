@@ -220,8 +220,8 @@ export default function Hero() {
             "I build functional, captivating & user-friendly stuff.",
             1000, // Wait 1 second before repeating
           ]}
-          wrapper="p" // Use a paragraph tag as the wrapper
-          speed={70} // Typing speed (higher is faster)
+          wrapper="p"
+          speed={70}
           style={{
             // fontSize: "1rem",
             lineHeight: "2",
