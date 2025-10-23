@@ -85,9 +85,6 @@ export default function Navbar() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="transition-transform duration-200"
             >
               <Link href="/" className="flex items-center">
                 <Image
@@ -124,14 +121,14 @@ export default function Navbar() {
                   ABOUT
                 </NavLink>
               </motion.div>
-              <motion.div variants={navItemVariants}>
+              {/* <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#skills"
                   className="text-gray-700 hover:text-primary text-sm uppercase font-bold tracking-wider"
                 >
                   SKILLS
                 </NavLink>
-              </motion.div>
+              </motion.div> */}
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#projects"
@@ -226,13 +223,13 @@ export default function Navbar() {
           >
             About
           </NavLink>
-          <NavLink
+          {/* <NavLink
             href="/#skills"
             className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
             onClick={closeMenu}
           >
             Skills
-          </NavLink>
+          </NavLink> */}
           <NavLink
             href="/#projects"
             className="text-gray-700 hover:text-primary text-xl py-2 font-medium"

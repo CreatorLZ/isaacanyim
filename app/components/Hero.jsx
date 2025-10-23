@@ -209,7 +209,7 @@ export default function Hero() {
           variants={itemVariants3}
           className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-tight pb-0 font-extrabold `}
         >
-          A FULLSTACK DEVELOPER.
+          A SOFTWARE ENGINEER.
         </motion.h1>
         {/* /* <br /> */}
         {/* <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
@@ -217,7 +217,7 @@ export default function Hero() {
         </AnimatedText> */}
         <TypeAnimation
           sequence={[
-            "I create captivating, immersive & user-friendly digital journeys.",
+            "I build functional, captivating & user-friendly stuff for the web.",
             1000, // Wait 1 second before repeating
           ]}
           wrapper="p" // Use a paragraph tag as the wrapper
