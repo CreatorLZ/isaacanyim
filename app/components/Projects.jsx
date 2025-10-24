@@ -1,29 +1,9 @@
 "use client";
 import React, { useEffect, useState, Fragment } from "react";
-import adresstracker from "/public/adresstracker.png";
-import moviebox from "/public/moviebox2.gif";
-import taskwise from "/public/Taskwise.gif";
-import silkywriters from "/public/silkywriters.gif";
-import expressline from "/public/expressline.gif";
-import ideafundrsc from "/public/ideafundrsc.gif";
-import wristy from "/public/wristy.gif";
-import forward from "/public/forward.gif";
-import back from "/public/back.png";
-import earth from "/public/earth.png";
-import github from "/public/github.png";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import NavLink from "./NavLink";
-
-// Add this helper function at the top of your file after the imports
-const isGifImage = (src) => {
-  if (typeof src === "string") {
-    return src.endsWith(".gif");
-  }
-  // For webpack imported images, check the src property
-  return src?.src?.endsWith?.(".gif") || false;
-};
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -49,7 +29,9 @@ export default function Projects() {
       github: "https://github.com/CreatorLZ/taskwise",
       description:
         "Smart task manager that helps you keep track of your daily tasks. Taskwise is a simple and easy-to-use task manager that helps you keep track of your daily tasks. It is designed to be simple and easy to use, with a clean and intuitive interface that makes it easy to stay organized and focused. With Taskwise, you can create tasks, set due dates, and track your progress as you work through your to-do list. You can also set reminders and notifications to help you stay on track and meet your deadlines. Taskwise is designed to be flexible and customizable, so you can use it in a way that works best for you. Whether you need a simple to-do list or a more advanced task manager, Taskwise has you covered.",
-      image: taskwise,
+      image: "/Taskwise.mp4",
+      poster: "/taskwise.png",
+      isVideo: true,
       details:
         "Smart task manager that helps you keep track of your daily tasks.",
       skills: [
@@ -72,13 +54,17 @@ export default function Projects() {
       github: "https://github.com/CreatorLZ/Moviebox",
       description:
         "Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ",
-      image: moviebox,
+      image: "/MovieBox.mp4",
+      poster: "/moviebox.png",
+      isVideo: true,
       details: "Watch trailers, read reviews of any movie in the world!",
       skills: ["React", "TMDB API", "Styled-Components", "JavaScript"],
     },
     {
       name: "Ideafundr",
-      image: ideafundrsc,
+      image: "/Ideafundr.mp4",
+      poster: "/ideafundr.png",
+      isVideo: true,
       link: "https://ideafundr-seven.vercel.app/",
       github: "https://github.com/CreatorLZ/ideafundr",
       description:
@@ -96,7 +82,9 @@ export default function Projects() {
     },
     {
       name: "Silkywriters",
-      image: silkywriters,
+      image: "/Silkywriters.mp4",
+      poster: "/silkywriters.png",
+      isVideo: true,
       link: "https://silkywriters.vercel.app/",
       // github: "https://github.com/CreatorLZ/expressline_logistics",
       description:
@@ -107,7 +95,8 @@ export default function Projects() {
 
     {
       name: "ExpressLine Logistics",
-      image: expressline,
+      image: "/expressline.gif",
+      isVideo: false,
       // link: "https://expressline-logistics.vercel.app/",
       link: "https://expresslinecouriers.com/",
       github: "https://github.com/CreatorLZ/expressline_logistics",
@@ -122,7 +111,8 @@ export default function Projects() {
       github: "https://github.com/CreatorLZ/Vanilla-e-commerce",
       description:
         "Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.",
-      image: wristy,
+      image: "/wristy.gif",
+      isVideo: false,
       details: "Watch Ecommerce starter template for developers.",
       skills: ["HTML", "CSS", "Javascript"],
     },
@@ -198,17 +188,30 @@ export default function Projects() {
             className="relative group cursor-pointer"
             onClick={() => handleClick(index)}
           >
-            <Image
-              src={project.image}
-              alt={`${project.name} screenshot`}
-              unoptimized={isGifImage(project.image)}
-              quality={100}
-              style={{ cursor: "pointer" }}
-              placeholder="blur"
-              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
-              className="h-72 md:h-80 max-w-auto rounded-lg"
-            />
-            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50 md:bg-black md:bg-opacity-55 rounded-lg transition duration-700">
+            {project.isVideo ? (
+              <video
+                src={project.image}
+                poster={project.poster}
+                className="h-72 md:h-80 w-full rounded-lg object-cover"
+                muted
+                loop
+                preload="metadata"
+                onMouseEnter={(e) => e.target.play()}
+                onMouseLeave={(e) => e.target.pause()}
+                style={{ cursor: "pointer" }}
+              />
+            ) : (
+              <Image
+                src={project.image}
+                alt={`${project.name} screenshot`}
+                width={400}
+                height={320}
+                className="h-72 md:h-80 w-full rounded-lg object-cover"
+                unoptimized
+                style={{ cursor: "pointer" }}
+              />
+            )}
+            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50 md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 pointer-events-none">
               <div className="flex flex-col text-left gap-2">
                 <motion.p className="text-white text-2xl font-extrabold">
                   {project.name}
@@ -248,12 +251,10 @@ export default function Projects() {
               onClick={closeDetails}
             >
               <Image
-                src={back}
+                src="/back.png"
                 alt="Back"
-                quality={100}
-                height={30}
                 width={30}
-                placeholder="blur"
+                height={30}
                 className="cursor-pointer"
               />
               <Link href="#projects">
@@ -272,15 +273,27 @@ export default function Projects() {
             <p className="text-gray-700 text-sm md:text-base pb-4 px-5">
               {projects[selectedProject].description}
             </p>
-            <Image
-              src={projects[selectedProject].image}
-              alt={`${projects[selectedProject].name} screenshot`}
-              unoptimized={isGifImage(projects[selectedProject].image)}
-              quality={100}
-              placeholder="blur"
-              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMzoyuBwAD5gGgL5NkuQAAAABJRU5ErkJggg=="
-              className="h-72 md:h-80 max-w-auto rounded-lg px-5"
-            />
+            {projects[selectedProject].isVideo ? (
+              <video
+                src={projects[selectedProject].image}
+                poster={projects[selectedProject].poster}
+                className="h-72 md:h-80 w-full rounded-lg object-cover px-5"
+                muted
+                loop
+                preload="metadata"
+                onMouseEnter={(e) => e.target.play()}
+                onMouseLeave={(e) => e.target.pause()}
+              />
+            ) : (
+              <Image
+                src={projects[selectedProject].image}
+                alt={`${projects[selectedProject].name} screenshot`}
+                width={400}
+                height={320}
+                className="h-72 md:h-80 w-full rounded-lg object-cover px-5"
+                unoptimized
+              />
+            )}
             <p className="text-base font-bold text-black pb-1 pt-7 px-5">
               About
             </p>
@@ -304,12 +317,10 @@ export default function Projects() {
             </div>
             <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
               <Image
-                src={earth}
+                src="/earth.png"
                 alt="earth icon"
-                quality={100}
-                height={20}
                 width={20}
-                placeholder="blur"
+                height={20}
                 className="cursor-pointer"
               />
               <p className="text-base font-bold text-black">Website</p>
@@ -324,12 +335,10 @@ export default function Projects() {
             {projects[selectedProject].github && (
               <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
                 <Image
-                  src={github}
+                  src="/github.png"
                   alt="github icon"
-                  quality={100}
-                  height={20}
                   width={20}
-                  placeholder="blur"
+                  height={20}
                   className="cursor-pointer"
                 />
                 <p className="text-base font-bold text-black">Github</p>
@@ -376,7 +385,7 @@ export default function Projects() {
       <Link href="https://github.com/CreatorLZ" target="_blank">
         <div className="flex gap-3 items-center pt-12 justify-center cursor-pointer">
           <p>See more</p>
-          <Image src={forward} alt="forward" width={30} height={30} />
+          <Image src="/forward.gif" alt="forward" width={30} height={30} />
         </div>
       </Link>
     </main>
