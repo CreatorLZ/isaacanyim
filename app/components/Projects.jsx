@@ -176,7 +176,7 @@ export default function Projects() {
       </p>
 
       {/* Project grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-20 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-7 gap-5 pt-20 md:px-12">
         {projects.map((project, index) => (
           <motion.div
             initial={"offscreen"}
@@ -185,14 +185,14 @@ export default function Projects() {
             variants={projectAnimate}
             transition={{ staggerChildren: 0.1 }}
             key={index}
-            className="relative group cursor-pointer"
+            className="relative group cursor-pointer rounded-lg shadow-lg  duration-500"
             onClick={() => handleClick(index)}
           >
             {project.isVideo ? (
               <video
                 src={project.image}
                 poster={project.poster}
-                className="h-72 md:h-80 w-full rounded-lg object-cover"
+                className="h-72 md:h-80 w-full rounded-lg object-cover "
                 muted
                 loop
                 preload="metadata"
@@ -211,7 +211,7 @@ export default function Projects() {
                 style={{ cursor: "pointer" }}
               />
             )}
-            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-black bg-opacity-50 md:bg-black md:bg-opacity-55 rounded-lg transition duration-700 pointer-events-none">
+            <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-5 md:py-10 justify-start px-3 md:px-8 bg-gradient-to-b from-black/30 to-black/70 rounded-lg transition duration-700 pointer-events-none">
               <div className="flex flex-col text-left gap-2">
                 <motion.p className="text-white text-2xl font-extrabold">
                   {project.name}
