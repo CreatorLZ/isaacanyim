@@ -46,10 +46,39 @@ const GitHubIcon = ({ className = "w-6 h-6" }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col text-center pt-20 w-full items-center justify-center z-50">
+    <footer className="flex flex-col text-center pt-20 w-full items-center justify-center z-50 pb-24 lg:pb-0">
       <small>Copyright © 2025. Isaac C. Anyim. All rights reserved.</small>
       <small>Bulit with ❤️ by, Isaac C Anyim</small>
+      {/* Desktop Icons */}
       <div className="hidden sm:flex gap-10 items-center pb-4 pt-1 md:pt-6 lg:pt-10 p-2.5 md:px-10 lg:px-36 justify-between sm:justify-normal backdrop-blur-sm md:backdrop-blur-none">
+        <Link
+          href="https://x.com/Fathe__r"
+          className="hover:opacity-75 transition-opacity"
+        >
+          <TwitterIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
+        </Link>
+        <Link
+          href="https://www.facebook.com/anyim.isaac.5?mibextid=ZbWKwL"
+          className="hover:opacity-75 transition-opacity"
+        >
+          <FacebookIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/isaac-anyim-76221b269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          className="hover:opacity-75 transition-opacity"
+        >
+          <LinkedInIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
+        </Link>
+        <Link
+          href="https://github.com/CreatorLZ"
+          className="hover:opacity-75 transition-opacity"
+        >
+          <GitHubIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
+        </Link>
+      </div>
+
+      {/* Mobile Icons */}
+      <div className="fixed bottom-0 sm:hidden flex gap-7 items-center p-3 w-full justify-between backdrop-blur-sm">
         <Link
           href="https://x.com/Fathe__r"
           className="hover:opacity-75 transition-opacity"

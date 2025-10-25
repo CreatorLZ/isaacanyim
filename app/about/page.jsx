@@ -1,6 +1,6 @@
 "use client";
 import Contact from "../components/Contact";
-import Socials from "../components/Socials";
+// import Socials from "../components/Socials";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import react from "/public/react.png";
@@ -165,7 +165,6 @@ export default function About() {
         </p>
       </motion.div> */}
 
-      <Socials />
       <Contact id="contact" />
     </main>
   );
