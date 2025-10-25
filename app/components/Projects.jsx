@@ -28,7 +28,7 @@ export default function Projects() {
       link: "https://taskwise-three.vercel.app/",
       github: "https://github.com/CreatorLZ/taskwise",
       description:
-        "Smart task manager that helps you keep track of your daily tasks. Taskwise is a simple and easy-to-use task manager that helps you keep track of your daily tasks. It is designed to be simple and easy to use, with a clean and intuitive interface that makes it easy to stay organized and focused. With Taskwise, you can create tasks, set due dates, and track your progress as you work through your to-do list. You can also set reminders and notifications to help you stay on track and meet your deadlines. Taskwise is designed to be flexible and customizable, so you can use it in a way that works best for you. Whether you need a simple to-do list or a more advanced task manager, Taskwise has you covered.",
+        "A Smart task manager that helps you keep track of your daily tasks using natural language. It is designed to be simple and easy to use, with a clean and intuitive interface that makes it easy to stay organized and focused. With Taskwise, you can create tasks, set due dates, and track your progress as you work through your to-do list. You can also set reminders and notifications to help you stay on track and meet your deadlines. Taskwise is designed to be flexible and customizable, so you can use it in a way that works best for you. Whether you need a simple to-do list or a more advanced task manager, Taskwise has you covered.",
       image: "/Taskwise.mp4",
       poster: "/taskwise.png",
       isVideo: true,
@@ -156,11 +156,10 @@ export default function Projects() {
   };
 
   const projectAnimate = {
-    offscreen: { opacity: 0, y: 90 },
+    offscreen: { opacity: 0 },
     onscreen: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.9 },
+      transition: { duration: 0.8, ease: "easeInOut" },
     },
   };
 
@@ -181,9 +180,9 @@ export default function Projects() {
           <motion.div
             initial={"offscreen"}
             whileInView={"onscreen"}
-            viewport={{ once: "true", amount: 0.4 }}
+            viewport={{ once: true, amount: 0.4 }}
             variants={projectAnimate}
-            transition={{ staggerChildren: 0.1 }}
+            // transition={{ staggerChildren: 0.1 }}
             key={index}
             className="relative group cursor-pointer rounded-lg shadow-lg  duration-500"
             onClick={() => handleClick(index)}
