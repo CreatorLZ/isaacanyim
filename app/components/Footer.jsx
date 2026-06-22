@@ -47,7 +47,7 @@ const GitHubIcon = ({ className = "w-6 h-6" }) => (
 export default function Footer() {
   return (
     <footer className="flex flex-col text-center pt-20 w-full items-center justify-center z-50 pb-24 lg:pb-0">
-      <small>Copyright © 2025. Isaac C. Anyim. All rights reserved.</small>
+      <small>Copyright © {new Date().getFullYear()}. Isaac C. Anyim. All rights reserved.</small>
       <small>Bulit with ❤️ by, Isaac C Anyim</small>
       {/* Desktop Icons */}
       <div className="hidden sm:flex gap-10 items-center pb-4 pt-1 md:pt-6 lg:pt-10 p-2.5 md:px-10 lg:px-36 justify-between sm:justify-normal backdrop-blur-sm md:backdrop-blur-none">

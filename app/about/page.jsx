@@ -1,6 +1,5 @@
 "use client";
 import Contact from "../components/Contact";
-// import Socials from "../components/Socials";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import react from "/public/react.png";
@@ -15,23 +14,9 @@ import node2 from "/public/node.png";
 import typescript from "/public/typescript.png";
 import styledcomponents from "/public/styledcomponents.png";
 import tailwind from "/public/tailwind.png";
-// import { AnimatedText } from "../components/AnimatedText";
-import Timeline from "../components/Timeline";
 import InfiniteSlider from "../components/InfiniteSlider";
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const words = ["Crafting,", "Shaping,", "Engineering", "—", "My", "Process."];
-
   const skills = [
     { name: "JavaScript", image: javascript },
     { name: "TypeScript", image: typescript },
@@ -46,15 +31,6 @@ export default function About() {
     { name: "HTML", image: html },
     { name: "CSS", image: css },
   ];
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 70 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.5 },
-    },
-  };
 
   return (
     <main className="py-12 lg:px-24">
@@ -111,59 +87,7 @@ export default function About() {
           </InfiniteSlider>
         </div>
       </div>
-      {/* <div className="w-full flex flex-col pt-20 lg:px-10 px-0">
-        <motion.div
-          className="text-4xl font-black flex flex-wrap gap-2"
-          initial="hidden"
-          whileInView="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.15, // small delay between each word
-              },
-            },
-          }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {words.map((word, index) => (
-            <motion.span
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-              }}
-              className="inline-block"
-            >
-              {word}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
-      <Timeline /> */}
 
-      {/* <motion.div
-        className="pt-20 lg:px-10 px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <div className="w-full flex flex-col">
-          <h2 className="text-4xl font-black">My journey.</h2>
-        </div>
-        <p className="text-sm leading-loose md:text-sm text-gray-800 ">
-          My journey as a Software developer began with a simple curiosity about
-          how websites work, which quickly turned into a full-blown
-          obsession.Eversince, I have spent countless hours learning and
-          experimenting with different technologies. I am constantly seeking new
-          challenges to push my skills to the next level.
-        </p>
-      </motion.div> */}
 
       <Contact id="contact" />
     </main>

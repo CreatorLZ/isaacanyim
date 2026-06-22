@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MouseTracker from "./components/MouseTracker";
 import BackgroundWrapper from "./components/background-wrapper";
-import LenisProvider from "./components/LenisProvider";
 
 const anybody = Anybody({ subsets: ["latin"], variable: "--font-anybody" });
 const spaceMono = Space_Mono({
@@ -114,13 +113,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className={spaceMono.className}>
         <BackgroundWrapper>
-          {/* <LenisProvider> */}
           <Navbar />
           {children}
           <MouseTracker />
           <Analytics />
           <Footer />
-          {/* </LenisProvider> */}
         </BackgroundWrapper>
       </body>
     </html>

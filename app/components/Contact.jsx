@@ -3,10 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function Contact() {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -64,9 +60,14 @@ export default function Contact() {
 
     setIsLoading(true);
     emailjs
-      .sendForm("service_3ac0rlk", "template_3buadfm", form.current, {
-        publicKey: "Y8NL1S8n8lUf5ZZ0N",
-      })
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        }
+      )
       .then(
         () => {
           console.log("SUCCESS!");
@@ -196,7 +197,7 @@ export default function Contact() {
           >
             reach out via email
           </motion.a>{" "}
-          and let's start a conversation!
+          and let&apos;s start a conversation!
         </motion.p>
       </motion.div>
 
