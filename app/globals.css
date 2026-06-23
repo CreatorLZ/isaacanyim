@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* base styles */
 .scroll-smooth {
   scroll-behavior: smooth;
 }
@@ -10,12 +9,7 @@ html {
   @apply scroll-smooth;
 }
 body {
-  background-color: rgba(
-    235,
-    240,
-    250,
-    0.7
-  ); /* Light background color that allows squares to be visible */
+  background-color: rgba(235, 240, 250, 0.7);
   background-size: cover;
   position: relative;
   width: 100%;
@@ -24,9 +18,9 @@ body {
 
 main {
   @apply px-2 md:px-6 lg:px-6 text-left w-full h-full;
-  p {
-    @apply text-gray-700;
-  }
+}
+main p {
+  @apply text-gray-700;
 }
 h2 {
   @apply text-2xl tracking-normal leading-relaxed pb-8 font-medium text-black;
@@ -92,27 +86,19 @@ nav {
   @apply text-primary;
 }
 
-/* nav{
-  @apply sticky top-0 backdrop-blur-lg h-8 py-8 z-50
-} */
 .btn-style {
   @apply px-4 py-2 bg-white border border-black text-black font-bold rounded-lg hover:bg-black hover:text-white transition-colors;
-  /* Masonry grid styles */
-  .my-masonry-grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
-    display: flex;
-    margin-left: -10px; /* gutter size offset */
-    width: auto;
-  }
-  .my-masonry-grid_column {
-    padding-left: 10px; /* gutter size */
-    background-clip: padding-box;
-  }
+}
 
-  /* Style your items */
-  .my-masonry-grid_column > div {
-    /* change div to reference your elements you put in <Masonry> */
-    margin-bottom: 10px;
-  }
+.my-masonry-grid {
+  display: flex;
+  margin-left: -10px;
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 10px;
+  background-clip: padding-box;
+}
+.my-masonry-grid_column > div {
+  margin-bottom: 10px;
 }

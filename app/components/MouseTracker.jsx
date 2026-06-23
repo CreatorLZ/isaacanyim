@@ -88,12 +88,12 @@ const MouseTracker = () => {
             className="absolute inset-0 rounded-full bg-transparent"
             initial={{ opacity: 0.2 }}
             animate={{
-              scale: isHovering ? [1, 1.1, 1] : [1, 1.05, 1],
-              opacity: isHovering ? [0.3, 0.4, 0.3] : [0.2, 0.3, 0.2],
+              scale: isHovering ? 0.35 : [1, 1.05, 1],
+              opacity: isHovering ? 0 : [0.2, 0.3, 0.2],
             }}
             transition={{
-              duration: 1.5,
-              repeat: Infinity,
+              duration: isHovering ? 0.25 : 1.5,
+              repeat: isHovering ? 0 : Infinity,
               repeatType: "reverse",
               ease: "easeInOut",
             }}
@@ -107,13 +107,13 @@ const MouseTracker = () => {
               borderColor: isHovering ? "#7856ff" : "#7856ff",
             }}
             animate={{
-              scale: isHovering ? 1.8 : 1,
-              opacity: isHovering ? 0.8 : 0.6,
+              scale: isHovering ? 0.28 : 1,
+              opacity: isHovering ? 0.95 : 0.6,
             }}
             transition={{
               type: "spring",
-              stiffness: 200,
-              damping: 15,
+              stiffness: 360,
+              damping: 28,
             }}
           />
 
@@ -127,8 +127,8 @@ const MouseTracker = () => {
               left: "23px",
             }}
             animate={{
-              scale: isHovering ? 1.3 : 1,
-              opacity: isHovering ? 0.5 : 1,
+              scale: isHovering ? 1.08 : 1,
+              opacity: 1,
             }}
             transition={{
               type: "spring",

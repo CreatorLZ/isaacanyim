@@ -62,8 +62,7 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-// Export themeColor separately
-export const themeColor = "#ffffff";
+
 
 export default function RootLayout({ children }) {
   return (
@@ -71,46 +70,6 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${spaceMono.variable} ${plusJakartaSans.variable}`}
     >
-      <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content={metadata.author} />
-        <meta name="robots" content={metadata.robots} />
-        {/* Open Graph Metadata */}
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta
-          property="og:image:width"
-          content={metadata.openGraph.images[0].width}
-        />
-        <meta
-          property="og:image:height"
-          content={metadata.openGraph.images[0].height}
-        />
-        <meta
-          property="og:image:alt"
-          content={metadata.openGraph.images[0].alt}
-        />
-        {/* Twitter Metadata */}
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:site" content={metadata.twitter.site} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta
-          name="twitter:description"
-          content={metadata.twitter.description}
-        />
-        <meta name="twitter:image" content={metadata.twitter.image} />
-        <meta name="theme-color" content={themeColor} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
       <body className={spaceMono.className}>
         <BackgroundWrapper>
           <Navbar />

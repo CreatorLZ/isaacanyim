@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { Squares } from "./squares-background";
+import { Squares } from './squares-background'
 
 export default function BackgroundWrapper({ children }) {
   return (
@@ -19,5 +19,5 @@ export default function BackgroundWrapper({ children }) {
       {/* Content layer */}
       <div className="relative z-1 0">{children}</div>
     </div>
-  );
+  )
 }

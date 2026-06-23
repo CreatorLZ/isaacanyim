@@ -1,5 +1,6 @@
 import InfiniteSlider from "./InfiniteSlider";
 import ProjectCard from "./Projectcard";
+import bagxtra from "/public/bagxtra.png";
 import adresstracker from "/public/adresstracker.png";
 import moviebox from "/public/moviebox.png";
 import taskwise from "/public/taskwise.png";
@@ -9,6 +10,23 @@ import wristy from "/public/wristy.png";
 import silkywriters from "/public/silkywriters.png";
 
 const projects = [
+  {
+    name: "bagXtra",
+    image: bagxtra,
+    link: "https://app.usebagxtra.com",
+    description:
+      "Buy from any store abroad and get it brought to you by a verified traveler already booked on your route, for a fraction of what courier shipping costs.",
+    details:
+      "Explore global shopping without the hassle of shipping. With BagXtra, travelers help you bring it home. Shop from anywhere, receive from everywhere.",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+    ],
+  },
   {
     name: "Taskwise",
     link: "https://taskwise-three.vercel.app/",

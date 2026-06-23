@@ -1,36 +1,36 @@
-"use client";
-import Contact from "../components/Contact";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import react from "/public/react.png";
-import nextjs from "/public/nextjs.png";
-import html from "/public/html.png";
-import css from "/public/css.png";
-import javascript from "/public/javascript.png";
-import mongodb from "/public/mongodb.png";
-import sql from "/public/sql.png";
-import express from "/public/express.png";
-import node2 from "/public/node.png";
-import typescript from "/public/typescript.png";
-import styledcomponents from "/public/styledcomponents.png";
-import tailwind from "/public/tailwind.png";
-import InfiniteSlider from "../components/InfiniteSlider";
+'use client'
+import Contact from '../components/Contact'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import react from '/public/react.png'
+import nextjs from '/public/nextjs.png'
+import html from '/public/html.png'
+import css from '/public/css.png'
+import javascript from '/public/javascript.png'
+import mongodb from '/public/mongodb.png'
+import sql from '/public/sql.png'
+import express from '/public/express.png'
+import node2 from '/public/node.png'
+import typescript from '/public/typescript.png'
+import styledcomponents from '/public/styledcomponents.png'
+import tailwind from '/public/tailwind.png'
+import InfiniteSlider from '../components/InfiniteSlider'
 
 export default function About() {
   const skills = [
-    { name: "JavaScript", image: javascript },
-    { name: "TypeScript", image: typescript },
-    { name: "Node.js", image: node2 },
-    { name: "Express", image: express },
-    { name: "SQL", image: sql },
-    { name: "MongoDB", image: mongodb },
-    { name: "React.js", image: react },
-    { name: "Next.js", image: nextjs },
-    { name: "Tailwind", image: tailwind },
-    { name: "Styled Components", image: styledcomponents },
-    { name: "HTML", image: html },
-    { name: "CSS", image: css },
-  ];
+    { name: 'JavaScript', image: javascript },
+    { name: 'TypeScript', image: typescript },
+    { name: 'Node.js', image: node2 },
+    { name: 'Express', image: express },
+    { name: 'SQL', image: sql },
+    { name: 'MongoDB', image: mongodb },
+    { name: 'React.js', image: react },
+    { name: 'Next.js', image: nextjs },
+    { name: 'Tailwind', image: tailwind },
+    { name: 'Styled Components', image: styledcomponents },
+    { name: 'HTML', image: html },
+    { name: 'CSS', image: css },
+  ]
 
   return (
     <main className="py-12 lg:px-24">
@@ -46,7 +46,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <p className="text-sm leading-loose md:text-sm text-gray-800  ">
-          Hello Hello. I am isaac, a software developer from Nigeria. I work on
+          Hi😃. I'm Isaac, a software developer from Nigeria. I work on
           full-stack software development for the web with enthusiasm for a
           diverse range of topics. I find great joy in contributing to
           open-source, diving headfirst into coding projects, shit posting into
@@ -75,10 +75,10 @@ export default function About() {
               >
                 <div className="relative w-10 h-10 mb-2">
                   <Image
-                    src={skill.image || "/placeholder.svg"}
+                    src={skill.image || '/placeholder.svg'}
                     alt={`${skill.name} logo`}
                     fill
-                    style={{ objectFit: "contain" }}
+                    style={{ objectFit: 'contain' }}
                     quality={100}
                   />
                 </div>
@@ -88,8 +88,7 @@ export default function About() {
         </div>
       </div>
 
-
       <Contact id="contact" />
     </main>
-  );
+  )
 }
