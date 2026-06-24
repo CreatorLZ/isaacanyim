@@ -102,3 +102,74 @@ nav {
 .my-masonry-grid_column > div {
   margin-bottom: 10px;
 }
+
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [role="button"],
+body.custom-cursor-active input,
+body.custom-cursor-active textarea,
+body.custom-cursor-active select,
+body.custom-cursor-active label {
+  cursor: none !important;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7856ff;
+  pointer-events: none;
+  z-index: 10001;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cursor-dot.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor-dot.is-hidden {
+  opacity: 0;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(120, 86, 255, 0.55);
+  background: transparent;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  will-change: transform;
+  transition:
+    opacity 0.2s ease,
+    width 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    height 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    background 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    border-color 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    backdrop-filter 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.custom-cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor-ring.is-expanded {
+  width: 56px;
+  height: 56px;
+  background: rgba(120, 86, 255, 0.06);
+  border-color: rgba(120, 86, 255, 0.4);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
