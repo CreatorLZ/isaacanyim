@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
-import NavLink from './NavLink'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -155,10 +154,24 @@ export default function Projects() {
   }
 
   const projectAnimate = {
-    offscreen: { opacity: 0 },
-    onscreen: {
+    hidden: { opacity: 0, y: 22, scale: 0.97, filter: 'blur(6px)' },
+    visible: (index) => ({
       opacity: 1,
-      transition: { duration: 0.8, ease: 'easeInOut' },
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.45,
+        delay: index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+    exit: {
+      opacity: 0,
+      y: -10,
+      scale: 0.96,
+      filter: 'blur(4px)',
+      transition: { duration: 0.22, ease: 'easeIn' },
     },
   }
 
@@ -197,8 +210,8 @@ export default function Projects() {
         </motion.p>
       </div>
 
-      <LayoutGroup>
-        <div className="flex flex-wrap items-center justify-center gap-2 px-2 md:gap-5">
+      <LayoutGroup id="project-filters">
+        <div className="flex flex-wrap items-center justify-center gap-2 px-2 md:gap-3">
           {filters.map((filter) => {
             const isActive = activeFilter === filter
 
@@ -208,29 +221,35 @@ export default function Projects() {
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(filter)}
-                className={`relative overflow-hidden rounded-lg px-4 py-2 text-sm font-normal outline-none transition-colors md:px-5 md:text-base ${
+                className={`relative overflow-hidden rounded-xl px-4 py-2.5 text-sm outline-none transition-colors md:px-5 md:text-base ${
                   isActive
-                    ? 'text-white font-bold'
-                    : 'text-gray-500 hover:bg-white/70 hover:text-gray-900'
+                    ? 'text-primary font-bold'
+                    : 'font-normal text-gray-500 hover:bg-gray-200 hover:text-primary'
                 }`}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.96 }}
+                whileHover={!isActive ? { y: -1 } : undefined}
+                whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 420, damping: 28 }}
               >
                 {isActive && (
                   <motion.span
                     layoutId="active-project-filter"
-                    className="absolute inset-0 rounded-lg bg-gray-900 shadow-md"
+                    className="absolute inset-0 rounded-xl bg-gray-200"
+                    initial={{ scale: 0.88, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{
-                      type: 'spring',
-                      stiffness: 420,
-                      damping: 34,
+                      layout: { type: 'spring', stiffness: 380, damping: 32 },
+                      scale: { type: 'spring', stiffness: 500, damping: 28 },
+                      opacity: { duration: 0.15 },
                     }}
                   />
                 )}
                 <motion.span
                   className="relative z-10 block"
-                  animate={{ opacity: isActive ? 1 : 0.74 }}
+                  animate={{
+                    scale: isActive ? 1.03 : 1,
+                    opacity: isActive ? 1 : 0.8,
+                  }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 28 }}
                 >
                   {filter}
                 </motion.span>
@@ -243,18 +262,21 @@ export default function Projects() {
       {/* Project grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-7 gap-5 pt-12 md:px-12">
         <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               layout
-              initial={'offscreen'}
-              whileInView={'onscreen'}
-              exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.18 } }}
-              viewport={{ once: true, amount: 0.4 }}
+              custom={index}
               variants={projectAnimate}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.25 }}
               key={project.originalIndex}
-              className="relative group cursor-pointer rounded-lg shadow-lg  duration-500"
+              className="relative group cursor-pointer rounded-lg shadow-lg duration-500"
               onClick={() => handleClick(project.originalIndex)}
-              transition={{ layout: { duration: 0.35, ease: 'easeOut' } }}
+              transition={{
+                layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+              }}
             >
               <Image
                 src={project.image}
