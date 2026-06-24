@@ -192,7 +192,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="text-6xl md:text-5xl lg:text-[80px] font-bold tracking-tight text-gray-800 leading-[0.9] pb-0 mb-0"
+          className="text-6xl md:text-5xl lg:text-[80px] font-bold tracking-tight text-gray-700 leading-[0.9] pb-0 mb-0"
           style={{ letterSpacing: '-0.04em' }}
         >
           Projects
@@ -221,7 +221,7 @@ export default function Projects() {
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(filter)}
-                className={`relative overflow-hidden rounded-xl px-4 py-2.5 text-sm outline-none transition-colors md:px-5 md:text-base ${
+                className={`relative overflow-hidden rounded-xl px-3.5 py-2 text-xs outline-none transition-colors md:px-4 md:py-2 md:text-sm ${
                   isActive
                     ? 'text-primary font-bold'
                     : 'font-normal text-gray-500 hover:bg-gray-200 hover:text-primary'

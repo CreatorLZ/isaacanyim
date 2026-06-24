@@ -162,7 +162,7 @@ export default function Contact() {
         className="mx-auto max-w-2xl text-center"
         variants={itemVariants}
       >
-        <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 ">
+        <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-700 ">
           Let{"'"}s{" "}
           <span className="text-primary inline-block relative">
             {/* Animated letters */}
