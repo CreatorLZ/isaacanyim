@@ -131,6 +131,8 @@ const MouseTracker = () => {
 
     const onMouseLeave = () => {
       setVisible(false);
+      isHoveringRef.current = false;
+      setIsHovering(false);
       isGalleryActiveRef.current = false;
       setIsGalleryActive(false);
     };
