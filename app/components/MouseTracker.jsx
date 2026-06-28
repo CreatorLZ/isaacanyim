@@ -35,13 +35,18 @@ const MouseTracker = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef(null);
 
-  // Preload gallery images on mount to prevent flicker
+  const hasPreloadedRef = useRef(false);
+
+  // Preload gallery images on first activation only (not on mount)
   useEffect(() => {
-    GALLERY_IMAGES.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
+    if (isGalleryActive && !hasPreloadedRef.current) {
+      hasPreloadedRef.current = true;
+      GALLERY_IMAGES.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+  }, [isGalleryActive]);
 
   // Image cycling interval
   useEffect(() => {
