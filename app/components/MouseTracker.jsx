@@ -9,14 +9,57 @@ const DOT_STRETCH_MAX = 0.6;
 const RING_STRETCH_FACTOR = 0.06;
 const RING_STRETCH_MAX = 0.35;
 
+const GALLERY_LERP = 0.1;
+const GALLERY_CYCLE_MS = 400;
+const GALLERY_IMAGES = [
+  "/bagxtra.png",
+  "/taskwise.png",
+  "/ideafundr.png",
+  "/silkywriters.png",
+  "/wristy.png",
+  "/expressline.png",
+  "/moviebox.png",
+  "/adresstracker.png",
+];
+
 const lerp = (current, target, factor) => current + (target - current) * factor;
 
 const MouseTracker = () => {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
+  const galleryRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isGalleryActive, setIsGalleryActive] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  // Preload gallery images on mount to prevent flicker
+  useEffect(() => {
+    GALLERY_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // Image cycling interval
+  useEffect(() => {
+    if (isGalleryActive) {
+      intervalRef.current = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+      }, GALLERY_CYCLE_MS);
+    } else {
+      setCurrentImageIndex(0);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isGalleryActive]);
 
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -35,6 +78,8 @@ const MouseTracker = () => {
     let mouseY = 0;
     let ringX = 0;
     let ringY = 0;
+    let galleryX = 0;
+    let galleryY = 0;
     let prevMouseX = 0;
     let prevMouseY = 0;
     let prevRingX = 0;
@@ -46,8 +91,8 @@ const MouseTracker = () => {
 
     const onMouseMove = (e) => {
       if (!initialized) {
-        mouseX = ringX = prevMouseX = prevRingX = e.clientX;
-        mouseY = ringY = prevMouseY = prevRingY = e.clientY;
+        mouseX = ringX = galleryX = prevMouseX = prevRingX = e.clientX;
+        mouseY = ringY = galleryY = prevMouseY = prevRingY = e.clientY;
         initialized = true;
       }
 
@@ -56,6 +101,11 @@ const MouseTracker = () => {
       setVisible(true);
 
       const target = e.target;
+
+      // Check for gallery trigger
+      const galleryTrigger = target.closest("[data-cursor-gallery]");
+      setIsGalleryActive(!!galleryTrigger);
+
       setIsHovering(
         !!target.closest(
           'a, button, [role="button"], input, textarea, select, label, [data-clickable]'
@@ -63,7 +113,10 @@ const MouseTracker = () => {
       );
     };
 
-    const onMouseLeave = () => setVisible(false);
+    const onMouseLeave = () => {
+      setVisible(false);
+      setIsGalleryActive(false);
+    };
     const onMouseEnter = () => setVisible(true);
 
     const animate = () => {
@@ -94,6 +147,17 @@ const MouseTracker = () => {
 
       if (ringRef.current) {
         ringRef.current.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%) rotate(${ringAngle}deg) scale(${1 + ringStretch}, ${1 - 0.5 * ringStretch})`;
+      }
+
+      // Gallery follows cursor with its own lerp (offset so it doesn't cover the button)
+      galleryX = lerp(galleryX, mouseX, GALLERY_LERP);
+      galleryY = lerp(galleryY, mouseY, GALLERY_LERP);
+
+      // Subtle tilt based on cursor velocity for organic feel
+      const galleryTilt = Math.max(-12, Math.min(12, velX * 0.8));
+
+      if (galleryRef.current) {
+        galleryRef.current.style.transform = `translate(${galleryX + 15}px, ${galleryY - 140}px) rotate(${galleryTilt}deg)`;
       }
 
       rafId = requestAnimationFrame(animate);
@@ -127,12 +191,25 @@ const MouseTracker = () => {
       <div
         ref={ringRef}
         className={`custom-cursor-ring ${visible ? "is-visible" : ""} ${
-          isHovering ? "is-expanded" : ""
+          isHovering || isGalleryActive ? "is-expanded" : ""
         }`}
         aria-hidden="true"
       />
+      <div
+        ref={galleryRef}
+        className={`cursor-gallery ${isGalleryActive ? "is-active" : ""}`}
+        aria-hidden="true"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={GALLERY_IMAGES[currentImageIndex]}
+          alt=""
+          draggable={false}
+        />
+      </div>
     </>
   );
 };
 
 export default MouseTracker;
+
