@@ -14,10 +14,10 @@ const GALLERY_CYCLE_MS = 400;
 const GALLERY_IMAGES = [
   "/bagxtra.png",
   "/taskwise.webp",
-  "/_next/image?url=%2Fideafundr.png&w=384&q=75",
+  "/ideafundr.webp",
   "/silkywriters.webp",
   "/wristy.webp",
-  "/_next/image?url=%2Fexpressline.png&w=384&q=75",
+  "/expressline.webp",
   "/moviebox.webp",
   "/adresstracker.webp",
 ];

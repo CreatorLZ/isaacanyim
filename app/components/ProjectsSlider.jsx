@@ -4,8 +4,8 @@ import bagxtra from "/public/bagxtra.png";
 import adresstracker from "/public/adresstracker.webp";
 import moviebox from "/public/moviebox.webp";
 import taskwise from "/public/taskwise.webp";
-import expressline from "/public/expressline.png";
-import ideafundrsc from "/public/ideafundr.png";
+import expressline from "/public/expressline.webp";
+import ideafundrsc from "/public/ideafundr.webp";
 import wristy from "/public/wristy.webp";
 import silkywriters from "/public/silkywriters.webp";
 
