@@ -1,20 +1,29 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function ProjectCard({ name, image, link }) {
   return (
-    <div className="lg:w-[400px] w-[400px] lg:h-[280px] h-[280px] p-4 rounded-xl backdrop-blur-xs bg-white/10 border border-white/20 shadow-[0_8px_12px_0_rgba(31,38,135,0.37)]">
-      <div className="relative h-full w-full rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-white/20 to-transparent backdrop-blur-xs shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-        <div className="absolute inset-0">
+    <div
+      className="w-[450px] rounded-[24px] overflow-hidden border border-[#0000001a] bg-[#f5f5f5]/80 relative transition-all"
+      style={{ boxShadow: 'inset 0px 3px 0px 0px rgb(255, 255, 255)' }}
+    >
+      {/* Decorative corner dots */}
+      <div className="absolute top-3 left-3 w-[6px] h-[6px] rounded-full bg-[#c0c0c0] z-10" />
+      <div className="absolute top-3 right-3 w-[6px] h-[6px] rounded-full bg-[#c0c0c0] z-10" />
+      <div className="absolute bottom-3 left-3 w-[6px] h-[6px] rounded-full bg-[#c0c0c0] z-10" />
+      <div className="absolute bottom-3 right-3 w-[6px] h-[6px] rounded-full bg-[#c0c0c0] z-10" />
+
+      <div className="px-5 py-10 group">
+        <div className="relative w-full h-[200px] rounded-[18px] overflow-hidden">
           <Image
-            src={image || "/placeholder.svg?height=400&width=600"}
+            src={image || '/placeholder.svg?height=400&width=600'}
             alt={name}
             fill
-            className="object-contain" // Changed from object-cover to object-contain
-            sizes="(max-width: 400px) 100vw, 400px"
+            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            sizes="(max-width: 550px) 100vw, 550px"
             priority
           />
         </div>
       </div>
     </div>
-  );
+  )
 }
