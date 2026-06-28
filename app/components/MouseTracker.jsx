@@ -34,17 +34,21 @@ const MouseTracker = () => {
   const [isGalleryActive, setIsGalleryActive] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef(null);
+  const isHoveringRef = useRef(false);
+  const isGalleryActiveRef = useRef(false);
 
   const hasPreloadedRef = useRef(false);
 
   // Preload gallery images in the background when desktop cursor is enabled
-  // This improves subsequent cycles but does NOT block the interval from starting
+  // and ask the browser to decode them before hover-driven cycling begins.
   useEffect(() => {
     if (enabled && !hasPreloadedRef.current) {
       hasPreloadedRef.current = true;
       GALLERY_IMAGES.forEach((src) => {
         const img = new Image();
+        img.decoding = "async";
         img.src = src;
+        img.decode?.().catch(() => {});
       });
     }
   }, [enabled]);
@@ -110,17 +114,24 @@ const MouseTracker = () => {
 
       // Check for gallery trigger
       const galleryTrigger = target.closest("[data-cursor-gallery]");
-      setIsGalleryActive(!!galleryTrigger);
+      const nextIsGalleryActive = !!galleryTrigger;
+      if (isGalleryActiveRef.current !== nextIsGalleryActive) {
+        isGalleryActiveRef.current = nextIsGalleryActive;
+        setIsGalleryActive(nextIsGalleryActive);
+      }
 
-      setIsHovering(
-        !!target.closest(
-          'a, button, [role="button"], input, textarea, select, label, [data-clickable]'
-        )
+      const nextIsHovering = !!target.closest(
+        'a, button, [role="button"], input, textarea, select, label, [data-clickable]'
       );
+      if (isHoveringRef.current !== nextIsHovering) {
+        isHoveringRef.current = nextIsHovering;
+        setIsHovering(nextIsHovering);
+      }
     };
 
     const onMouseLeave = () => {
       setVisible(false);
+      isGalleryActiveRef.current = false;
       setIsGalleryActive(false);
     };
     const onMouseEnter = () => setVisible(true);
@@ -206,12 +217,18 @@ const MouseTracker = () => {
         className={`cursor-gallery ${isGalleryActive ? "is-active" : ""}`}
         aria-hidden="true"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={GALLERY_IMAGES[currentImageIndex]}
-          alt=""
-          draggable={false}
-        />
+        {GALLERY_IMAGES.map((src, index) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={src}
+            src={src}
+            alt=""
+            draggable={false}
+            decoding="async"
+            loading="eager"
+            className={index === currentImageIndex ? "is-current" : ""}
+          />
+        ))}
       </div>
     </>
   );
