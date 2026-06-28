@@ -36,35 +36,26 @@ const MouseTracker = () => {
   const intervalRef = useRef(null);
 
   const hasPreloadedRef = useRef(false);
-  const imagesLoadedRef = useRef(false);
-  const [imagesReady, setImagesReady] = useState(false);
 
-  // Preload gallery images when enabled (desktop only, not on mount for mobile)
+  // Preload gallery images in the background when desktop cursor is enabled
+  // This improves subsequent cycles but does NOT block the interval from starting
   useEffect(() => {
     if (enabled && !hasPreloadedRef.current) {
       hasPreloadedRef.current = true;
-      let loaded = 0;
       GALLERY_IMAGES.forEach((src) => {
         const img = new Image();
-        img.onload = img.onerror = () => {
-          loaded++;
-          if (loaded === GALLERY_IMAGES.length) {
-            imagesLoadedRef.current = true;
-            setImagesReady(true);
-          }
-        };
         img.src = src;
       });
     }
   }, [enabled]);
 
-  // Image cycling interval — only starts after images are cached
+  // Image cycling interval — starts immediately on hover, no loading gate
   useEffect(() => {
-    if (isGalleryActive && imagesReady) {
+    if (isGalleryActive) {
       intervalRef.current = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
       }, GALLERY_CYCLE_MS);
-    } else if (!isGalleryActive) {
+    } else {
       setCurrentImageIndex(0);
     }
 
@@ -74,7 +65,7 @@ const MouseTracker = () => {
         intervalRef.current = null;
       }
     };
-  }, [isGalleryActive, imagesReady]);
+  }, [isGalleryActive]);
 
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)");
