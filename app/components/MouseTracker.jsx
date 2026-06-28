@@ -36,25 +36,35 @@ const MouseTracker = () => {
   const intervalRef = useRef(null);
 
   const hasPreloadedRef = useRef(false);
+  const imagesLoadedRef = useRef(false);
+  const [imagesReady, setImagesReady] = useState(false);
 
-  // Preload gallery images on first activation only (not on mount)
+  // Preload gallery images when enabled (desktop only, not on mount for mobile)
   useEffect(() => {
-    if (isGalleryActive && !hasPreloadedRef.current) {
+    if (enabled && !hasPreloadedRef.current) {
       hasPreloadedRef.current = true;
+      let loaded = 0;
       GALLERY_IMAGES.forEach((src) => {
         const img = new Image();
+        img.onload = img.onerror = () => {
+          loaded++;
+          if (loaded === GALLERY_IMAGES.length) {
+            imagesLoadedRef.current = true;
+            setImagesReady(true);
+          }
+        };
         img.src = src;
       });
     }
-  }, [isGalleryActive]);
+  }, [enabled]);
 
-  // Image cycling interval
+  // Image cycling interval — only starts after images are cached
   useEffect(() => {
-    if (isGalleryActive) {
+    if (isGalleryActive && imagesReady) {
       intervalRef.current = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
       }, GALLERY_CYCLE_MS);
-    } else {
+    } else if (!isGalleryActive) {
       setCurrentImageIndex(0);
     }
 
@@ -64,7 +74,7 @@ const MouseTracker = () => {
         intervalRef.current = null;
       }
     };
-  }, [isGalleryActive]);
+  }, [isGalleryActive, imagesReady]);
 
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)");
