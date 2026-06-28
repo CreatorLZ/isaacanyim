@@ -1,13 +1,13 @@
 import InfiniteSlider from "./InfiniteSlider";
 import ProjectCard from "./Projectcard";
 import bagxtra from "/public/bagxtra.png";
-import adresstracker from "/public/adresstracker.png";
-import moviebox from "/public/moviebox.png";
-import taskwise from "/public/taskwise.png";
+import adresstracker from "/public/adresstracker.webp";
+import moviebox from "/public/moviebox.webp";
+import taskwise from "/public/taskwise.webp";
 import expressline from "/public/expressline.png";
 import ideafundrsc from "/public/ideafundr.png";
-import wristy from "/public/wristy.png";
-import silkywriters from "/public/silkywriters.png";
+import wristy from "/public/wristy.webp";
+import silkywriters from "/public/silkywriters.webp";
 
 const projects = [
   {

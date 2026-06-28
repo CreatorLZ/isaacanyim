@@ -70,7 +70,7 @@ export default function Projects() {
       github: 'https://github.com/CreatorLZ/Moviebox',
       description:
         'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
-      image: '/moviebox.png',
+      image: '/moviebox.webp',
       details: 'Watch trailers, read reviews of any movie in the world!',
       skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
     },

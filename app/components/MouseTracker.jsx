@@ -13,13 +13,13 @@ const GALLERY_LERP = 0.1;
 const GALLERY_CYCLE_MS = 400;
 const GALLERY_IMAGES = [
   "/bagxtra.png",
-  "/taskwise.png",
-  "/ideafundr.png",
-  "/silkywriters.png",
-  "/wristy.png",
-  "/expressline.png",
-  "/moviebox.png",
-  "/adresstracker.png",
+  "/taskwise.webp",
+  "/_next/image?url=%2Fideafundr.png&w=384&q=75",
+  "/silkywriters.webp",
+  "/wristy.webp",
+  "/_next/image?url=%2Fexpressline.png&w=384&q=75",
+  "/moviebox.webp",
+  "/adresstracker.webp",
 ];
 
 const lerp = (current, target, factor) => current + (target - current) * factor;

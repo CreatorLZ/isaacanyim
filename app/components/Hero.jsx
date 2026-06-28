@@ -4,18 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { AnimatedText } from "./AnimatedText";
-import Girlfriend from "/public/Girlfriend.jpg";
-import web1 from "/public/web1.jpg";
-import web2 from "/public/web2.jpg";
-import code from "/public/code.png";
-import Isaac from "/public/isaac.jpeg";
-import product1 from "/public/product1.jpg";
-import product2 from "/public/product2.jpg";
-import automation3 from "/public/automation3.jpg";
-import automation4 from "/public/automation4.jpg";
-
-import seo1 from "/public/seo1.jpg";
-import seo2 from "/public/seo2.jpg";
 import { Montserrat } from "next/font/google";
 
 import {
