@@ -77,32 +77,38 @@ export default function Footer() {
         </Link>
       </div>
 
-      {/* Mobile Icons */}
-      <div className="fixed bottom-0 sm:hidden flex gap-7 items-center p-3 w-full justify-between backdrop-blur-sm">
-        <Link
-          href="https://x.com/Fathe__r"
-          className="hover:opacity-75 transition-opacity"
-        >
-          <TwitterIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
-        </Link>
-        <Link
-          href="https://www.facebook.com/anyim.isaac.5?mibextid=ZbWKwL"
-          className="hover:opacity-75 transition-opacity"
-        >
-          <FacebookIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/isaac-anyim-76221b269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          className="hover:opacity-75 transition-opacity"
-        >
-          <LinkedInIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
-        </Link>
-        <Link
-          href="https://github.com/CreatorLZ"
-          className="hover:opacity-75 transition-opacity"
-        >
-          <GitHubIcon className="w-6 h-6 text-gray-700 hover:text-primary transition-colors" />
-        </Link>
+      {/* Mobile Icons — frosted dock */}
+      <div className="fixed bottom-0 sm:hidden w-full z-40">
+        <div className="flex items-center justify-around bg-white/80 backdrop-blur-md border-t border-gray-200/80 rounded-t-2xl pb-4 pt-3 px-6">
+          <Link
+            href="https://x.com/Fathe__r"
+            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-gray-100 transition-colors active:scale-95"
+            aria-label="Twitter / X"
+          >
+            <TwitterIcon className="w-7 h-7 text-gray-700 hover:text-primary transition-colors" />
+          </Link>
+          <Link
+            href="https://www.facebook.com/anyim.isaac.5?mibextid=ZbWKwL"
+            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-gray-100 transition-colors active:scale-95"
+            aria-label="Facebook"
+          >
+            <FacebookIcon className="w-7 h-7 text-gray-700 hover:text-primary transition-colors" />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/isaac-anyim-76221b269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-gray-100 transition-colors active:scale-95"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon className="w-7 h-7 text-gray-700 hover:text-primary transition-colors" />
+          </Link>
+          <Link
+            href="https://github.com/CreatorLZ"
+            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-gray-100 transition-colors active:scale-95"
+            aria-label="GitHub"
+          >
+            <GitHubIcon className="w-7 h-7 text-gray-700 hover:text-primary transition-colors" />
+          </Link>
+        </div>
       </div>
     </footer>
   );

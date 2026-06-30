@@ -33,9 +33,11 @@ export default function About() {
   ]
 
   return (
-    <main className="py-12 lg:px-24">
+    <main className="py-12 lg:px-24 px-5 md:px-10">
       <div className="w-full flex flex-col lg:px-10 px-0">
-        <h2 className="text-4xl lg:text-6xl font-extrabold text-gray-700">About Me.</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-700 tracking-tight">
+          About Me.
+        </h2>
       </div>
 
       <motion.div
@@ -45,7 +47,7 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <p className="text-sm leading-loose md:text-sm text-gray-800  ">
+        <p className="text-xs leading-8 md:text-sm text-gray-800">
           Hi😃. I'm Isaac, a software developer from Nigeria. I work on
           full-stack software development for the web with enthusiasm for a
           diverse range of topics. I find great joy in contributing to
@@ -61,7 +63,16 @@ export default function About() {
 
       {/* Skills Image Slider */}
       <div className="w-full md:px-8">
-        <div className="w-full overflow-hidden">
+        {/* Edge-fade mask: icons fade out at both edges instead of hard-clipping */}
+        <div
+          className="w-full overflow-hidden"
+          style={{
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+        >
           <InfiniteSlider
             duration={30}
             durationOnHover={60}

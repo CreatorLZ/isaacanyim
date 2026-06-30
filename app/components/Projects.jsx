@@ -202,7 +202,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-          className="text-gray-500 text-sm md:text-base leading-relaxed max-w-xs md:pb-2"
+          className="text-gray-500 text-xs md:text-base leading-relaxed max-w-xs md:pb-2"
           style={{ fontFamily: 'var(--font-space-mono), monospace' }}
         >
           Selected work and side projects. Click on any project to explore

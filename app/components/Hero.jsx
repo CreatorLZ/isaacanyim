@@ -1,14 +1,15 @@
-"use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { TypeAnimation } from "react-type-animation";
-import { AnimatedText } from "./AnimatedText";
-import { Montserrat } from "next/font/google";
+'use client'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { TypeAnimation } from 'react-type-animation'
+import { AnimatedText } from './AnimatedText'
+import { Montserrat } from 'next/font/google'
 
 import {
   ArrowRight,
   Briefcase,
+  ChevronDown,
   Compass,
   Lightbulb,
   Puzzle,
@@ -18,13 +19,13 @@ import {
   Target,
   Users,
   Users2,
-} from "lucide-react";
+} from 'lucide-react'
 
 const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
-});
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
+})
 
 const sectionVariants = {
   hidden: {
@@ -36,10 +37,10 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
-};
+}
 
 const columnVariants = {
   hidden: {
@@ -51,10 +52,10 @@ const columnVariants = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
-};
+}
 
 export default function Hero() {
   const detailsAnimate = {
@@ -64,7 +65,7 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  };
+  }
   const descAnimate = {
     offscreen: { opacity: 0, y: 10 },
     onscreen: {
@@ -72,7 +73,7 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  };
+  }
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -83,7 +84,7 @@ export default function Hero() {
         duration: 2,
       },
     },
-  };
+  }
   const itemVariants = {
     hidden: { opacity: 0, y: 70 },
     visible: {
@@ -91,12 +92,12 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 1.2,
-        type: "spring",
+        type: 'spring',
         bounce: 0.2,
         stiffness: 40,
       },
     },
-  };
+  }
 
   const containerVariants2 = {
     hidden: { opacity: 0 },
@@ -107,7 +108,7 @@ export default function Hero() {
         duration: 2,
       },
     },
-  };
+  }
 
   const itemVariants2 = {
     hidden: { x: 80 },
@@ -115,14 +116,14 @@ export default function Hero() {
       x: 0,
       transition: { duration: 1.5 },
     },
-  };
+  }
   const itemVariants3 = {
     hidden: { x: -70 },
     visible: {
       x: 0,
       transition: { duration: 1.5 },
     },
-  };
+  }
 
   const buttonVariants = {
     hidden: {
@@ -137,7 +138,7 @@ export default function Hero() {
       transition: {
         duration: 0.5,
         delay: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
       viewport: {
         once: true,
@@ -149,43 +150,36 @@ export default function Hero() {
         duration: 0.2,
       },
     },
-  };
+  }
 
   const frameworks = [
-    { name: "Progress Driven", icon: <Target className="w-4 h-4 mr-2" /> },
-    { name: "Customer Centric", icon: <Users className="w-4 h-4 mr-2" /> },
-    { name: "Business Focused", icon: <Briefcase className="w-4 h-4 mr-2" /> },
-    { name: "Problem Solver", icon: <Puzzle className="w-4 h-4 mr-2" /> },
-    { name: "Detail Oriented", icon: <Search className="w-4 h-4 mr-2" /> },
-    { name: "Team Player", icon: <Users2 className="w-4 h-4 mr-2" /> },
-    { name: "Fast Learner", icon: <Lightbulb className="w-4 h-4 mr-2" /> },
-    { name: "Innovative", icon: <Sparkles className="w-4 h-4 mr-2" /> },
-    { name: "Adaptable", icon: <Compass className="w-4 h-4 mr-2" /> },
-    { name: "Quality Focused", icon: <Shield className="w-4 h-4 mr-2" /> },
-  ];
+    { name: 'Progress Driven', icon: <Target className="w-4 h-4 mr-2" /> },
+    { name: 'Customer Centric', icon: <Users className="w-4 h-4 mr-2" /> },
+    { name: 'Business Focused', icon: <Briefcase className="w-4 h-4 mr-2" /> },
+    { name: 'Problem Solver', icon: <Puzzle className="w-4 h-4 mr-2" /> },
+    { name: 'Detail Oriented', icon: <Search className="w-4 h-4 mr-2" /> },
+    { name: 'Team Player', icon: <Users2 className="w-4 h-4 mr-2" /> },
+    { name: 'Fast Learner', icon: <Lightbulb className="w-4 h-4 mr-2" /> },
+    { name: 'Innovative', icon: <Sparkles className="w-4 h-4 mr-2" /> },
+    { name: 'Adaptable', icon: <Compass className="w-4 h-4 mr-2" /> },
+    { name: 'Quality Focused', icon: <Shield className="w-4 h-4 mr-2" /> },
+  ]
 
   return (
     <motion.main
-      initial={"offscreen"}
-      whileInView={"onscreen"}
-      viewport={{ once: "true", amount: 0.5 }}
+      initial={'offscreen'}
+      whileInView={'onscreen'}
+      viewport={{ once: 'true', amount: 0.5 }}
       transition={{ staggerChildren: 0.1 }}
-      className="text-center flex-col pb-0 "
+      className="text-center flex-col pb-0 overflow-x-hidden"
     >
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        className=" flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 h-[65vh] lg:h-[100vh] md:gap-14 gap-4 "
+        className="flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 min-h-[85svh] lg:h-[100vh] md:gap-14 gap-4"
       >
-        <p className="hidden items-center gap-2 text-sm text-gray-600 mb-0">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-          </span>
-          available for new projects
-        </p>
         <motion.h1
           variants={itemVariants2}
           className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
@@ -195,7 +189,7 @@ export default function Hero() {
         </motion.h1>
         <motion.h1
           variants={itemVariants3}
-          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-tight pb-0 font-extrabold `}
+          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-tight pb-0 font-extrabold -mt-2 sm:mt-0`}
         >
           A SOFTWARE ENGINEER.
         </motion.h1>
@@ -205,17 +199,12 @@ export default function Hero() {
         </AnimatedText> */}
         <TypeAnimation
           sequence={[
-            "I build functional, captivating & user-friendly stuff for the web.",
+            'I build functional, captivating & user-friendly stuff for the web.',
             1000, // Wait 1 second before repeating
           ]}
           wrapper="p" // Use a paragraph tag as the wrapper
           speed={70} // Typing speed (higher is faster)
-          style={{
-            // fontSize: "1rem",
-            lineHeight: "2",
-            paddingBottom: "2.5rem",
-          }}
-          className="leading-loose text-sm lg:text-base pb-10 text-gray-700"
+          className="leading-loose text-xs lg:text-base pb-6 md:pb-10 text-gray-700"
           repeat={Infinity} // Loop the animation
         />
         <motion.div
@@ -240,7 +229,22 @@ export default function Hero() {
             <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
           </Link>
         </motion.div>
+
+        {/* Scroll indicator — mobile only */}
+        <motion.div
+          className="lg:hidden flex flex-col items-center gap-1 mt-2 text-gray-400"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.6 }}
+        >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronDown className="w-5 h-5" />
+          </motion.div>
+        </motion.div>
       </motion.div>
     </motion.main>
-  );
+  )
 }

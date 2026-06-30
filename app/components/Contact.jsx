@@ -1,64 +1,64 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+'use client'
+import { useState, useRef, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
-  const [success, setSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    message: "",
-  });
-  const form = useRef();
-  const timeoutRef = useRef(null);
+    user_name: '',
+    user_email: '',
+    message: '',
+  })
+  const form = useRef()
+  const timeoutRef = useRef(null)
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors = {}
 
     if (!formData.user_name.trim()) {
-      newErrors.user_name = "Name is required";
+      newErrors.user_name = 'Name is required'
     }
 
     if (!formData.user_email.trim()) {
-      newErrors.user_email = "Email is required";
+      newErrors.user_email = 'Email is required'
     } else if (!/\S+@\S+\.\S+/.test(formData.user_email)) {
-      newErrors.user_email = "Please enter a valid email";
+      newErrors.user_email = 'Please enter a valid email'
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = 'Message is required'
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }));
+    }))
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
-        [name]: "",
-      }));
+        [name]: '',
+      }))
     }
-  };
+  }
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!validateForm()) {
-      return;
+      return
     }
 
-    setIsLoading(true);
+    setIsLoading(true)
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -66,33 +66,33 @@ export default function Contact() {
         form.current,
         {
           publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-        }
+        },
       )
       .then(
         () => {
-          console.log("SUCCESS!");
-          setIsLoading(false);
-          setSuccess(true);
-          setFormData({ user_name: "", user_email: "", message: "" });
-          e.target.reset();
+          console.log('SUCCESS!')
+          setIsLoading(false)
+          setSuccess(true)
+          setFormData({ user_name: '', user_email: '', message: '' })
+          e.target.reset()
         },
         (error) => {
-          console.log("FAILED...", error.text);
-          setIsLoading(false);
-        }
-      );
-  };
+          console.log('FAILED...', error.text)
+          setIsLoading(false)
+        },
+      )
+  }
 
   // Handle success message disappearance after timeout
   useEffect(() => {
     if (success) {
       timeoutRef.current = setTimeout(() => {
-        setSuccess(false); // Set success state to false after timeout
-      }, 5000);
+        setSuccess(false) // Set success state to false after timeout
+      }, 5000)
     }
 
-    return () => clearTimeout(timeoutRef.current); // Cleanup on unmount
-  }, [success]);
+    return () => clearTimeout(timeoutRef.current) // Cleanup on unmount
+  }, [success])
 
   // Animation variants
   const containerVariants = {
@@ -104,16 +104,16 @@ export default function Contact() {
         delayChildren: 0.3,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
-  };
+  }
 
   // Special animation for "Talk!"
   const letterVariants = {
@@ -127,7 +127,7 @@ export default function Contact() {
         ease: [0.2, 0.65, 0.3, 0.9],
       },
     }),
-  };
+  }
 
   // Animation for form fields
   const formVariants = {
@@ -137,10 +137,10 @@ export default function Contact() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
-  };
+  }
 
   return (
     <motion.div
@@ -155,18 +155,18 @@ export default function Contact() {
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
       >
-        {" "}
+        {' '}
       </div>
 
       <motion.div
         className="mx-auto max-w-2xl text-center"
         variants={itemVariants}
       >
-        <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-700 ">
-          Let{"'"}s{" "}
+        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-700 break-words">
+          Let{"'"}s{' '}
           <span className="text-primary inline-block relative">
             {/* Animated letters */}
-            {Array.from("Talk!").map((letter, i) => (
+            {Array.from('Talk!').map((letter, i) => (
               <motion.span
                 key={i}
                 custom={i}
@@ -183,20 +183,20 @@ export default function Contact() {
         </h2>
 
         <motion.p
-          className="mt-6 text-sm leading-relaxed text-gray-600 md:text-base md:leading-8"
+          className="mt-6 text-xs leading-relaxed text-gray-600 md:text-base md:leading-8"
           variants={itemVariants}
         >
           Whether you{"'"}re looking to collaborate, have a project in mind, or
           simply want to connect — I{"'"}m always open to new opportunities.
-          Feel free to send me a message here or directly{" "}
+          Feel free to send me a message here or directly{' '}
           <motion.a
             href="mailto:isaacchimarokeanyim@gmail.com"
             className="text-primary font-semibold hover:underline inline-block"
             whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
             reach out via email
-          </motion.a>{" "}
+          </motion.a>{' '}
           and let&apos;s start a conversation!
         </motion.p>
       </motion.div>
@@ -227,7 +227,7 @@ export default function Contact() {
                 value={formData.user_name}
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.user_name ? "ring-red-500" : "ring-gray-300"
+                  errors.user_name ? 'ring-red-500' : 'ring-gray-300'
                 } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
               />
               {errors.user_name && (
@@ -252,7 +252,7 @@ export default function Contact() {
                 value={formData.user_email}
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.user_email ? "ring-red-500" : "ring-gray-300"
+                  errors.user_email ? 'ring-red-500' : 'ring-gray-300'
                 } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
               />
               {errors.user_email && (
@@ -277,7 +277,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.message ? "ring-red-500" : "ring-gray-300"
+                  errors.message ? 'ring-red-500' : 'ring-gray-300'
                 } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-sm sm:text-sm sm:leading-6`}
               />
               {errors.message && (
@@ -298,7 +298,7 @@ export default function Contact() {
             className="block w-full rounded-md bg-primary px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             disabled={isLoading}
           >
-            {isLoading ? "Sending..." : "Send Message"}
+            {isLoading ? 'Sending...' : 'Send Message'}
           </button>
         </motion.div>
       </motion.form>
@@ -309,7 +309,7 @@ export default function Contact() {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 100, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -330,5 +330,5 @@ export default function Contact() {
         </motion.div>
       )}
     </motion.div>
-  );
+  )
 }

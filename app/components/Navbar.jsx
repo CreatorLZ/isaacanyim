@@ -71,6 +71,23 @@ export default function Navbar() {
     },
   };
 
+  // Mobile menu stagger variants
+  const menuContainerVariants = {
+    closed: { opacity: 0 },
+    open: {
+      opacity: 1,
+      transition: { staggerChildren: 0.06, delayChildren: 0.05 },
+    },
+  };
+  const menuItemVariants = {
+    closed: { opacity: 0, x: 20 },
+    open: {
+      opacity: 1,
+      x: 0,
+      transition: { type: 'spring', stiffness: 300, damping: 28 },
+    },
+  };
+
   return (
     <>
       <nav
@@ -208,51 +225,59 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col space-y-6 p-8">
-          <NavLink
-            href="/"
-            className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
-            onClick={closeMenu}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            href="/about"
-            className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
-            onClick={closeMenu}
-          >
-            About
-          </NavLink>
-          {/* <NavLink
-            href="/#skills"
-            className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
-            onClick={closeMenu}
-          >
-            Skills
-          </NavLink> */}
-          <NavLink
-            href="/#projects"
-            className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
-            onClick={closeMenu}
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            href="/#contact"
-            className="text-gray-700 hover:text-primary text-xl py-2 font-medium"
-            onClick={closeMenu}
-          >
-            Contact
-          </NavLink>
-          <Link
-            href="/#contact"
-            className="mt-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex items-center justify-between text-lg font-medium w-full transition-colors"
-            onClick={closeMenu}
-          >
-            <span>SAY HI</span>
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
-        </div>
+        <motion.div
+          className="flex flex-col space-y-2 p-8"
+          variants={menuContainerVariants}
+          initial="closed"
+          animate={isMenuOpen ? "open" : "closed"}
+        >
+          <motion.div variants={menuItemVariants}>
+            <NavLink
+              href="/"
+              className="text-gray-700 hover:text-primary text-xl py-3 px-3 font-medium block rounded-lg transition-colors hover:bg-gray-50 [&.active]:border-l-2 [&.active]:border-primary [&.active]:pl-3"
+              onClick={closeMenu}
+            >
+              Home
+            </NavLink>
+          </motion.div>
+          <motion.div variants={menuItemVariants}>
+            <NavLink
+              href="/about"
+              className="text-gray-700 hover:text-primary text-xl py-3 px-3 font-medium block rounded-lg transition-colors hover:bg-gray-50 [&.active]:border-l-2 [&.active]:border-primary [&.active]:pl-3"
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
+          </motion.div>
+          <motion.div variants={menuItemVariants}>
+            <NavLink
+              href="/#projects"
+              className="text-gray-700 hover:text-primary text-xl py-3 px-3 font-medium block rounded-lg transition-colors hover:bg-gray-50 [&.active]:border-l-2 [&.active]:border-primary [&.active]:pl-3"
+              onClick={closeMenu}
+            >
+              Projects
+            </NavLink>
+          </motion.div>
+          <motion.div variants={menuItemVariants}>
+            <NavLink
+              href="/#contact"
+              className="text-gray-700 hover:text-primary text-xl py-3 px-3 font-medium block rounded-lg transition-colors hover:bg-gray-50 [&.active]:border-l-2 [&.active]:border-primary [&.active]:pl-3"
+              onClick={closeMenu}
+            >
+              Contact
+            </NavLink>
+          </motion.div>
+          <motion.div variants={menuItemVariants} className="pt-4">
+            <Link
+              href="/#contact"
+              className="mt-2 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex items-center justify-between text-lg font-medium w-full transition-colors"
+              onClick={closeMenu}
+            >
+              <span>SAY HI</span>
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </>
   );
