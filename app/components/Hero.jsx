@@ -178,7 +178,7 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true, amount: 0 }}
         variants={containerVariants2}
-        className="flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 min-h-[85svh] lg:h-[100vh] md:gap-14 gap-4"
+        className="flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 min-h-[50svh] md:min-h-[85svh] lg:h-[100vh] md:gap-14 gap-4"
       >
         <motion.h1
           variants={itemVariants2}
