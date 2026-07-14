@@ -4,6 +4,11 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { TypeAnimation } from 'react-type-animation'
 import { AnimatedText } from './AnimatedText'
+import {
+  TwitterIcon,
+  LinkedInIcon,
+  GitHubIcon,
+} from './SocialIcons'
 import { Montserrat } from 'next/font/google'
 
 import {
@@ -207,6 +212,7 @@ export default function Hero() {
           className="leading-loose text-xs lg:text-base pb-6 md:pb-10 text-gray-700"
           repeat={Infinity} // Loop the animation
         />
+
         <motion.div
           variants={buttonVariants}
           initial="hidden"
@@ -244,6 +250,25 @@ export default function Hero() {
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
+      </motion.div>
+
+      {/* Desktop Socials - Fixed Right */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        className="fixed bottom-10 right-10 hidden lg:flex items-center gap-3 bg-white/60 backdrop-blur-md px-5 py-3 rounded-full border border-gray-200/50 shadow-xl z-50 transition-all duration-300 ease-out"
+      >
+        <Link href="https://x.com/Fathe__r" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="Twitter / X">
+          <TwitterIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        </Link>
+
+        <Link href="https://www.linkedin.com/in/isaac-anyim-76221b269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="LinkedIn">
+          <LinkedInIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        </Link>
+        <Link href="https://github.com/CreatorLZ" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="GitHub">
+          <GitHubIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        </Link>
       </motion.div>
     </motion.main>
   )

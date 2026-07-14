@@ -168,10 +168,10 @@ body.custom-cursor-active label {
 .custom-cursor-ring.is-expanded {
   width: 56px;
   height: 56px;
-  background: rgba(120, 86, 255, 0.06);
-  border-color: rgba(120, 86, 255, 0.4);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(120, 86, 255, 0.15);
+  border-color: rgba(120, 86, 255, 0.5);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* Cursor Gallery */

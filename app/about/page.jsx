@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import Contact from '../components/Contact'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -17,6 +18,15 @@ import tailwind from '/public/tailwind.png'
 import InfiniteSlider from '../components/InfiniteSlider'
 
 export default function About() {
+  const [greeting, setGreeting] = useState('Hi 😃')
+
+  useEffect(() => {
+    const hour = new Date().getHours()
+    if (hour < 12) setGreeting('Good morning 🌞')
+    else if (hour < 18) setGreeting('Good afternoon 🌤️')
+    else setGreeting('Good evening 🌚')
+  }, [])
+
   const skills = [
     { name: 'JavaScript', image: javascript },
     { name: 'TypeScript', image: typescript },
@@ -48,7 +58,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <p className="text-xs leading-8 md:text-sm text-gray-800">
-          Hi😃. I'm Isaac, a software developer from Nigeria. I work on
+          {greeting}. I'm Isaac, a software developer from Nigeria. I work on
           full-stack software development for the web with enthusiasm for a
           diverse range of topics. I find great joy in contributing to
           open-source, diving headfirst into coding projects, shit posting into
