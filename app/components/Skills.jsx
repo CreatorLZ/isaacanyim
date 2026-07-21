@@ -16,7 +16,6 @@ import styledcomponents from "/public/styledcomponents.png";
 import tailwind from "/public/tailwind.png";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import InfiniteSlider from "./InfiniteSlider";
 import { ArrowRight } from "lucide-react";
 
 export default function Skills() {
@@ -44,21 +43,7 @@ export default function Skills() {
     { name: "HTML", image: html },
     { name: "CSS", image: css },
   ];
-  // const frameworks = [
-  //   { name: "Material UI" },
-  //   { name: "Bootstrap" },
-  //   { name: "Git" },
-  //   { name: "GitHub" },
-  //   { name: "Firebase" },
-  //   { name: "Redux Toolkit" },
-  //   { name: "Zustand" },
-  //   { name: "React Query" },
-  //   { name: "Context API" },
-  //   { name: "Framer Motion" },
-  //   { name: "Vite" },
-  //   { name: "Swift XR" },
-  //   { name: "More..." },
-  // ];
+
   const visibleSkills = showAllSkills ? skills : skills.slice(0, 3);
 
   const containerVariants = {
@@ -71,23 +56,6 @@ export default function Skills() {
       },
     },
   };
-
-  // const skillCardVariants = {
-  //   hidden: {
-  //     opacity: 0,
-  //     y: 20,
-  //     scale: 0.95,
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     scale: 1,
-  //     transition: {
-  //       duration: 0.5,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
 
   const buttonVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -117,7 +85,7 @@ export default function Skills() {
         <motion.button
           variants={buttonVariants}
           whileHover="hover"
-          className="px-2 py-2 mb-8 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+          className="px-2 py-2 mb-8 border-2 border-border uppercase bg-transparent text-text-secondary transition duration-200 text-sm"
         >
           SKILLS
         </motion.button>
@@ -129,21 +97,21 @@ export default function Skills() {
           {visibleSkills.map((skill, index) => (
             <motion.div
               key={index}
-              className="relative w-full md:w-72 h-48 border border-gray-400 items-center justify-center flex flex-col text-center"
+              className="relative w-full md:w-72 h-48 border border-border items-center justify-center flex flex-col text-center bg-surface"
             >
-              <div className="absolute top-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-12px] mt-[-13px] text-2xl font-light">
+              <div className="absolute top-0 left-0 flex items-center justify-center w-6 h-6 text-text-muted ml-[-12px] mt-[-13px] text-2xl font-light">
                 +
               </div>
-              <div className="absolute top-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-13px] mt-[-13px] text-2xl font-light">
+              <div className="absolute top-0 right-0 flex items-center justify-center w-6 h-6 text-text-muted mr-[-13px] mt-[-13px] text-2xl font-light">
                 +
               </div>
-              <div className="absolute bottom-0 left-0 flex items-center justify-center w-6 h-6 text-black ml-[-11px] mb-[-10px] text-2xl font-light">
+              <div className="absolute bottom-0 left-0 flex items-center justify-center w-6 h-6 text-text-muted ml-[-11px] mb-[-10px] text-2xl font-light">
                 +
               </div>
-              <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 text-black mr-[-11px] mb-[-10px] text-2xl font-light">
+              <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 text-text-muted mr-[-11px] mb-[-10px] text-2xl font-light">
                 +
               </div>
-              <h3 className="font-bold text-3xl">{skill.name}</h3>
+              <h3 className="font-bold text-3xl text-text-primary">{skill.name}</h3>
               <Image
                 src={skill.image || "/placeholder.svg"}
                 alt={`${skill.name} logo`}
@@ -167,7 +135,7 @@ export default function Skills() {
             <motion.button
               whileHover="hover"
               variants={buttonVariants}
-              className="px-8 py-5 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+              className="px-8 py-5 border-2 border-border uppercase bg-transparent text-text-secondary transition duration-200 text-sm"
               onClick={() => setShowAllSkills(!showAllSkills)}
             >
               {showAllSkills ? "Show Less" : "Show More"}
@@ -175,7 +143,7 @@ export default function Skills() {
           </Link>
           <Link
             href="/#skills"
-            className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+            className="ml-4 bg-accent hover:opacity-90 text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-opacity group"
             onClick={() => setShowAllSkills(!showAllSkills)}
           >
             {showAllSkills ? "Show Less" : "Show More"}

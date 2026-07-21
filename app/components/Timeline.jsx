@@ -21,21 +21,20 @@ const TimelineItem = ({
     >
       {/* Timeline line and dot */}
       <div className="flex flex-col items-center relative">
-        <div className="w-5 h-5 rounded-full bg-white border-2 border-gray-700 z-10"></div>
-        {/* Vertical line connecting to the next dot */}
-        <div className="absolute top-5 left-2.5 w-0.5 bg-gray-700 h-[calc(100%+1rem)]"></div>
+        <div className="w-5 h-5 rounded-full bg-bg border-2 border-border z-10"></div>
+        <div className="absolute top-5 left-2.5 w-0.5 bg-border h-[calc(100%+1rem)]"></div>
       </div>
 
       {/* Content */}
       <div className="pb-16 flex-1">
         <div className="lg:flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <h3 className="text-xl font-bold">{title}</h3>
+            <h3 className="text-xl font-bold text-text-primary">{title}</h3>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.3 }}
-              className="text-gray-700"
+              className="text-text-secondary"
             >
               {title === "Engineering" && (
                 <motion.div
@@ -67,7 +66,6 @@ const TimelineItem = ({
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   animate={{
                     scale: [1, 1.1, 1],
-                    color: ["#374151", "#6366F1", "#374151"],
                   }}
                   transition={{
                     duration: 3,
@@ -83,7 +81,7 @@ const TimelineItem = ({
           {viewLink && (
             <Link
               href={viewLink.url}
-              className="text-sm underline "
+              className="text-sm underline text-text-secondary hover:text-text-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -91,7 +89,7 @@ const TimelineItem = ({
             </Link>
           )}
         </div>
-        <p className="text-gray-700 text-sm leading-loose">{content}</p>
+        <p className="text-text-secondary text-sm leading-loose">{content}</p>
       </div>
     </motion.div>
   );

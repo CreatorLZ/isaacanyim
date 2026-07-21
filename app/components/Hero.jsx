@@ -1,275 +1,115 @@
 'use client'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { TypeAnimation } from 'react-type-animation'
-import { AnimatedText } from './AnimatedText'
-import {
-  TwitterIcon,
-  LinkedInIcon,
-  GitHubIcon,
-} from './SocialIcons'
-import { Montserrat } from 'next/font/google'
+import { TwitterIcon, LinkedInIcon, GitHubIcon } from './SocialIcons'
+import { ArrowRight, Mail } from 'lucide-react'
+import { SOCIAL_LINKS } from '../lib/social-links'
 
-import {
-  ArrowRight,
-  Briefcase,
-  ChevronDown,
-  Compass,
-  Lightbulb,
-  Puzzle,
-  Search,
-  Shield,
-  Sparkles,
-  Target,
-  Users,
-  Users2,
-} from 'lucide-react'
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-montserrat',
-})
-
-const sectionVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
+const containerVariants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.8,
-      ease: 'easeOut',
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 }
 
-const columnVariants = {
-  hidden: {
-    opacity: 0,
-    x: -30,
-  },
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 }
 
 export default function Hero() {
-  const detailsAnimate = {
-    offscreen: { opacity: 0, y: -10 },
-    onscreen: {
-      opacity: [0, 1],
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
-  const descAnimate = {
-    offscreen: { opacity: 0, y: 10 },
-    onscreen: {
-      opacity: [0, 1],
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.3,
-        duration: 2,
-      },
-    },
-  }
-  const itemVariants = {
-    hidden: { opacity: 0, y: 70 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.2,
-        type: 'spring',
-        bounce: 0.2,
-        stiffness: 40,
-      },
-    },
-  }
-
-  const containerVariants2 = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        duration: 2,
-      },
-    },
-  }
-
-  const itemVariants2 = {
-    hidden: { x: 80 },
-    visible: {
-      x: 0,
-      transition: { duration: 1.5 },
-    },
-  }
-  const itemVariants3 = {
-    hidden: { x: -70 },
-    visible: {
-      x: 0,
-      transition: { duration: 1.5 },
-    },
-  }
-
-  const buttonVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.8,
-        ease: 'easeOut',
-      },
-      viewport: {
-        once: true,
-      },
-    },
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  }
-
-  const frameworks = [
-    { name: 'Progress Driven', icon: <Target className="w-4 h-4 mr-2" /> },
-    { name: 'Customer Centric', icon: <Users className="w-4 h-4 mr-2" /> },
-    { name: 'Business Focused', icon: <Briefcase className="w-4 h-4 mr-2" /> },
-    { name: 'Problem Solver', icon: <Puzzle className="w-4 h-4 mr-2" /> },
-    { name: 'Detail Oriented', icon: <Search className="w-4 h-4 mr-2" /> },
-    { name: 'Team Player', icon: <Users2 className="w-4 h-4 mr-2" /> },
-    { name: 'Fast Learner', icon: <Lightbulb className="w-4 h-4 mr-2" /> },
-    { name: 'Innovative', icon: <Sparkles className="w-4 h-4 mr-2" /> },
-    { name: 'Adaptable', icon: <Compass className="w-4 h-4 mr-2" /> },
-    { name: 'Quality Focused', icon: <Shield className="w-4 h-4 mr-2" /> },
-  ]
-
   return (
-    <motion.main
-      initial={'offscreen'}
-      whileInView={'onscreen'}
-      viewport={{ once: 'true', amount: 0.5 }}
-      transition={{ staggerChildren: 0.1 }}
-      className="text-center flex-col pb-0 overflow-x-hidden"
-    >
+    <div className="relative min-h-[50vh] lg:min-h-[80vh] flex flex-col justify-center pl-8 sm:pl-16 lg:pl-44 pr-4 sm:pr-6 lg:pr-8">
       <motion.div
+        variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0 }}
-        variants={containerVariants2}
-        className="flex flex-col items-center justify-center md:justify-center lg:justify-normal lg:pt-20 min-h-[50svh] md:min-h-[85svh] lg:h-[100vh] md:gap-14 gap-4"
+        animate="visible"
+        className="max-w-3xl leading-loose"
       >
-        <motion.h1
-          variants={itemVariants2}
-          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-normal pb-0 font-extrabold `}
+        <motion.p
+          variants={itemVariants}
+          className="text-xs sm:text-sm uppercase tracking-[0.2em] text-text-muted mb-4 font-medium"
         >
-          HEY, I{"'"}M ISAAC.
-          <br />
-        </motion.h1>
-        <motion.h1
-          variants={itemVariants3}
-          className={`text-gray-700 text-3xl lg:text-[65px] tracking-tight lg:tracking-tight pb-0 font-extrabold -mt-2 sm:mt-0`}
-        >
-          A SOFTWARE ENGINEER.
-        </motion.h1>
-        {/* /* <br /> */}
-        {/* <AnimatedText className="leading-loose text-sm md:text-xl pb-10">
-          I create captivating, immersive & user-friendly digital journeys.
-        </AnimatedText> */}
-        <TypeAnimation
-          sequence={[
-            'I build functional, captivating & user-friendly stuff for the web.',
-            1000, // Wait 1 second before repeating
-          ]}
-          wrapper="p" // Use a paragraph tag as the wrapper
-          speed={70} // Typing speed (higher is faster)
-          className="leading-loose text-xs lg:text-base pb-6 md:pb-10 text-gray-700"
-          repeat={Infinity} // Loop the animation
-        />
+          HEY, I'M ISAAC.
+        </motion.p>
 
-        <motion.div
-          variants={buttonVariants}
-          initial="hidden"
-          whileInView="visible"
-          whileHover="hover"
-          viewport={{ once: true }}
+        <motion.h1
+          variants={itemVariants}
+          className="text-4xl sm:text-5xl lg:text-6xl font-normal text-text-primary mb-6 leading-tight"
         >
-          <Link href="/about" className="hidden lg:flex" data-cursor-gallery>
-            <button className="font-bold group px-8 py-5 lg:px-16 border-2 border-gray-700 dark:border-white uppercase bg-white text-gray-700 transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] flex items-center">
-              LEARN MORE
-              <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
-            </button>
-          </Link>
+          Software Engineer
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-base sm:text-base text-text-secondary mb-8 max-w-xl leading-relaxed"
+        >
+          I build functional, user-friendly stuff
+        </motion.p>
+
+        <motion.div variants={itemVariants}>
           <Link
             href="/about"
-            data-cursor-gallery
-            className="ml-4 bg-[#7856ff] hover:bg-[#6645e0] text-white rounded-full px-6 py-3 flex lg:hidden items-center text-sm uppercase font-bold tracking-wider transition-colors group"
+            className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-text-secondary hover:text-text-primary font-medium group pb-3 border-b border-border hover:border-text-primary transition-colors"
+            data-cuelume-hover="tick"
           >
             LEARN MORE
-            <ArrowRight className="ml-2 w-3 h-3 -rotate-45 transition-transform group-hover:rotate-0" />
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
-        </motion.div>
-
-        {/* Scroll indicator — mobile only */}
-        <motion.div
-          className="lg:hidden flex flex-col items-center gap-1 mt-2 text-gray-400"
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.6 }}
-        >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Desktop Socials - Fixed Right */}
+      {/* Social Icons */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="fixed bottom-10 right-10 hidden lg:flex items-center gap-3 bg-white/60 backdrop-blur-md px-5 py-3 rounded-full border border-gray-200/50 shadow-xl z-50 transition-all duration-300 ease-out"
+        transition={{ delay: 1, duration: 0.6 }}
+        className="flex items-center gap-4 pt-20"
       >
-        <Link href="https://x.com/Fathe__r" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="Twitter / X">
-          <TwitterIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        <Link
+          href={SOCIAL_LINKS.twitter}
+          target="_blank"
+          aria-label="Twitter / X"
+          className="text-text-secondary hover:text-text-primary transition-colors"
+          data-cuelume-hover="tick"
+        >
+          <TwitterIcon className="w-5 h-5" />
         </Link>
-
-        <Link href="https://www.linkedin.com/in/isaac-anyim-76221b269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="LinkedIn">
-          <LinkedInIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        <Link
+          href={SOCIAL_LINKS.linkedin}
+          target="_blank"
+          aria-label="LinkedIn"
+          className="text-text-secondary hover:text-text-primary transition-colors"
+          data-cuelume-hover="tick"
+        >
+          <LinkedInIcon className="w-5 h-5" />
         </Link>
-        <Link href="https://github.com/CreatorLZ" className="px-1 hover:px-3 transition-all duration-300 ease-out" target="_blank" aria-label="GitHub">
-          <GitHubIcon className="w-5 h-5 text-gray-700 hover:text-[#7856ff] transition-colors" />
+        <Link
+          href={SOCIAL_LINKS.github}
+          target="_blank"
+          aria-label="GitHub"
+          className="text-text-secondary hover:text-text-primary transition-colors"
+          data-cuelume-hover="tick"
+        >
+          <GitHubIcon className="w-5 h-5" />
+        </Link>
+        <Link
+          href="mailto:isaacchimarokeanyim@gmail.com"
+          aria-label="Email"
+          className="text-text-secondary hover:text-text-primary transition-colors"
+          data-cuelume-hover="tick"
+        >
+          <Mail className="w-5 h-5" />
         </Link>
       </motion.div>
-    </motion.main>
+    </div>
   )
 }

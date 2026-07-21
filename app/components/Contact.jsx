@@ -2,9 +2,56 @@
 import { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
+import { play } from 'cuelume'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.8,
+      ease: [0.2, 0.65, 0.3, 0.9],
+    },
+  }),
+}
+
+const formVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+    },
+  },
+}
 
 export default function Contact() {
   const [success, setSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
@@ -42,7 +89,6 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }))
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -55,9 +101,12 @@ export default function Contact() {
     e.preventDefault()
 
     if (!validateForm()) {
+      play('error')
       return
     }
 
+    setSuccess(false)
+    setSubmitError(false)
     setIsLoading(true)
     emailjs
       .sendForm(
@@ -70,77 +119,34 @@ export default function Contact() {
       )
       .then(
         () => {
-          console.log('SUCCESS!')
           setIsLoading(false)
           setSuccess(true)
           setFormData({ user_name: '', user_email: '', message: '' })
           e.target.reset()
+          play('success')
         },
-        (error) => {
-          console.log('FAILED...', error.text)
+        () => {
           setIsLoading(false)
+          setSubmitError(true)
+          play('error')
         },
       )
   }
 
-  // Handle success message disappearance after timeout
   useEffect(() => {
     if (success) {
       timeoutRef.current = setTimeout(() => {
-        setSuccess(false) // Set success state to false after timeout
+        setSuccess(false)
+      }, 5000)
+    }
+    if (submitError) {
+      timeoutRef.current = setTimeout(() => {
+        setSubmitError(false)
       }, 5000)
     }
 
-    return () => clearTimeout(timeoutRef.current) // Cleanup on unmount
-  }, [success])
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  }
-
-  // Special animation for "Talk!"
-  const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.8,
-        ease: [0.2, 0.65, 0.3, 0.9],
-      },
-    }),
-  }
-
-  // Animation for form fields
-  const formVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-      },
-    },
-  }
+    return () => clearTimeout(timeoutRef.current)
+  }, [success, submitError])
 
   return (
     <motion.div
@@ -162,10 +168,9 @@ export default function Contact() {
         className="mx-auto max-w-2xl text-center"
         variants={itemVariants}
       >
-        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-700 break-words">
+        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-text-secondary break-words">
           Let{"'"}s{' '}
-          <span className="text-primary inline-block relative">
-            {/* Animated letters */}
+          <span className="text-accent inline-block relative">
             {Array.from('Talk!').map((letter, i) => (
               <motion.span
                 key={i}
@@ -183,21 +188,19 @@ export default function Contact() {
         </h2>
 
         <motion.p
-          className="mt-6 text-xs leading-relaxed text-gray-600 md:text-base md:leading-8"
+          className="mt-6 text-xs leading-relaxed text-text-muted md:text-sm md:leading-8"
           variants={itemVariants}
         >
-          Whether you{"'"}re looking to collaborate, have a project in mind, or
-          simply want to connect — I{"'"}m always open to new opportunities.
-          Feel free to send me a message here or directly{' '}
+          Always open to new opportunities. Feel free to send me a message here
+          or directly{' '}
           <motion.a
             href="mailto:isaacchimarokeanyim@gmail.com"
-            className="text-primary font-semibold hover:underline inline-block"
+            className="text-accent font-semibold hover:underline inline-block"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
             reach out via email
           </motion.a>{' '}
-          and let&apos;s start a conversation!
         </motion.p>
       </motion.div>
 
@@ -213,8 +216,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
-              htmlFor="Name"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              htmlFor="name"
+              className="block text-sm font-semibold leading-6 text-text-primary"
             >
               Name
             </label>
@@ -226,9 +229,9 @@ export default function Contact() {
                 placeholder="What's your name?"
                 value={formData.user_name}
                 onChange={handleInputChange}
-                className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.user_name ? 'ring-red-500' : 'ring-gray-300'
-                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
+                className={`block w-full rounded-md border-0 px-3.5 py-3 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
+                  errors.user_name ? 'ring-red-500' : 'ring-border'
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
               />
               {errors.user_name && (
                 <p className="mt-1 text-sm text-red-500">{errors.user_name}</p>
@@ -239,7 +242,7 @@ export default function Contact() {
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-text-primary"
             >
               Email
             </label>
@@ -251,9 +254,9 @@ export default function Contact() {
                 placeholder="your.email@example.com"
                 value={formData.user_email}
                 onChange={handleInputChange}
-                className={`block w-full rounded-md border-0 px-3.5 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.user_email ? 'ring-red-500' : 'ring-gray-300'
-                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6`}
+                className={`block w-full rounded-md border-0 px-3.5 py-3 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
+                  errors.user_email ? 'ring-red-500' : 'ring-border'
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
               />
               {errors.user_email && (
                 <p className="mt-1 text-sm text-red-500">{errors.user_email}</p>
@@ -264,7 +267,7 @@ export default function Contact() {
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="message"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-text-primary"
             >
               Message
             </label>
@@ -276,9 +279,9 @@ export default function Contact() {
                 placeholder="What would you like to discuss?"
                 value={formData.message}
                 onChange={handleInputChange}
-                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ${
-                  errors.message ? 'ring-red-500' : 'ring-gray-300'
-                } placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-sm sm:text-sm sm:leading-6`}
+                className={`block w-full rounded-md border-0 px-3.5 py-2 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
+                  errors.message ? 'ring-red-500' : 'ring-border'
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
               />
               {errors.message && (
                 <p className="mt-1 text-sm text-red-500">{errors.message}</p>
@@ -295,8 +298,10 @@ export default function Contact() {
           <button
             type="submit"
             value="Send"
-            className="block w-full rounded-md bg-primary px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="block w-full rounded-md bg-accent px-3.5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             disabled={isLoading}
+            data-cuelume-press
+            data-cuelume-release
           >
             {isLoading ? 'Sending...' : 'Send Message'}
           </button>
@@ -305,7 +310,7 @@ export default function Contact() {
 
       {success && (
         <motion.div
-          className="fixed top-20 right-3 bg-white p-5 border-l-2 border-solid border-green-500 flex gap-2 shadow-lg z-[1000px]"
+          className="fixed top-20 right-3 bg-surface p-5 border-l-2 border-solid border-green-500 flex gap-2 shadow-lg z-[1000px] rounded"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 100, opacity: 0 }}
@@ -317,16 +322,43 @@ export default function Contact() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 text-text-secondary"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+              d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043a3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
             />
           </svg>
 
-          <span>your message has been sent </span>
+          <span className="text-text-primary">Your message has been sent.</span>
+        </motion.div>
+      )}
+
+      {submitError && (
+        <motion.div
+          className="fixed top-20 right-3 bg-surface p-5 border-l-2 border-solid border-red-500 flex gap-2 shadow-lg z-[1000px] rounded"
+          role="alert"
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: 100, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 text-red-500"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+            />
+          </svg>
+          <span className="text-text-primary">Something went wrong. Please try again.</span>
         </motion.div>
       )}
     </motion.div>

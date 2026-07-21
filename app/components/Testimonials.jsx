@@ -34,7 +34,7 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <div className="bg-transparent py-12 lg:pt-36 lg:pb-6">
-      <p className="text-center font-bold text-xl md:text-4xl pb-8">
+      <p className="text-center font-bold text-xl md:text-4xl pb-8 text-text-primary">
         Testimonials
       </p>
       <InfiniteSlider
@@ -46,22 +46,16 @@ const Testimonials = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="max-w-[360px] p-6 rounded-xl backdrop-blur-xl bg-white/30 border border-white/20 shadow-sm hover:bg-white/15 transition-all duration-300"
+            className="max-w-[360px] p-6 rounded-xl bg-surface border border-border shadow-sm hover:border-text-muted transition-all duration-200"
           >
-            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+            <p className="text-text-secondary text-sm leading-relaxed mb-4">
               {testimonial.content}
             </p>
             <div className="flex items-center gap-4 mb-4">
-              {/* <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
-              /> */}
               <div>
-                <h3 className="text-black font-semibold">{testimonial.name}</h3>
-                <p className="text-gray-500 text-sm">
+                <h3 className="text-text-primary font-semibold">{testimonial.name}</h3>
+                <p className="text-text-muted text-sm">
                   {testimonial.role}
-                  {/* at {testimonial.company} */}
                 </p>
               </div>
             </div>
