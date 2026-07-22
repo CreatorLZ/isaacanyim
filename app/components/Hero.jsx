@@ -50,7 +50,7 @@ export default function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-base text-text-secondary mb-8 max-w-xl leading-relaxed"
+          className="text-sm sm:text-base text-text-secondary mb-8 max-w-xl leading-relaxed"
         >
           I build functional, user-friendly stuff
         </motion.p>
