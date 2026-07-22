@@ -25,8 +25,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 // Metadata configuration
 export const metadata = {
-  title: 'Isaac Anyim | Fullstack Engineer',
-  description: 'Isaac Anyim | Fullstack Engineer',
+  title: 'Isaac Anyim',
+  description: 'Isaac Anyim',
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'https://isaacanyim-iota.vercel.app',
   ),
