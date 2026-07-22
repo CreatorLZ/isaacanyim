@@ -57,12 +57,12 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <p className="text-xs leading-normal lg:leading-relaxed md:text-sm text-text-secondary">
+        <p className="text-xs leading-relaxed lg:leading-relaxed md:text-sm text-text-secondary">
           {greeting}. I'm Isaac, a software developer from Nigeria. I work on
-          full-stack software development for the web with enthusiasm for a
-          diverse range of topics. I find great joy in contributing to
-          open-source, diving headfirst into coding projects, and building
-          interactive, elegant websites.
+          full-stack software development with enthusiasm for a diverse range of
+          topics. I find great joy in contributing to open-source, diving
+          headfirst into coding projects, and building interactive, elegant
+          websites.
           <br /> <br /> In my free time, I explore advancements in artificial
           intelligence, play drums, or get lost in a good book.
           <br /> <br /> I am a firm believer in the power of technology to
@@ -100,7 +100,9 @@ export default function About() {
                     fill
                     style={{ objectFit: 'contain' }}
                     quality={100}
-                    className={skill.name !== 'Styled Components' ? 'dark:invert' : ''}
+                    className={
+                      skill.name !== 'Styled Components' ? 'dark:invert' : ''
+                    }
                   />
                 </div>
               </div>
