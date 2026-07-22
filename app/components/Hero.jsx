@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <div className="relative min-h-[50vh] lg:min-h-[80vh] flex flex-col justify-center pl-8 sm:pl-16 lg:pl-44 pr-4 sm:pr-6 lg:pr-8">
+    <div className="relative min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center pl-8 sm:pl-16 lg:pl-44 pr-4 sm:pr-6 lg:pr-8">
       <motion.div
         variants={containerVariants}
         initial="hidden"

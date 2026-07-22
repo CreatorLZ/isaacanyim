@@ -119,6 +119,7 @@ export default function Skills() {
                 height={40}
                 quality={100}
                 style={{ cursor: "pointer" }}
+                className={skill.name !== "Styled Components" ? "dark:invert" : ""}
               />
             </motion.div>
           ))}

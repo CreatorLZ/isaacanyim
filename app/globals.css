@@ -4,32 +4,36 @@
 
 @layer base {
   :root {
-    --background: #FAFAF8;
-    --surface: #FFFFFF;
-    --surface-hover: #F5F3EF;
-    --border: #EAE8E3;
+    --background: #F2F1EA;
+    --surface: #F2F1EA;
+    --surface-hover: #E8E7DF;
+    --border: #DEDCD1;
     --text-primary: #222222;
-    --text-secondary: #5F6368;
-    --text-muted: #8B9096;
-    --accent: #8A7CF5;
-    --shadow: 0 4px 20px rgba(0,0,0,.03);
+    --text-secondary: #5f6368;
+    --text-muted: #8b9096;
+    --accent: #8a7cf5;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   }
 
   .dark {
-    --background: #111111;
-    --surface: #181818;
-    --surface-hover: #222222;
-    --border: #2d2d2d;
-    --text-primary: #f5f5f5;
-    --text-secondary: #b0b0b0;
-    --text-muted: #7a7a7a;
+    --background: #141312;
+    --surface: #22211F;
+    --surface-hover: #2C2A28;
+    --border: #2D2B28;
+    --text-primary: #F2F1EA;
+    --text-secondary: #8E8C85;
+    --text-muted: #73716A;
     --accent: #7c6cff;
   }
 
   *,
   *::before,
   *::after {
-    transition: background-color 250ms ease, border-color 250ms ease, color 250ms ease, box-shadow 250ms ease;
+    transition:
+      background-color 250ms ease,
+      border-color 250ms ease,
+      color 250ms ease,
+      box-shadow 250ms ease;
   }
 
   html {
@@ -78,7 +82,7 @@
   }
 
   .nav-link::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
@@ -149,7 +153,7 @@
 body.custom-cursor-active,
 body.custom-cursor-active a,
 body.custom-cursor-active button,
-body.custom-cursor-active [role="button"],
+body.custom-cursor-active [role='button'],
 body.custom-cursor-active input,
 body.custom-cursor-active textarea,
 body.custom-cursor-active select,

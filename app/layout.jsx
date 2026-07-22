@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className={spaceMono.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* <BackgroundWrapper> */}
           <Navbar />
           {children}

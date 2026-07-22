@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function ProjectCard({ name, image, link }) {
   return (
     <div
-      className="w-[280px] sm:w-[450px] rounded-[16px] sm:rounded-[24px] overflow-hidden border border-border bg-surface relative transition-all hover:border-text-muted"
+      className="w-[450px] sm:w-[450px] rounded-[16px] sm:rounded-[24px] overflow-hidden border border-border bg-surface relative transition-all hover:border-text-muted"
       data-cuelume-hover="tick"
     >
       {/* Decorative corner dots */}
@@ -13,7 +13,7 @@ export default function ProjectCard({ name, image, link }) {
       <div className="absolute bottom-3 right-3 w-[6px] h-[6px] rounded-full bg-text-muted z-10" />
 
       <div className="px-4 py-6 sm:px-5 sm:py-10 group">
-        <div className="relative w-full h-[120px] sm:h-[200px] rounded-[12px] sm:rounded-[18px] overflow-hidden">
+        <div className="relative w-full h-[200px] sm:h-[200px] rounded-[12px] sm:rounded-[18px] overflow-hidden">
           <Image
             src={image || '/placeholder.svg?height=400&width=600'}
             alt={name}
