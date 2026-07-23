@@ -57,7 +57,7 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <p className="text-sm leading-relaxed lg:leading-relaxed md:text-sm text-text-secondary">
+        <p className="text-xs leading-loose lg:leading-relaxed md:text-sm text-text-secondary">
           {greeting}. I'm Isaac, a software developer from Nigeria. I work on
           full-stack software development with enthusiasm for a diverse range of
           topics. I find great joy in contributing to open-source, diving

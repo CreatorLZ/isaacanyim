@@ -217,7 +217,7 @@ export default function Contact() {
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="name"
-              className="block text-sm font-semibold leading-6 text-text-primary"
+              className="block text-xs lg:text-sm font-semibold leading-6 text-text-primary"
             >
               Name
             </label>
@@ -231,10 +231,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-3 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
                   errors.user_name ? 'ring-red-500' : 'ring-border'
-                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent text-xs lg:text-sm sm:leading-6`}
               />
               {errors.user_name && (
-                <p className="mt-1 text-sm text-red-500">{errors.user_name}</p>
+                <p className="mt-1 text-xs lg:text-sm text-red-500">
+                  {errors.user_name}
+                </p>
               )}
             </div>
           </motion.div>
@@ -242,7 +244,7 @@ export default function Contact() {
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold leading-6 text-text-primary"
+              className="block text-xs lg:text-sm font-semibold leading-6 text-text-primary"
             >
               Email
             </label>
@@ -256,10 +258,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-3 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
                   errors.user_email ? 'ring-red-500' : 'ring-border'
-                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent text-xs lg:text-sm sm:leading-6`}
               />
               {errors.user_email && (
-                <p className="mt-1 text-sm text-red-500">{errors.user_email}</p>
+                <p className="mt-1 text-xs lg:text-sm text-red-500">
+                  {errors.user_email}
+                </p>
               )}
             </div>
           </motion.div>
@@ -267,7 +271,7 @@ export default function Contact() {
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="message"
-              className="block text-sm font-semibold leading-6 text-text-primary"
+              className="block text-xs lg:text-sm font-semibold leading-6 text-text-primary"
             >
               Message
             </label>
@@ -281,10 +285,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-2 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
                   errors.message ? 'ring-red-500' : 'ring-border'
-                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6`}
+                } placeholder:text-text-muted focus:ring-2 focus:ring-inset focus:ring-accent text-xs lg:text-sm sm:leading-6`}
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                <p className="mt-1 text-xs lg:text-sm text-red-500">
+                  {errors.message}
+                </p>
               )}
             </div>
           </motion.div>
@@ -358,7 +364,9 @@ export default function Contact() {
               d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
             />
           </svg>
-          <span className="text-text-primary">Something went wrong. Please try again.</span>
+          <span className="text-text-primary">
+            Something went wrong. Please try again.
+          </span>
         </motion.div>
       )}
     </motion.div>

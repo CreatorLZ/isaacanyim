@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail } from "lucide-react";
 
 import { TwitterIcon, LinkedInIcon, GitHubIcon } from "./SocialIcons";
 import { SOCIAL_LINKS } from "../lib/social-links";
@@ -35,32 +36,47 @@ export default function Footer() {
         >
           <GitHubIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
         </Link>
+        <Link
+          href="mailto:isaacchimarokeanyim@gmail.com"
+          className="hover:opacity-75 transition-opacity"
+          aria-label="Email"
+          data-cuelume-hover="tick"
+        >
+          <Mail className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
+        </Link>
       </div>
 
       {/* Mobile Icons — frosted dock */}
       <div className="fixed bottom-0 sm:hidden w-full z-40">
-        <div className="flex items-center justify-around bg-surface/80 backdrop-blur-md border-t border-border rounded-t-2xl pb-4 pt-3 px-6">
+        <div className="flex items-center justify-around bg-surface/80 backdrop-blur-md border-t border-border rounded-t-2xl pb-2 pt-2 px-2">
           <Link
             href={SOCIAL_LINKS.twitter}
-            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
+            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
             aria-label="Twitter / X"
           >
-            <TwitterIcon className="w-7 h-7 text-text-secondary hover:text-accent transition-colors" />
+            <TwitterIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
           </Link>
 
           <Link
             href={SOCIAL_LINKS.linkedin}
-            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
+            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
             aria-label="LinkedIn"
           >
-            <LinkedInIcon className="w-7 h-7 text-text-secondary hover:text-accent transition-colors" />
+            <LinkedInIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
           </Link>
           <Link
             href={SOCIAL_LINKS.github}
-            className="flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
+            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
             aria-label="GitHub"
           >
-            <GitHubIcon className="w-7 h-7 text-text-secondary hover:text-accent transition-colors" />
+            <GitHubIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
+          </Link>
+          <Link
+            href="mailto:isaacchimarokeanyim@gmail.com"
+            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
+            aria-label="Email"
+          >
+            <Mail className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
           </Link>
         </div>
       </div>
