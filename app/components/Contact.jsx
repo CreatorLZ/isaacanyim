@@ -1,8 +1,9 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { play } from 'cuelume'
+import { toast } from 'sonner'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,29 +51,19 @@ const formVariants = {
 }
 
 export default function Contact() {
-  const [success, setSuccess] = useState(false)
-  const [submitError, setSubmitError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
     user_name: '',
-    user_email: '',
     message: '',
   })
   const form = useRef()
-  const timeoutRef = useRef(null)
 
   const validateForm = () => {
     const newErrors = {}
 
     if (!formData.user_name.trim()) {
       newErrors.user_name = 'Name is required'
-    }
-
-    if (!formData.user_email.trim()) {
-      newErrors.user_email = 'Email is required'
-    } else if (!/\S+@\S+\.\S+/.test(formData.user_email)) {
-      newErrors.user_email = 'Please enter a valid email'
     }
 
     if (!formData.message.trim()) {
@@ -105,8 +96,6 @@ export default function Contact() {
       return
     }
 
-    setSuccess(false)
-    setSubmitError(false)
     setIsLoading(true)
     emailjs
       .sendForm(
@@ -120,33 +109,22 @@ export default function Contact() {
       .then(
         () => {
           setIsLoading(false)
-          setSuccess(true)
-          setFormData({ user_name: '', user_email: '', message: '' })
+          setFormData({ user_name: '', message: '' })
           e.target.reset()
           play('success')
+          toast.success('Message sent!', {
+            description: "I'll get back to you soon.",
+          })
         },
         () => {
           setIsLoading(false)
-          setSubmitError(true)
           play('error')
+          toast.error('Something went wrong.', {
+            description: 'Please try again or email me directly.',
+          })
         },
       )
   }
-
-  useEffect(() => {
-    if (success) {
-      timeoutRef.current = setTimeout(() => {
-        setSuccess(false)
-      }, 5000)
-    }
-    if (submitError) {
-      timeoutRef.current = setTimeout(() => {
-        setSubmitError(false)
-      }, 5000)
-    }
-
-    return () => clearTimeout(timeoutRef.current)
-  }, [success, submitError])
 
   return (
     <motion.div
@@ -168,10 +146,10 @@ export default function Contact() {
         className="mx-auto max-w-2xl text-center"
         variants={itemVariants}
       >
-        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-text-secondary break-words">
-          Let{"'"}s{' '}
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-text-primary break-words">
+          Say{' '}
           <span className="text-accent inline-block relative">
-            {Array.from('Talk!').map((letter, i) => (
+            {Array.from('Hello.').map((letter, i) => (
               <motion.span
                 key={i}
                 custom={i}
@@ -191,16 +169,15 @@ export default function Contact() {
           className="mt-6 text-xs leading-relaxed text-text-muted md:text-sm md:leading-8"
           variants={itemVariants}
         >
-          Always open to new opportunities. Feel free to send me a message here
-          or directly{' '}
+          A project idea or just a hello,{' '}
           <motion.a
             href="mailto:isaacchimarokeanyim@gmail.com"
             className="text-accent font-semibold hover:underline inline-block"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            reach out via email
-          </motion.a>{' '}
+            my inbox is always open.
+          </motion.a>
         </motion.p>
       </motion.div>
 
@@ -241,7 +218,8 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          <motion.div className="sm:col-span-2" variants={itemVariants}>
+          {/* Email input commented out — visitors can reach out via the mailto link or social icons */}
+          {/* <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
               htmlFor="email"
               className="block text-xs lg:text-sm font-semibold leading-6 text-text-primary"
@@ -266,7 +244,7 @@ export default function Contact() {
                 </p>
               )}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div className="sm:col-span-2" variants={itemVariants}>
             <label
@@ -276,11 +254,17 @@ export default function Contact() {
               Message
             </label>
             <div className="mt-2.5">
+              {/* Hidden email field — keeps EmailJS template happy without requiring user input */}
+              <input
+                type="hidden"
+                name="user_email"
+                value="(no email provided)"
+              />
               <textarea
                 name="message"
                 id="message"
                 rows={4}
-                placeholder="What would you like to discuss?"
+                placeholder="Your message here.."
                 value={formData.message}
                 onChange={handleInputChange}
                 className={`block w-full rounded-md border-0 px-3.5 py-2 text-text-primary bg-surface shadow-sm ring-1 ring-inset ${
@@ -313,62 +297,6 @@ export default function Contact() {
           </button>
         </motion.div>
       </motion.form>
-
-      {success && (
-        <motion.div
-          className="fixed top-20 right-3 bg-surface p-5 border-l-2 border-solid border-green-500 flex gap-2 shadow-lg z-[1000px] rounded"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 100, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 text-text-secondary"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043a3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
-            />
-          </svg>
-
-          <span className="text-text-primary">Your message has been sent.</span>
-        </motion.div>
-      )}
-
-      {submitError && (
-        <motion.div
-          className="fixed top-20 right-3 bg-surface p-5 border-l-2 border-solid border-red-500 flex gap-2 shadow-lg z-[1000px] rounded"
-          role="alert"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 100, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 text-red-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-            />
-          </svg>
-          <span className="text-text-primary">
-            Something went wrong. Please try again.
-          </span>
-        </motion.div>
-      )}
     </motion.div>
   )
 }

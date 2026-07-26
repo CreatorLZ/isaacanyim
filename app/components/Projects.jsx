@@ -26,11 +26,9 @@ export default function Projects() {
       name: 'bagXtra',
       categories: ['Websites', 'Full Stack'],
       link: 'https://app.usebagxtra.com',
-      description:
-        'Buy from any store abroad and get it brought to you by a verified traveler already booked on your route, for a fraction of what courier shipping costs.',
+      description: 'Shop abroad, get it delivered by a traveler on your route.',
       image: '/bagxtra.png',
-      details:
-        'Explore global shopping without the hassle of shipping. With BagXtra, travelers help you bring it home. Shop from anywhere, receive from everywhere.',
+      details: 'Shop abroad, get it brought home by a traveler.',
       skills: [
         'TypeScript',
         'JavaScript',
@@ -44,9 +42,8 @@ export default function Projects() {
       name: 'chute',
       categories: ['Tools'],
       github: 'https://github.com/CreatorLZ/chute',
-      description:
-        'A ready-to-use UploadThing setup for Next.js App Router projects. Ships a headless useUploadField() queue engine, a styled UploadField component, and preset components (AvatarUpload, ImageUpload, AttachmentUpload, InstantUpload) — all backed by a local shadcn registry.',
-      details: 'UploadThing-backed upload field for Next.js App Router.',
+      description: 'Plug-and-play UploadThing file upload library for Next.js.',
+      details: 'Drop-in file upload components for Next.js.',
       skills: [
         'Next.js',
         'TypeScript',
@@ -61,11 +58,9 @@ export default function Projects() {
       categories: ['Websites', 'Full Stack'],
       link: 'https://taskwise-three.vercel.app/',
       github: 'https://github.com/CreatorLZ/taskwise',
-      description:
-        'A Smart task manager that helps you keep track of your daily tasks using natural language. It is designed to be simple and easy to use, with a clean and intuitive interface that makes it easy to stay organized and focused. With Taskwise, you can create tasks, set due dates, and track your progress as you work through your to-do list. You can also set reminders and notifications to help you stay on track and meet your deadlines. Taskwise is designed to be flexible and customizable, so you can use it in a way that works best for you. Whether you need a simple to-do list or a more advanced task manager, Taskwise has you covered.',
+      description: 'Manage your tasks with natural language.',
       image: '/taskwise.webp',
-      details:
-        'Smart task manager that helps you keep track of your daily tasks.',
+      details: 'AI-powered task manager with natural language input.',
       skills: [
         'TypeScript',
         'Node.js',
@@ -85,10 +80,9 @@ export default function Projects() {
       categories: ['Websites', 'Frontend'],
       link: 'https://moviebox-red.vercel.app/',
       github: 'https://github.com/CreatorLZ/Moviebox',
-      description:
-        'Watch trailers for any movie you can think of. Moviebox also includes suggestions for what to watch, trending movies, and what movies are currently available in cinemas!. ',
+      description: 'Watch trailers, discover trending films and cinema listings.',
       image: '/moviebox.webp',
-      details: 'Watch trailers, read reviews of any movie in the world!',
+      details: 'Trailers, trending picks, and cinema listings.',
       skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
     },
     {
@@ -97,9 +91,8 @@ export default function Projects() {
       image: '/ideafundr.webp',
       link: 'https://ideafundr-seven.vercel.app/',
       github: 'https://github.com/CreatorLZ/ideafundr',
-      description:
-        'ideafundr is a fully functional platform where inventors are able to showcase their inventions to potential investors with AR technology. Users can view products and invention in their physical space with AR (Argumented Reality) technology on their device.AR provides a more engaging and interactive way to present inventions. It allows investors to see the invention from all angles, understand its scale, and even interact with virtual prototypes. This immersive experience can lead to better understanding and increased investor interest. A user on sign-up is presented the choice to choose a path as either an inventor or investor.....',
-      details: 'Showcase your invention to investors with immersive tech.',
+      description: 'Pitch your invention to investors using AR technology.',
+      details: 'Pitch inventions to investors using AR.',
       skills: [
         'React',
         'Firebase',
@@ -115,9 +108,8 @@ export default function Projects() {
       categories: ['Websites', 'Frontend'],
       image: '/silkywriters.webp',
       link: 'https://silkywriters.vercel.app/',
-      description:
-        'Your trusted partner for academic writing, research, and Youtube scripts. We deliver precision, depth, and creativity to bring your ideas to life.',
-      details: 'Official website for Silkywriters, a writing agency.',
+      description: 'Academic writing, research, and YouTube scripts agency.',
+      details: 'Writing agency for academics and creators.',
       skills: ['Typescript', 'Tailwind CSS', 'React', 'Framer-motion'],
     },
 
@@ -137,10 +129,9 @@ export default function Projects() {
       categories: ['Websites', 'Frontend'],
       link: 'https://vanilla-e-commerce.vercel.app/',
       github: 'https://github.com/CreatorLZ/Vanilla-e-commerce',
-      description:
-        'Slick and grand E-commerce starter template for a watch website. this template features a dark theme that catches the eye and makes for a grand display of the products. NOTE: currently not available for mobile screens.',
+      description: 'Dark-themed e-commerce starter template for watches.',
       image: '/wristy.webp',
-      details: 'Watch Ecommerce starter template for developers.',
+      details: 'Dark-themed watch e-commerce starter template.',
       skills: ['HTML', 'CSS', 'Javascript'],
     },
   ]
@@ -202,7 +193,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="text-6xl md:text-5xl lg:text-[80px] font-normal tracking-tight text-text-primary leading-[0.9] pb-0 mb-0"
+          className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-text-primary leading-[0.9] pb-0 mb-0"
           style={{ letterSpacing: '-0.04em' }}
         >
           Projects

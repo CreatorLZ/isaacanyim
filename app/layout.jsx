@@ -2,11 +2,11 @@ import { Plus_Jakarta_Sans, Anybody, Space_Mono } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'next-themes'
-// Components
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MouseTracker from './components/MouseTracker'
 import CuelumeInit from './components/CuelumeInit'
+import { Toaster } from 'sonner'
 // import BackgroundWrapper from "./components/background-wrapper";
 
 const anybody = Anybody({ subsets: ['latin'], variable: '--font-anybody' })
@@ -80,6 +80,23 @@ export default function RootLayout({ children }) {
           <CuelumeInit />
           <Analytics />
           <Footer />
+          <Toaster
+            position="bottom-right"
+            theme="system"
+            toastOptions={{
+              style: {
+                background: 'var(--surface)',
+                border: '1px solid var(--border)',
+                color: 'var(--text-primary)',
+                borderRadius: '8px',
+                fontSize: '13px',
+              },
+              descriptionStyle: {
+                color: 'var(--text-secondary)',
+                opacity: 1,
+              },
+            }}
+          />
           {/* </BackgroundWrapper> */}
         </ThemeProvider>
       </body>
