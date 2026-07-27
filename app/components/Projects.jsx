@@ -23,7 +23,7 @@ export default function Projects() {
 
   const projects = [
     {
-      name: 'bagXtra',
+      name: 'BagXtra',
       categories: ['Websites', 'Full Stack'],
       link: 'https://app.usebagxtra.com',
       description: 'Shop abroad, get it delivered by a traveler on your route.',
@@ -80,7 +80,8 @@ export default function Projects() {
       categories: ['Websites', 'Frontend'],
       link: 'https://moviebox-red.vercel.app/',
       github: 'https://github.com/CreatorLZ/Moviebox',
-      description: 'Watch trailers, discover trending films and cinema listings.',
+      description:
+        'Watch trailers, discover trending films and cinema listings.',
       image: '/moviebox.webp',
       details: 'Trailers, trending picks, and cinema listings.',
       skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
@@ -222,7 +223,7 @@ export default function Projects() {
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(filter)}
-                className={`relative overflow-hidden rounded-xl px-3.5 py-2 text-xs outline-none transition-colors md:px-4 md:py-2 md:text-sm ${
+                className={`relative overflow-hidden rounded-xl px-3.5 py-2 text-xs outline-none transition-colors md:px-4 md:py-2 md:text-xs ${
                   isActive
                     ? 'text-accent font-bold'
                     : 'font-normal text-text-muted hover:bg-surface hover:text-accent'
@@ -261,66 +262,65 @@ export default function Projects() {
         </div>
       </LayoutGroup>
 
-      {/* Project grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 pt-12 max-w-4xl mx-auto">
+      {/* Project list */}
+      <div className="flex flex-col w-full max-w-4xl mx-auto pt-8 md:pt-12 border-t border-border mt-8">
         <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              layout
-              custom={index}
-              variants={projectAnimate}
-              initial="hidden"
-              whileInView="visible"
-              exit="exit"
-              viewport={{ once: true, amount: 0.25 }}
-              key={project.originalIndex}
-              className="relative group cursor-pointer rounded-lg border border-border bg-surface hover:border-text-muted transition-colors duration-200"
-              onClick={() => handleClick(project.originalIndex)}
-              data-cuelume-press
-              data-cuelume-release
-              transition={{
-                layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-              }}
-            >
-              {project.image ? (
-                <Image
-                  src={project.image}
-                  alt={`${project.name} screenshot`}
-                  width={400}
-                  height={240}
-                  className="h-48 md:h-56 w-full rounded-lg object-cover"
-                  unoptimized
-                  style={{ cursor: 'pointer' }}
-                />
-              ) : (
-                <div className="h-48 md:h-56 w-full rounded-lg bg-surface-hover flex items-center justify-center">
-                  <span className="text-3xl font-bold text-text-muted">
-                    {project.name[0].toUpperCase()}
-                  </span>
+          {filteredProjects.map((project, index) => {
+            const urlString = project.link || project.github
+            let domain = ''
+            if (urlString) {
+              try {
+                domain = new URL(urlString).hostname.replace('www.', '')
+              } catch (e) {
+                domain = urlString
+              }
+            }
+
+            return (
+              <motion.div
+                layout
+                custom={index}
+                variants={projectAnimate}
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                viewport={{ once: true, amount: 0.25 }}
+                key={project.originalIndex}
+                className="relative group cursor-pointer border-b border-border transition-colors duration-300 py-8 px-4 md:px-6 flex flex-col items-start"
+                onClick={() => handleClick(project.originalIndex)}
+                data-cuelume-press
+                data-cuelume-release
+                transition={{
+                  layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+                }}
+              >
+                {/* Left hover indicator */}
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-text-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
+
+                {/* Right arrow indicator */}
+                <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                  <ArrowRight
+                    className="text-text-muted group-hover:text-text-primary transition-colors duration-300"
+                    size={12}
+                  />
                 </div>
-              )}
-              <motion.div className="absolute inset-0 flex md:hidden md:group-hover:flex items-end py-4 md:py-6 justify-start px-3 md:px-5 bg-gradient-to-b from-black/30 to-black/70 rounded-lg transition duration-700 pointer-events-none">
-                <div className="flex flex-col text-left gap-1">
-                  <motion.p className="text-white text-xl font-extrabold">
+
+                <div className="flex flex-col pr-8 w-full">
+                  <h3 className="text-xl md:text-xl text-text-primary mb-1">
                     {project.name}
-                  </motion.p>
-                  <motion.p className="text-gray-100 text-xs leading-normal tracking-wide">
-                    {project.details}
-                  </motion.p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {project.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="w-fit inline-flex items-center rounded-md bg-white/20 backdrop-blur-sm px-1.5 py-0.5 text-xs font-medium text-white ring-1 ring-inset ring-white/20"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                  </h3>
+                  {domain && (
+                    <p className="text-[10px] md:text-[11px] font-mono text-text-muted uppercase tracking-[0.1em] mb-3">
+                      {domain}
+                    </p>
+                  )}
+                  <p className="text-sm md:text-sm text-text-secondary leading-relaxed max-w-2xl group-hover:text-text-primary transition-colors duration-300">
+                    {project.description}
+                  </p>
                 </div>
               </motion.div>
-            </motion.div>
-          ))}
+            )
+          })}
         </AnimatePresence>
       </div>
 
@@ -375,14 +375,14 @@ export default function Projects() {
                 </span>
               </div>
             )}
-            <p className="text-base font-bold text-text-primary pb-1 pt-7 px-5">
+            <p className="text-base font-semibold text-text-primary pb-1 pt-7 px-5">
               About
             </p>
             <p className="text-sm md:text-base px-5 text-text-secondary">
               {projects[selectedProject].details}
             </p>
-            <p className="text-base font-bold text-text-primary pb-1 pt-7 px-5">
-              Technologies
+            <p className="text-base font-semibold text-text-primary pb-1 pt-7 px-5">
+              Major Technologies Used
             </p>
             <div className="mt-5 px-5">
               <div className="flex flex-wrap gap-3 mt-3">
@@ -398,7 +398,7 @@ export default function Projects() {
             </div>
             {projects[selectedProject].link && (
               <>
-                <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pt-7">
+                <div className="w-fit gap-2 flex items-center justify-center h-fit px-5 pb-7 pt-7">
                   <Image
                     src="/earth.png"
                     alt="earth icon"
@@ -406,12 +406,12 @@ export default function Projects() {
                     height={20}
                     className="cursor-pointer"
                   />
-                  <p className="text-base font-bold text-text-primary">
+                  <p className="text-base font-semibold text-text-primary">
                     Website
                   </p>
                 </div>
                 <Link
-                  className="px-5 hover:underline text-text-secondary"
+                  className="px-5 pb-7 hover:underline text-text-secondary"
                   href={projects[selectedProject].link}
                   target="_blank"
                 >
@@ -479,7 +479,7 @@ export default function Projects() {
           onClick={closeDetails}
         ></div>
       )}
-      <Link href="https://github.com/CreatorLZ" target="_blank">
+      {/* <Link href="https://github.com/CreatorLZ" target="_blank">
         <div
           className="flex gap-3 items-center pt-12 justify-center cursor-pointer"
           data-cuelume-hover="tick"
@@ -487,7 +487,7 @@ export default function Projects() {
           <p className="text-text-secondary">See more</p>
           <ArrowRight className="text-text-secondary" size={20} />
         </div>
-      </Link>
+      </Link> */}
     </main>
   )
 }
