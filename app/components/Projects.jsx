@@ -36,6 +36,8 @@ export default function Projects() {
         'Express',
         'React',
         'Node.js',
+        'AWS S3',
+        'Stripe',
       ],
     },
     {
@@ -286,27 +288,17 @@ export default function Projects() {
                 exit="exit"
                 viewport={{ once: true, amount: 0.25 }}
                 key={project.originalIndex}
-                className="relative group cursor-pointer border-b border-border transition-colors duration-300 py-8 px-4 md:px-6 flex flex-col items-start"
+                className="relative group cursor-pointer border-b border-border transition-colors duration-300 py-8 flex flex-col items-start overflow-hidden"
                 onClick={() => handleClick(project.originalIndex)}
                 data-cuelume-press
                 data-cuelume-release
+                data-cuelume-hover="tick"
                 transition={{
                   layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                 }}
               >
-                {/* Left hover indicator */}
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-text-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
-
-                {/* Right arrow indicator */}
-                <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                  <ArrowRight
-                    className="text-text-muted group-hover:text-text-primary transition-colors duration-300"
-                    size={12}
-                  />
-                </div>
-
-                <div className="flex flex-col pr-8 w-full">
-                  <h3 className="text-xl md:text-xl text-text-primary mb-1">
+                <div className="flex flex-col w-full px-4 md:px-6 transition-transform duration-500 relative">
+                  <h3 className="text-lg md:text-2xl text-text-primary group-hover:text-accent transition-colors duration-300 mb-1">
                     {project.name}
                   </h3>
                   {domain && (
@@ -314,7 +306,7 @@ export default function Projects() {
                       {domain}
                     </p>
                   )}
-                  <p className="text-sm md:text-sm text-text-secondary leading-relaxed max-w-2xl group-hover:text-text-primary transition-colors duration-300">
+                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-2xl group-hover:text-text-primary transition-colors duration-300">
                     {project.description}
                   </p>
                 </div>
@@ -329,34 +321,34 @@ export default function Projects() {
         {selectedProject !== null && (
           <motion.div
             key={selectedProject}
-            className="fixed top-0 right-0 w-full h-full md:w-1/2 z-50 bg-bg px-0 py-10 overflow-auto overflow-x-hidden pb-24 border-l border-border"
+            className="fixed top-0 right-0 w-full h-full md:w-1/2 z-50 bg-bg px-0 py-10 overflow-auto overflow-x-hidden pb-24 border-l border-border gap-5"
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={slideInRightAnimate}
           >
             <div
-              className="flex items-center justify-between w-full px-1 pb-2 pt-6"
+              className="flex items-center justify-between w-full px-4 pb-2 pt-6"
               onClick={closeDetails}
             >
               <ArrowLeft
                 className="cursor-pointer text-text-secondary hover:text-text-primary transition-colors"
-                size={24}
+                size={16}
               />
               <Link href="#projects">
                 <div
                   onClick={closeDetails}
-                  className="font-bold cursor-pointer text-text-primary"
+                  className="font-normal cursor-pointer text-text-secondary hover:text-accent transition-colors text-sm"
                 >
                   Back to projects
                 </div>
               </Link>
             </div>
             <hr className="pb-10 border-border" />
-            <p className="text-lg font-extrabold text-text-primary pb-1 px-5">
+            <p className="text-lg font-normal text-text-primary pb-1 px-5">
               {projects[selectedProject].name}
             </p>
-            <p className="text-text-secondary text-sm md:text-base pb-4 px-5">
+            <p className="text-text-secondary text-sm md:text-sm pb-4 px-5">
               {projects[selectedProject].description}
             </p>
             {projects[selectedProject].image ? (
@@ -375,13 +367,13 @@ export default function Projects() {
                 </span>
               </div>
             )}
-            <p className="text-base font-semibold text-text-primary pb-1 pt-7 px-5">
+            <p className="text-base font-normal text-text-primary pb-3 pt-7 px-5">
               About
             </p>
-            <p className="text-sm md:text-base px-5 text-text-secondary">
+            <p className="text-sm md:text-sm px-5 text-text-secondary">
               {projects[selectedProject].details}
             </p>
-            <p className="text-base font-semibold text-text-primary pb-1 pt-7 px-5">
+            <p className="text-base font-normal text-text-primary pb-3 pt-7 px-5">
               Major Technologies Used
             </p>
             <div className="mt-5 px-5">
@@ -389,7 +381,7 @@ export default function Projects() {
                 {projects[selectedProject].skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="w-fit inline-flex items-center rounded-md bg-surface border border-border px-2 py-1 text-sm font-medium text-text-primary ring-1 ring-inset ring-border"
+                    className="w-fit inline-flex items-center rounded-md bg-surface border border-border px-2 py-1 text-xs font-normal text-text-primary ring-1 ring-inset ring-border"
                   >
                     {skill}
                   </span>
@@ -404,19 +396,21 @@ export default function Projects() {
                     alt="earth icon"
                     width={20}
                     height={20}
-                    className="cursor-pointer"
+                    className="cursor-pointer dark:invert opacity-80"
                   />
-                  <p className="text-base font-semibold text-text-primary">
+                  <p className="text-base font-normal text-text-primary">
                     Website
                   </p>
                 </div>
-                <Link
-                  className="px-5 pb-7 hover:underline text-text-secondary"
-                  href={projects[selectedProject].link}
-                  target="_blank"
-                >
-                  {projects[selectedProject].link}
-                </Link>
+                <div className="px-5 pb-7">
+                  <Link
+                    className="pb-1 text-text-secondary hover:text-accent border-b border-transparent hover:border-accent transition-colors"
+                    href={projects[selectedProject].link}
+                    target="_blank"
+                  >
+                    {projects[selectedProject].link}
+                  </Link>
+                </div>
               </>
             )}
             {projects[selectedProject].github && (
@@ -426,19 +420,21 @@ export default function Projects() {
                   alt="github icon"
                   width={20}
                   height={20}
-                  className="cursor-pointer"
+                  className="cursor-pointer dark:invert opacity-80"
                 />
                 <p className="text-base font-bold text-text-primary">Github</p>
               </div>
             )}
             {projects[selectedProject].github && (
-              <Link
-                className="px-5 hover:underline text-text-secondary"
-                href={projects[selectedProject].github}
-                target="_blank"
-              >
-                {projects[selectedProject].github}
-              </Link>
+              <div className="px-5 pb-7">
+                <Link
+                  className="pb-1 text-text-secondary hover:text-accent border-b border-transparent hover:border-accent transition-colors"
+                  href={projects[selectedProject].github}
+                  target="_blank"
+                >
+                  {projects[selectedProject].github}
+                </Link>
+              </div>
             )}
             <div className="sticky -bottom-24 left-0 w-full h-fit p-5 bg-bg border-t border-border z-50">
               <Link
