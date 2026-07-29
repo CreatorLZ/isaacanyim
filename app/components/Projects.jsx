@@ -141,11 +141,25 @@ export default function Projects() {
 
   const handleClick = (index) => {
     setSelectedProject(index)
+    window.history.pushState({ modal: 'project-details' }, '')
   }
 
   const closeDetails = () => {
     setSelectedProject(null)
+    if (window.history.state && window.history.state.modal === 'project-details') {
+      window.history.back()
+    }
   }
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedProject !== null) {
+        setSelectedProject(null)
+      }
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [selectedProject])
 
   const slideInRightAnimate = {
     hidden: { x: '100%' },
@@ -335,14 +349,15 @@ export default function Projects() {
                 className="cursor-pointer text-text-secondary hover:text-text-primary transition-colors"
                 size={16}
               />
-              <Link href="#projects">
-                <div
-                  onClick={closeDetails}
-                  className="font-normal cursor-pointer text-text-secondary hover:text-accent transition-colors text-sm"
-                >
-                  Back to projects
-                </div>
-              </Link>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation()
+                  closeDetails()
+                }}
+                className="font-normal cursor-pointer text-text-secondary hover:text-accent transition-colors text-sm"
+              >
+                Back to projects
+              </div>
             </div>
             <hr className="pb-10 border-border" />
             <p className="text-lg font-normal text-text-primary pb-1 px-5">
