@@ -68,14 +68,16 @@ export default function Navbar() {
   }, [isMenuOpen])
 
   useEffect(() => {
-    const handlePopState = () => {
-      if (isMenuOpen) {
+    const handlePopState = (e) => {
+      if (e.state && e.state.modal === 'mobile-menu') {
+        setIsMenuOpen(true)
+      } else {
         setIsMenuOpen(false)
       }
     }
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
-  }, [isMenuOpen])
+  }, [])
 
   const closeMenu = () => {
     setIsMenuOpen(false)
