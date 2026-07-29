@@ -141,7 +141,7 @@ export default function Projects() {
 
   const handleClick = (index) => {
     setSelectedProject(index)
-    window.history.pushState({ modal: 'project-details' }, '')
+    window.history.pushState({ modal: 'project-details', projectIndex: index }, '')
   }
 
   const closeDetails = () => {
@@ -152,14 +152,16 @@ export default function Projects() {
   }
 
   useEffect(() => {
-    const handlePopState = () => {
-      if (selectedProject !== null) {
+    const handlePopState = (e) => {
+      if (e.state && e.state.modal === 'project-details' && e.state.projectIndex !== undefined) {
+        setSelectedProject(e.state.projectIndex)
+      } else {
         setSelectedProject(null)
       }
     }
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
-  }, [selectedProject])
+  }, [])
 
   const slideInRightAnimate = {
     hidden: { x: '100%' },
