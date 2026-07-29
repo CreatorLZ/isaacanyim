@@ -378,7 +378,7 @@ export default function Projects() {
                 unoptimized
               />
             ) : (
-              <div className="h-72 md:h-80 w-full rounded-lg mx-5 bg-surface-hover flex items-center justify-center">
+              <div className="h-72 md:h-80 rounded-lg mx-5 bg-surface-hover flex items-center justify-center">
                 <span className="text-6xl font-bold text-text-muted">
                   {projects[selectedProject].name[0].toUpperCase()}
                 </span>
