@@ -67,8 +67,37 @@ export default function Navbar() {
     }
   }, [isMenuOpen])
 
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [isMenuOpen])
+
   const closeMenu = () => {
     setIsMenuOpen(false)
+    if (window.history.state && window.history.state.modal === 'mobile-menu') {
+      window.history.back()
+    }
+  }
+
+  const toggleMenu = () => {
+    if (!isMenuOpen) {
+      setIsMenuOpen(true)
+      window.history.pushState({ modal: 'mobile-menu' }, '')
+    } else {
+      closeMenu()
+    }
+  }
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false)
+    if (window.history.state && window.history.state.modal === 'mobile-menu') {
+      window.history.replaceState(null, '')
+    }
   }
 
   return (
@@ -141,7 +170,7 @@ export default function Navbar() {
               <motion.button
                 className="md:hidden text-text-secondary hover:text-text-primary focus:outline-none"
                 aria-label="Toggle menu"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={toggleMenu}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
@@ -173,7 +202,7 @@ export default function Navbar() {
             <NavLink
               href="/"
               className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={closeMenu}
+              onClick={handleLinkClick}
             >
               Home
             </NavLink>
@@ -182,7 +211,7 @@ export default function Navbar() {
             <NavLink
               href="/about"
               className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={closeMenu}
+              onClick={handleLinkClick}
             >
               About
             </NavLink>
@@ -191,7 +220,7 @@ export default function Navbar() {
             <NavLink
               href="/#projects"
               className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={closeMenu}
+              onClick={handleLinkClick}
             >
               Projects
             </NavLink>
@@ -200,7 +229,7 @@ export default function Navbar() {
             <NavLink
               href="/#contact"
               className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={closeMenu}
+              onClick={handleLinkClick}
             >
               Contact
             </NavLink>
