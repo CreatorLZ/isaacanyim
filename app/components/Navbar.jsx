@@ -123,7 +123,7 @@ export default function Navbar() {
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/"
-                  className="text-text-secondary hover:text-accent text-sm uppercase font-semibold tracking-wide"
+                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
                   data-cuelume-hover="tick"
                 >
                   HOME
@@ -132,7 +132,7 @@ export default function Navbar() {
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/about"
-                  className="text-text-secondary hover:text-accent text-sm uppercase font-semibold tracking-wide"
+                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
                   data-cuelume-hover="tick"
                 >
                   ABOUT
@@ -141,7 +141,7 @@ export default function Navbar() {
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#projects"
-                  className="text-text-secondary hover:text-accent text-sm uppercase font-semibold tracking-wide"
+                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
                   data-cuelume-hover="tick"
                 >
                   PROJECTS
@@ -150,7 +150,7 @@ export default function Navbar() {
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/#contact"
-                  className="text-text-secondary hover:text-accent text-sm uppercase font-semibold tracking-wide"
+                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
                   data-cuelume-hover="tick"
                 >
                   CONTACT
@@ -191,7 +191,9 @@ export default function Navbar() {
       {/* Full-screen Mobile Menu */}
       <div
         className={`fixed inset-0 bg-bg z-40 md:hidden flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          isMenuOpen
+            ? 'opacity-100 visible'
+            : 'opacity-0 invisible pointer-events-none'
         }`}
       >
         <motion.div
