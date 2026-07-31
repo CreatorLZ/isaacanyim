@@ -24,11 +24,20 @@ export default function Projects() {
   const projects = [
     {
       name: 'Pookoo',
-      categories: ['Tools'],
+      categories: ['Tools', 'Open Source'],
       github: 'https://github.com/CreatorLZ/pookoo',
-      description: 'Audit, document, and extract environment variables using static AST analysis.',
-      details: 'Audit, document, and extract environment variables from any codebase using static AST analysis. Zero credentials required.',
-      skills: ['TypeScript', 'Node.js', 'AST', 'CLI'],
+      description:
+        'Audit, document, and extract environment variables using static AST analysis.',
+      details:
+        'A zero-config CLI tool distributed globally via npm. It statically analyzes JavaScript/TypeScript codebases via Abstract Syntax Trees (AST) to build a knowledge graph of configuration dependencies, catching missing or leaked secrets before they hit production. Built as a pnpm monorepo.',
+      skills: [
+        'TypeScript',
+        'Node.js',
+        'AST / Static Analysis',
+        'Commander.js',
+        'Monorepo',
+        'NPM',
+      ],
     },
     {
       name: 'BagXtra',
@@ -149,19 +158,29 @@ export default function Projects() {
 
   const handleClick = (index) => {
     setSelectedProject(index)
-    window.history.pushState({ modal: 'project-details', projectIndex: index }, '')
+    window.history.pushState(
+      { modal: 'project-details', projectIndex: index },
+      '',
+    )
   }
 
   const closeDetails = () => {
     setSelectedProject(null)
-    if (window.history.state && window.history.state.modal === 'project-details') {
+    if (
+      window.history.state &&
+      window.history.state.modal === 'project-details'
+    ) {
       window.history.back()
     }
   }
 
   useEffect(() => {
     const handlePopState = (e) => {
-      if (e.state && e.state.modal === 'project-details' && e.state.projectIndex !== undefined) {
+      if (
+        e.state &&
+        e.state.modal === 'project-details' &&
+        e.state.projectIndex !== undefined
+      ) {
         setSelectedProject(e.state.projectIndex)
       } else {
         setSelectedProject(null)
