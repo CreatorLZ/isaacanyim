@@ -29,7 +29,7 @@ export default function Projects() {
       description:
         'Audit, document, and extract environment variables using static AST analysis.',
       details:
-        'A zero-config CLI tool distributed globally via npm. It statically analyzes JavaScript/TypeScript codebases via Abstract Syntax Trees (AST) to build a knowledge graph of configuration dependencies, catching missing or leaked secrets before they hit production. Built as a pnpm monorepo.',
+        'A zero-config CLI distributed globally via npm. It statically analyzes JavaScript/TypeScript codebases via Abstract Syntax Trees (AST) to build a knowledge graph of configuration dependencies, catching missing or leaked secrets before they hit production. Built as a pnpm monorepo.',
       skills: [
         'TypeScript',
         'Node.js',
