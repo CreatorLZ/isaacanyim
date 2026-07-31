@@ -23,6 +23,14 @@ export default function Projects() {
 
   const projects = [
     {
+      name: 'Pookoo',
+      categories: ['Tools'],
+      github: 'https://github.com/CreatorLZ/pookoo',
+      description: 'Audit, document, and extract environment variables using static AST analysis.',
+      details: 'Audit, document, and extract environment variables from any codebase using static AST analysis. Zero credentials required.',
+      skills: ['TypeScript', 'Node.js', 'AST', 'CLI'],
+    },
+    {
       name: 'BagXtra',
       categories: ['Websites', 'Full Stack'],
       link: 'https://app.usebagxtra.com',
