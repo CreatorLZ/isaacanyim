@@ -118,7 +118,7 @@ export default function Navbar() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="hidden md:flex items-center gap-10"
+              className="hidden md:flex items-center gap-10 lg:mr-12"
             >
               <motion.div variants={navItemVariants}>
                 <NavLink
