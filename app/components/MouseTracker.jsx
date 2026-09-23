@@ -4,8 +4,6 @@ import { useRef, useState, useEffect } from "react";
 
 const RING_LERP = 0.12;
 const VELOCITY_LERP = 0.15;
-const DOT_STRETCH_FACTOR = 0.04;
-const DOT_STRETCH_MAX = 0.6;
 const RING_STRETCH_FACTOR = 0.06;
 const RING_STRETCH_MAX = 0.35;
 
@@ -25,7 +23,6 @@ const GALLERY_IMAGES = [
 const lerp = (current, target, factor) => current + (target - current) * factor;
 
 const MouseTracker = () => {
-  const dotRef = useRef(null);
   const ringRef = useRef(null);
   const galleryRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -81,8 +78,6 @@ const MouseTracker = () => {
 
   useEffect(() => {
     if (!enabled) return;
-
-    document.body.classList.add("custom-cursor-active");
 
     let mouseX = 0;
     let mouseY = 0;
@@ -144,14 +139,6 @@ const MouseTracker = () => {
       prevMouseX = mouseX;
       prevMouseY = mouseY;
 
-      const dotSpeed = Math.hypot(velX, velY);
-      const dotAngle = (Math.atan2(velY, velX) * 180) / Math.PI;
-      const dotStretch = Math.min(DOT_STRETCH_FACTOR * dotSpeed, DOT_STRETCH_MAX);
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotate(${dotAngle}deg) scale(${1 + dotStretch}, ${1 - 0.5 * dotStretch})`;
-      }
-
       ringX = lerp(ringX, mouseX, RING_LERP);
       ringY = lerp(ringY, mouseY, RING_LERP);
 
@@ -188,7 +175,6 @@ const MouseTracker = () => {
     rafId = requestAnimationFrame(animate);
 
     return () => {
-      document.body.classList.remove("custom-cursor-active");
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       document.removeEventListener("mouseenter", onMouseEnter);
@@ -200,13 +186,6 @@ const MouseTracker = () => {
 
   return (
     <>
-      <div
-        ref={dotRef}
-        className={`custom-cursor-dot ${visible ? "is-visible" : ""} ${
-          isHovering ? "is-hidden" : ""
-        }`}
-        aria-hidden="true"
-      />
       <div
         ref={ringRef}
         className={`custom-cursor-ring ${visible ? "is-visible" : ""} ${

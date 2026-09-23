@@ -21,13 +21,11 @@ export default function NavLink({ href, className = "", children, onClick, ...pr
     <Link
       href={href}
       onClick={onClick}
-      className={`${className} relative transition-all duration-200`}
+      className={`${className} nav-link ${isActive ? "active" : ""} relative transition-colors duration-200`}
+      aria-current={isActive ? "page" : undefined}
       {...props}
     >
       {children}
-      {isActive && (
-        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent" />
-      )}
     </Link>
   );
 }
