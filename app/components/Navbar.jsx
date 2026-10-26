@@ -118,42 +118,24 @@ export default function Navbar() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="hidden md:flex items-center gap-10 lg:mr-12"
+              className="hidden md:flex items-center gap-8"
             >
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/"
-                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
+                  className="text-text-secondary hover:text-text-primary text-sm font-medium tracking-wide"
                   data-cuelume-hover="tick"
                 >
-                  HOME
+                  Home
                 </NavLink>
               </motion.div>
               <motion.div variants={navItemVariants}>
                 <NavLink
                   href="/about"
-                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
+                  className="text-text-secondary hover:text-text-primary text-sm font-medium tracking-wide"
                   data-cuelume-hover="tick"
                 >
-                  ABOUT
-                </NavLink>
-              </motion.div>
-              <motion.div variants={navItemVariants}>
-                <NavLink
-                  href="/#projects"
-                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
-                  data-cuelume-hover="tick"
-                >
-                  PROJECTS
-                </NavLink>
-              </motion.div>
-              <motion.div variants={navItemVariants}>
-                <NavLink
-                  href="/#contact"
-                  className="text-text-secondary hover:text-accent text-xs uppercase font-bold tracking-widest"
-                  data-cuelume-hover="tick"
-                >
-                  CONTACT
+                  About
                 </NavLink>
               </motion.div>
             </motion.div>
@@ -163,7 +145,7 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <ThemeToggle />
               </motion.div>
@@ -175,7 +157,7 @@ export default function Navbar() {
                 onClick={toggleMenu}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 {isMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -205,7 +187,7 @@ export default function Navbar() {
           <motion.div variants={menuItemVariants}>
             <NavLink
               href="/"
-              className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
+              className="text-text-secondary hover:text-accent text-3xl font-semibold tracking-tight block transition-colors"
               onClick={handleLinkClick}
             >
               Home
@@ -214,28 +196,10 @@ export default function Navbar() {
           <motion.div variants={menuItemVariants}>
             <NavLink
               href="/about"
-              className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
+              className="text-text-secondary hover:text-accent text-3xl font-semibold tracking-tight block transition-colors"
               onClick={handleLinkClick}
             >
               About
-            </NavLink>
-          </motion.div>
-          <motion.div variants={menuItemVariants}>
-            <NavLink
-              href="/#projects"
-              className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={handleLinkClick}
-            >
-              Projects
-            </NavLink>
-          </motion.div>
-          <motion.div variants={menuItemVariants}>
-            <NavLink
-              href="/#contact"
-              className="text-text-secondary hover:text-accent text-4xl font-bold tracking-tight block transition-colors"
-              onClick={handleLinkClick}
-            >
-              Contact
             </NavLink>
           </motion.div>
         </motion.div>
