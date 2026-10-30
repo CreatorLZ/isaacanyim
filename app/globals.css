@@ -2,6 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Segue: Framed Slide (frame: mode: reel, angle: -90, depth: 40, perspective: 160, gap: 4, radius: 18)
+
+  View Transitions API — no dependencies.
+  - Same page: document.startViewTransition(() => updateTheDOM())
+  - Cross-page: @view-transition below opts same-origin navigations in
+    (both pages must have this CSS loaded).
+  - Reduced motion: falls back to the browser's default crossfade.
+*/
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  --segue-lead-color: #c9b6ff;
+  --segue-duration: 1.55s;
+}
+
+@keyframes segue-frame-out {
+  0% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(0 * (100vh / 1 + 4vmin))) translateZ(0vmax);
+    clip-path: inset(0 round 0px);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  25.806% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(0 * (100vh / 1 + 4vmin))) translateZ(-40vmax);
+    clip-path: inset(0 round 18px);
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  74.194% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(-1 * (100vh / 1 + 4vmin))) translateZ(-40vmax);
+    clip-path: inset(0 round 18px);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  100% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(-1 * (100vh / 1 + 4vmin))) translateZ(0vmax);
+    clip-path: inset(0 round 0px);
+  }
+}
+
+@keyframes segue-frame-in {
+  0% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(1 * (100vh / 1 + 4vmin))) translateZ(0vmax);
+    clip-path: inset(0 round 0px);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  25.806% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(1 * (100vh / 1 + 4vmin))) translateZ(-40vmax);
+    clip-path: inset(0 round 18px);
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  74.194% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(0 * (100vh / 1 + 4vmin))) translateZ(-40vmax);
+    clip-path: inset(0 round 18px);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  100% {
+    transform: perspective(160vmax) translate(calc(0 * (100vh / 1 + 4vmin)), calc(0 * (100vh / 1 + 4vmin))) translateZ(0vmax);
+    clip-path: inset(0 round 0px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(root) {
+    animation: none;
+    background: var(--segue-lead-color);
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    mix-blend-mode: normal;
+    animation-duration: var(--segue-duration);
+    animation-fill-mode: both;
+  }
+  ::view-transition-old(root) {
+    animation-name: segue-frame-out;
+  }
+  ::view-transition-new(root) {
+    animation-name: segue-frame-in;
+  }
+}
+
+/* Backwards: runs when the view transition carries the type "backwards" */
+@media (prefers-reduced-motion: no-preference) {
+  :root:active-view-transition-type(backwards)::view-transition-old(root) {
+    animation-name: segue-frame-in;
+    animation-direction: reverse;
+    z-index: 1;
+  }
+  :root:active-view-transition-type(backwards)::view-transition-new(root) {
+    animation-name: segue-frame-out;
+    animation-direction: reverse;
+  }
+}
+
 @layer base {
   :root {
     --background: #F2F1EA;

@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -19,9 +20,22 @@ export default function ThemeToggle() {
 
   const isDark = resolvedTheme === 'dark'
 
+  const handleToggle = () => {
+    const next = isDark ? 'light' : 'dark'
+    if (!document.startViewTransition) {
+      setTheme(next)
+      return
+    }
+    document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme(next)
+      })
+    })
+  }
+
   return (
     <button
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={handleToggle}
       className="relative w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-hover transition-colors"
       aria-label="Toggle theme"
       data-cuelume-toggle
