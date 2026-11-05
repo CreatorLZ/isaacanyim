@@ -1,4 +1,4 @@
-import { Nunito, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'next-themes'
@@ -8,16 +8,19 @@ import MouseTracker from './components/MouseTracker'
 import CuelumeInit from './components/CuelumeInit'
 import { Toaster } from 'sonner'
 
-const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+const nunito = localFont({
+  src: './fonts/nunito-latin.woff2',
+  weight: '200 1000',
+  style: 'normal',
   variable: '--font-nunito',
   display: 'swap',
 })
 
-const spaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+const spaceMono = localFont({
+  src: [
+    { path: './fonts/space-mono-400-latin.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/space-mono-700-latin.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-space-mono',
   display: 'swap',
 })
