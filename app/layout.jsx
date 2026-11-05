@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
       className={`${nunito.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
     >
-      <body className={`${nunito.className} font-sans relative min-h-screen bg-bg text-text-primary`}>
+      <body className={`${nunito.className} ${spaceMono.variable} font-sans relative min-h-screen bg-bg text-text-primary`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative z-10 flex min-h-screen flex-col justify-between">
             <Navbar />

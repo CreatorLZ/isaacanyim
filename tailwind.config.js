@@ -27,7 +27,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-nunito)", "sans-serif"],
-        mono: ["var(--font-space-mono)", "monospace"],
+        mono: ["var(--font-space-mono)", "'Space Mono'", "monospace"],
       },
       backdropBlur: {
         xs: "2px",
