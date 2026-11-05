@@ -36,7 +36,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={handleToggle}
-      className="relative w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-hover transition-colors"
+      className="relative w-7 h-7 flex items-center justify-center rounded-full hover:bg-surface-hover transition-colors"
       aria-label="Toggle theme"
       data-cuelume-toggle
     >
@@ -49,7 +49,7 @@ export default function ThemeToggle() {
             exit={{ rotate: 90, scale: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
           >
-            <Moon className="w-4 h-4 text-text-secondary" />
+            <Moon className="w-3.5 h-3.5 text-text-secondary" strokeWidth={1.8} />
           </motion.div>
         ) : (
           <motion.div
@@ -59,7 +59,7 @@ export default function ThemeToggle() {
             exit={{ rotate: -90, scale: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
           >
-            <Sun className="w-4 h-4 text-text-secondary" />
+            <Sun className="w-3.5 h-3.5 text-text-secondary" strokeWidth={1.8} />
           </motion.div>
         )}
       </AnimatePresence>

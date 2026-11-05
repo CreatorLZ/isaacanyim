@@ -113,7 +113,7 @@ export default function Timeline() {
         "While my primary expertise is in development, I've naturally evolved to understand product development through my work on projects. I've developed skills in translating client needs into technical solutions. My analytical approach helps me balance technical constraints with product vision, ensuring that features serve real user needs. When working with clients as a freelancer, I've consistently improved conversion rates by focusing on both functionality and business goals, helping products grow from concept to successful implementation.",
       viewLink: {
         text: "View Products",
-        url: "/#projects",
+        url: "/projects",
       },
       icon: Layers,
     },

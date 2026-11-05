@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, Anybody, Space_Mono } from 'next/font/google'
+import { Nunito, Space_Mono } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'next-themes'
@@ -7,26 +7,28 @@ import Footer from './components/Footer'
 import MouseTracker from './components/MouseTracker'
 import CuelumeInit from './components/CuelumeInit'
 import { Toaster } from 'sonner'
-// import BackgroundWrapper from "./components/background-wrapper";
 
-const anybody = Anybody({ subsets: ['latin'], variable: '--font-anybody' })
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-nunito',
+  display: 'swap',
+})
+
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-space-mono',
   display: 'swap',
 })
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-plus-jakarta-sans',
-  display: 'swap',
-})
 
 // Metadata configuration
 export const metadata = {
-  title: 'Isaac Anyim',
-  description: 'Isaac Anyim',
+  title: {
+    default: 'Isaac Anyim',
+    template: '%s — Isaac Anyim',
+  },
+  description: 'Isaac Anyim | Software engineer and builder',
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'https://isaacanyim-iota.vercel.app',
   ),
@@ -68,18 +70,21 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${spaceMono.variable} ${plusJakartaSans.variable}`}
+      className={`${nunito.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
     >
-      <body className={spaceMono.className}>
+      <body className={`${nunito.className} font-sans relative min-h-screen bg-bg text-text-primary`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* <BackgroundWrapper> */}
-          <Navbar />
-          {children}
+          <div className="relative z-10 flex min-h-screen flex-col justify-between">
+            <Navbar />
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+          </div>
           <MouseTracker />
           <CuelumeInit />
           <Analytics />
-          <Footer />
           <Toaster
             position="bottom-right"
             theme="system"
@@ -97,7 +102,6 @@ export default function RootLayout({ children }) {
               },
             }}
           />
-          {/* </BackgroundWrapper> */}
         </ThemeProvider>
       </body>
     </html>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { projects } from '../lib/projects'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -20,141 +21,6 @@ export default function Projects() {
       body.classList.remove('no-scroll')
     }
   }, [selectedProject])
-
-  const projects = [
-    {
-      name: 'Pookoo',
-      categories: ['Tools', 'Open Source'],
-      github: 'https://github.com/CreatorLZ/pookoo',
-      description:
-        'Audit, document, and extract environment variables using static AST analysis.',
-      details:
-        'A zero-config CLI distributed globally via npm. It statically analyzes JavaScript/TypeScript codebases via Abstract Syntax Trees (AST) to build a knowledge graph of configuration dependencies, catching missing or leaked secrets before they hit production. Built as a pnpm monorepo.',
-      skills: [
-        'TypeScript',
-        'Node.js',
-        'AST / Static Analysis',
-        'Commander.js',
-        'Monorepo',
-        'NPM',
-      ],
-    },
-    {
-      name: 'BagXtra',
-      categories: ['Websites', 'Full Stack'],
-      link: 'https://app.usebagxtra.com',
-      description: 'Shop abroad, get it delivered by a traveler on your route.',
-      image: '/bagxtra.png',
-      details: 'Shop abroad, get it brought home by a traveler.',
-      skills: [
-        'TypeScript',
-        'JavaScript',
-        'MongoDB',
-        'Express',
-        'React',
-        'Node.js',
-        'AWS S3',
-        'Stripe',
-      ],
-    },
-    {
-      name: 'chute',
-      categories: ['Tools'],
-      github: 'https://github.com/CreatorLZ/chute',
-      description: 'Plug-and-play UploadThing file upload library for Next.js.',
-      details: 'Drop-in file upload components for Next.js.',
-      skills: [
-        'Next.js',
-        'TypeScript',
-        'UploadThing',
-        'React',
-        'shadcn/ui',
-        'Tailwind CSS',
-      ],
-    },
-    {
-      name: 'Taskwise',
-      categories: ['Websites', 'Full Stack'],
-      link: 'https://taskwise-three.vercel.app/',
-      github: 'https://github.com/CreatorLZ/taskwise',
-      description: 'Manage your tasks with natural language.',
-      image: '/taskwise.webp',
-      details: 'AI-powered task manager with natural language input.',
-      skills: [
-        'TypeScript',
-        'Node.js',
-        'React',
-        'MongoDB',
-        'Express',
-        'Tailwind',
-        'Zustand',
-        'React-Query',
-        'Vite',
-        'NLP',
-        'huggingface-inference',
-      ],
-    },
-    {
-      name: 'Moviebox',
-      categories: ['Websites', 'Frontend'],
-      link: 'https://moviebox-red.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Moviebox',
-      description:
-        'Watch trailers, discover trending films and cinema listings.',
-      image: '/moviebox.webp',
-      details: 'Trailers, trending picks, and cinema listings.',
-      skills: ['React', 'TMDB API', 'Styled-Components', 'JavaScript'],
-    },
-    {
-      name: 'Ideafundr',
-      categories: ['Websites', 'Frontend'],
-      image: '/ideafundr.webp',
-      link: 'https://ideafundr-seven.vercel.app/',
-      github: 'https://github.com/CreatorLZ/ideafundr',
-      description: 'Pitch your invention to investors using AR technology.',
-      details: 'Pitch inventions to investors using AR.',
-      skills: [
-        'React',
-        'Firebase',
-        'Context API',
-        'Styled-Components',
-        'AR',
-        'Swift-XR',
-        'JavaScript',
-      ],
-    },
-    {
-      name: 'Silkywriters',
-      categories: ['Websites', 'Frontend'],
-      image: '/silkywriters.webp',
-      link: 'https://silkywriters.vercel.app/',
-      description: 'Academic writing, research, and YouTube scripts agency.',
-      details: 'Writing agency for academics and creators.',
-      skills: ['Typescript', 'Tailwind CSS', 'React', 'Framer-motion'],
-    },
-
-    // {
-    //   name: 'ExpressLine Logistics',
-    //   categories: ['Websites', 'Frontend'],
-    //   image: '/expressline.webp',
-    //   link: 'https://expresslinecouriers.com/',
-    //   github: 'https://github.com/CreatorLZ/expressline_logistics',
-    //   description: 'A logistics company',
-    //   details: 'An international Logistics company',
-    //   skills: ['HTML', 'Bootstrap', 'CSS', 'JavaScript'],
-    // },
-
-    {
-      name: 'Wristy E-commerce',
-      categories: ['Websites', 'Frontend'],
-      link: 'https://vanilla-e-commerce.vercel.app/',
-      github: 'https://github.com/CreatorLZ/Vanilla-e-commerce',
-      description: 'Dark-themed e-commerce starter template for watches.',
-      image: '/wristy.webp',
-      details: 'Dark-themed watch e-commerce starter template.',
-      skills: ['HTML', 'CSS', 'Javascript'],
-    },
-  ]
 
   const handleClick = (index) => {
     setSelectedProject(index)

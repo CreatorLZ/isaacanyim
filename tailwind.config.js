@@ -26,7 +26,8 @@ module.exports = {
         graph: "url('/graphnew.jpg')",
       },
       fontFamily: {
-        sans: ["var(--font-anybody)"],
+        sans: ["var(--font-nunito)", "sans-serif"],
+        mono: ["var(--font-space-mono)", "monospace"],
       },
       backdropBlur: {
         xs: "2px",

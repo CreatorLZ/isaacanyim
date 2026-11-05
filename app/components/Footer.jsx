@@ -1,85 +1,69 @@
-import Link from 'next/link'
-import { Mail } from 'lucide-react'
+'use client'
 
-import { TwitterIcon, LinkedInIcon, GitHubIcon } from './SocialIcons'
-import { SOCIAL_LINKS } from '../lib/social-links'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { Clock } from 'lucide-react'
 
 export default function Footer() {
+  const [lagosTime, setLagosTime] = useState('')
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const timeString = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Africa/Lagos',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        }).format(new Date())
+        setLagosTime(timeString)
+      } catch (e) {
+        setLagosTime('13:08')
+      }
+    }
+
+    updateTime()
+    const timer = setInterval(updateTime, 30000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
-    <footer className="flex flex-col text-center pt-20 w-full items-center justify-center z-50 pb-24 lg:pb-0">
-      {/* <small className="text-text-muted">Copyright © {new Date().getFullYear()}. Isaac C. Anyim. All rights reserved.</small> */}
-      <small className="text-text-muted">Built by Isaac C Anyim</small>
-      {/* Desktop Icons */}
-      <div className="hidden sm:flex gap-10 items-center pt-1 md:pt-6 lg:pt-10 px-2.5 md:px-10 lg:px-36 pb-4 justify-between sm:justify-normal backdrop-blur-sm md:backdrop-blur-none">
-        <Link
-          href={SOCIAL_LINKS.twitter}
-          className="hover:opacity-75 transition-opacity"
-          aria-label="Twitter / X"
-          data-cuelume-hover="tick"
-        >
-          <TwitterIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-        </Link>
+    <motion.footer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.25, ease: 'easeOut' }}
+      className="w-full pt-12 pb-8 px-6 sm:px-8"
+    >
+      <div className="max-w-[1024px] mx-auto md:pl-[21.4%]">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between max-w-[540px] gap-4 font-mono text-[10px] uppercase tracking-[0.16em] text-text-secondary">
+          {/* Left: Time and Copyright */}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <Clock className="w-3 h-3 text-text-secondary shrink-0" strokeWidth={1.8} />
+              <span>
+                LAGOS · <span suppressHydrationWarning>{lagosTime || '13:08'}</span>
+              </span>
+            </div>
+            <div>© {new Date().getFullYear()} ISAAC ANYIM</div>
+          </div>
 
-        <Link
-          href={SOCIAL_LINKS.linkedin}
-          className="hover:opacity-75 transition-opacity"
-          aria-label="LinkedIn"
-          data-cuelume-hover="tick"
-        >
-          <LinkedInIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-        </Link>
-        <Link
-          href={SOCIAL_LINKS.github}
-          className="hover:opacity-75 transition-opacity"
-          aria-label="GitHub"
-          data-cuelume-hover="tick"
-        >
-          <GitHubIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-        </Link>
-        <Link
-          href="mailto:isaacchimarokeanyim@gmail.com"
-          className="hover:opacity-75 transition-opacity"
-          aria-label="Email"
-          data-cuelume-hover="tick"
-        >
-          <Mail className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-        </Link>
-      </div>
-
-      {/* Mobile Icons — frosted dock */}
-      <div className="fixed bottom-0 sm:hidden w-full z-40">
-        <div className="flex items-center justify-around bg-surface/80 backdrop-blur-md border-t border-border rounded-t-2xl pb-2 pt-2 px-2">
-          <Link
-            href={SOCIAL_LINKS.twitter}
-            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
-            aria-label="Twitter / X"
-          >
-            <TwitterIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-          </Link>
-
-          <Link
-            href={SOCIAL_LINKS.linkedin}
-            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-          </Link>
-          <Link
-            href={SOCIAL_LINKS.github}
-            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
-            aria-label="GitHub"
-          >
-            <GitHubIcon className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-          </Link>
-          <Link
-            href="mailto:isaacchimarokeanyim@gmail.com"
-            className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-hover transition-colors active:scale-95"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6 text-text-secondary hover:text-accent transition-colors" />
-          </Link>
+          {/* Right: Current Focus / Building Status */}
+          <div className="flex items-center gap-2 pt-0.5">
+            <svg
+              className="w-3 h-3 text-text-secondary shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2 C12 7, 7 12, 2 12 C7 12, 12 17, 12 22 C12 17, 17 12, 22 12 C17 12, 12 7, 12 2 Z" />
+            </svg>
+            <span>BUILDING BAGXTRA + QEWORDLY 2.0</span>
+          </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
