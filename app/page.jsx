@@ -141,7 +141,7 @@ export default function Home() {
           {/* Statement / Bio */}
           <motion.section variants={itemVariants} className="pb-8">
             <p className="font-sans text-[15px] sm:text-[15.5px] font-normal text-text-secondary leading-[1.6]">
-              Software engineer and builder. I design, build, and run things end
+              Software engineer. I design, build, and run things end
               to end, from the first sketch to the server it runs on.
             </p>
           </motion.section>
