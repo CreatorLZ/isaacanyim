@@ -178,14 +178,14 @@ export default function Home() {
             </a>
           </motion.section>
 
-          {/* Selected Work */}
-          <motion.section variants={itemVariants}>
-            <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-5 pb-0 font-normal">
-              SELECTED WORK
+          {/* Projects */}
+          <motion.section variants={itemVariants} className="pb-12">
+            <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-4 pb-0 font-normal">
+              PROJECTS
             </h2>
 
             <motion.div
-              className="flex flex-col gap-6 mb-6"
+              className="flex flex-col gap-2 mb-3"
               variants={listContainerVariants}
             >
               {featuredProjects.map((project) => (
@@ -213,8 +213,13 @@ export default function Home() {
                   </svg>
 
                   {/* Project Row Label */}
-                  <span className="font-mono text-[10.5px] sm:text-[11px] tracking-[0.14em] uppercase text-text-primary group-hover:text-accent transition-colors">
-                    {project.name} · {project.tagline}
+                  <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                    <span className="font-mono text-[11px] sm:text-[11.5px] tracking-[0.08em] uppercase text-text-primary group-hover:text-accent transition-colors">
+                      {project.name}
+                    </span>
+                    <span className="font-mono text-[9px] sm:text-[9.5px] tracking-[0.12em] uppercase text-text-muted">
+                      {project.tagline}
+                    </span>
                   </span>
                 </motion.button>
               ))}

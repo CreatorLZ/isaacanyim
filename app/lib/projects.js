@@ -40,7 +40,7 @@ export const projects = [
   {
     id: 'bagxtra',
     name: 'BagXtra',
-    tagline: 'PEER-TO-PEER CROWDSHIPPING',
+    tagline: 'CROWDSOURCED DELIVERY',
     categories: ['Websites', 'Full Stack'],
     link: 'https://app.usebagxtra.com',
     description: 'Shop abroad, get it delivered by a traveler on your route.',

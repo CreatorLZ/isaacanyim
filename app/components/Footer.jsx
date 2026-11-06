@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Clock } from 'lucide-react'
 
@@ -60,7 +61,30 @@ export default function Footer() {
             >
               <path d="M12 2 C12 7, 7 12, 2 12 C7 12, 12 17, 12 22 C12 17, 17 12, 22 12 C17 12, 12 7, 12 2 Z" />
             </svg>
-            <span>BUILDING BAGXTRA + QEWORDLY 2.0</span>
+            <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-1">
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                BUILDING BAGXTRA
+                <Image
+                  src="/bagxtra-mark.png"
+                  alt=""
+                  width={11}
+                  height={14}
+                  className="inline-block h-3.5 w-auto object-contain"
+                  aria-hidden="true"
+                />
+              </span>
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                + QEWORDLY 2.0
+                <Image
+                  src="/qewordlylogo.png"
+                  alt=""
+                  width={14}
+                  height={14}
+                  className="inline-block h-3.5 w-3.5 object-contain"
+                  aria-hidden="true"
+                />
+              </span>
+            </span>
           </div>
         </div>
       </div>
