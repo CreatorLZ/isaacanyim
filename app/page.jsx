@@ -307,6 +307,19 @@ export default function Home() {
               </Link>
             </motion.div>
           </motion.section>
+
+          {/* Skills */}
+          <motion.section
+            variants={itemVariants}
+            className="pt-8 border-t border-border/70"
+          >
+            <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-4 pb-0 font-normal">
+              SKILLS
+            </h2>
+            <p className="font-sans font-normal text-[14.5px] sm:text-[15px] leading-[1.6] text-text-primary">
+              I can make it happen.
+            </p>
+          </motion.section>
         </motion.div>
       </div>
 
