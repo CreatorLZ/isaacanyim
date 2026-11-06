@@ -52,13 +52,11 @@ const MouseTracker = () => {
 
   // Image cycling interval — starts immediately on hover, no loading gate
   useEffect(() => {
-    if (isGalleryActive) {
-      intervalRef.current = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
-      }, GALLERY_CYCLE_MS);
-    } else {
-      setCurrentImageIndex(0);
-    }
+    if (!isGalleryActive) return;
+
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    }, GALLERY_CYCLE_MS);
 
     return () => {
       if (intervalRef.current) {
@@ -113,6 +111,7 @@ const MouseTracker = () => {
       if (isGalleryActiveRef.current !== nextIsGalleryActive) {
         isGalleryActiveRef.current = nextIsGalleryActive;
         setIsGalleryActive(nextIsGalleryActive);
+        if (!nextIsGalleryActive) setCurrentImageIndex(0);
       }
 
       const nextIsHovering = !!target.closest(
@@ -130,6 +129,7 @@ const MouseTracker = () => {
       setIsHovering(false);
       isGalleryActiveRef.current = false;
       setIsGalleryActive(false);
+      setCurrentImageIndex(0);
     };
     const onMouseEnter = () => setVisible(true);
 

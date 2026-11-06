@@ -11,6 +11,9 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // next-themes can't resolve the theme during SSR, so we only render the
+    // toggle after the client has mounted.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
