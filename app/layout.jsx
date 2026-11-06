@@ -74,6 +74,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${nunito.variable} ${spaceMono.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className={`${nunito.className} ${spaceMono.variable} font-sans relative min-h-screen bg-bg text-text-primary`}>

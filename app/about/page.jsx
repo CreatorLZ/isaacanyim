@@ -25,10 +25,14 @@ export default function About() {
   const [greeting, setGreeting] = useState('Hi 😃')
 
   useEffect(() => {
+    // Computed after mount so the greeting matches the visitor's local time
+    // instead of the server time (which would cause a hydration mismatch).
+    /* eslint-disable react-hooks/set-state-in-effect */
     const hour = new Date().getHours()
     if (hour < 12) setGreeting('Good morning 🌞')
     else if (hour < 18) setGreeting('Good afternoon 🌤️')
     else setGreeting('Good evening 🌚')
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [])
 
   const skills = [
