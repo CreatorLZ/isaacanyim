@@ -71,9 +71,6 @@ export default function About() {
             <h1 className="font-sans font-black text-[38px] sm:text-[44px] tracking-tight leading-[0.92] text-text-primary">
               About
             </h1>
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-secondary mt-1.5">
-              BUILDER · FULL-STACK · OPEN SOURCE
-            </p>
           </section>
 
           {/* Bio Content */}
