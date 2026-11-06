@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 import { SOCIAL_LINKS } from './lib/social-links'
 import { projects } from './lib/projects'
 import ProjectDrawer from './components/ProjectDrawer'
@@ -225,13 +226,11 @@ export default function Home() {
                 className="font-mono text-[10px] tracking-[0.16em] uppercase text-text-primary hover:text-accent transition-colors font-medium inline-flex items-center gap-1 pl-[22px] group"
                 data-cuelume-hover="tick"
               >
-                VIEW ALL{' '}
-                <span
+                VIEW ALL
+                <ArrowUpRight
                   aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  ↗
-                </span>
+                  className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </Link>
             </motion.div>
           </motion.section>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { projects } from '../lib/projects'
 import ProjectDrawer from '../components/ProjectDrawer'
 
@@ -76,9 +76,6 @@ export default function ProjectsPage() {
             <h1 className="font-sans font-black text-[38px] sm:text-[44px] tracking-tight leading-[0.92] text-text-primary">
               All Projects
             </h1>
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-secondary mt-1.5">
-              {projects.length} PROJECTS · SELECTED WORK, TOOLS & EXPERIMENTS
-            </p>
 
             {/* Filter Pills */}
             <LayoutGroup id="projects-filters">
@@ -90,9 +87,10 @@ export default function ProjectsPage() {
                       key={filter}
                       type="button"
                       onClick={() => setActiveFilter(filter)}
+                      aria-pressed={isActive}
                       className={`relative rounded px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${
                         isActive
-                          ? 'text-text-primary font-bold bg-surface border border-border shadow-sm'
+                          ? 'text-text-primary bg-surface border border-border shadow-sm'
                           : 'text-text-secondary hover:text-text-primary hover:bg-surface-hover/60 border border-transparent'
                       }`}
                       data-cuelume-hover="tick"
@@ -110,19 +108,20 @@ export default function ProjectsPage() {
           <div className="flex flex-col divide-y divide-border/60">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <motion.div
+                <motion.button
                   key={project.id}
+                  type="button"
                   layout
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
-                  className="group py-4 sm:py-5 flex items-start justify-between gap-3 cursor-pointer hover:bg-surface-hover/30 px-2 rounded -mx-2 transition-colors"
+                  className="group w-full py-4 sm:py-5 flex items-start justify-between gap-3 cursor-pointer hover:bg-surface-hover/30 px-2 rounded -mx-2 transition-colors text-left"
                   onClick={() => handleOpenProject(project.originalIndex)}
                   data-cuelume-hover="tick"
                   data-cuelume-press
                 >
-                  <div className="flex items-start gap-2.5">
+                  <span className="flex items-start gap-2.5">
                     {/* Dart Icon */}
                     <svg
                       className="w-3 h-3 text-text-primary group-hover:text-accent transition-colors shrink-0 mt-1"
@@ -137,38 +136,21 @@ export default function ProjectsPage() {
                       <polygon points="21 3 3 10 11 13 14 21 21 3" />
                     </svg>
 
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-sans font-bold text-[15px] sm:text-[16px] text-text-primary group-hover:text-accent transition-colors leading-tight">
-                          {project.name}
-                        </span>
-                        {project.tagline && (
-                          <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-text-muted">
-                            · {project.tagline}
-                          </span>
-                        )}
-                      </div>
-                      <p className="font-sans text-[12.5px] sm:text-[13px] text-text-secondary mt-1 leading-snug">
+                    <span className="flex flex-col">
+                      <span className="font-sans font-bold text-[15px] sm:text-[16px] text-text-primary group-hover:text-accent transition-colors leading-tight">
+                        {project.name}
+                      </span>
+                      <span className="block font-sans text-[12.5px] sm:text-[13px] text-text-secondary mt-1 leading-snug">
                         {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {project.categories.map((cat) => (
-                          <span
-                            key={cat}
-                            className="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface border border-border/80 text-text-muted"
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted group-hover:text-accent transition-colors shrink-0 mt-1">
-                    DETAILS ↗
+                      </span>
+                    </span>
                   </span>
-                </motion.div>
+
+                  <ArrowUpRight
+                    className="w-3.5 h-3.5 text-text-muted group-hover:text-accent transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-1"
+                    aria-hidden="true"
+                  />
+                </motion.button>
               ))}
             </AnimatePresence>
           </div>

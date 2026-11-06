@@ -31,11 +31,10 @@ export default function Navbar() {
         <div className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.16em]">
           <Link
             href="/about"
-            className={`transition-colors ${
-              pathname === '/about'
-                ? 'text-text-primary font-bold'
-                : 'text-text-secondary hover:text-text-primary'
+            className={`nav-link hover:text-text-primary transition-colors ${
+              pathname === '/about' ? 'active' : ''
             }`}
+            aria-current={pathname === '/about' ? 'page' : undefined}
             data-cuelume-hover="tick"
           >
             ABOUT
