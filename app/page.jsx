@@ -185,7 +185,7 @@ export default function Home() {
             </h2>
 
             <motion.div
-              className="flex flex-col gap-2 mb-3"
+              className="flex flex-col gap-3.5 mb-3"
               variants={listContainerVariants}
             >
               {featuredProjects.map((project) => (
@@ -194,7 +194,7 @@ export default function Home() {
                   variants={rowVariants}
                   type="button"
                   onClick={() => handleOpenProject(project.originalIndex)}
-                  className="group flex items-center gap-2.5 text-left w-fit cursor-pointer outline-none focus-visible:outline-accent"
+                  className="group flex items-center gap-3 text-left w-fit cursor-pointer outline-none focus-visible:outline-accent"
                   data-cuelume-hover="tick"
                   data-cuelume-press
                 >

@@ -4,22 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
-import Image from 'next/image'
 import Contact from '../components/Contact'
 import { SOCIAL_LINKS } from '../lib/social-links'
-
-import react from '/public/react.png'
-import nextjs from '/public/nextjs.png'
-import html from '/public/html.png'
-import css from '/public/css.png'
-import javascript from '/public/javascript.png'
-import mongodb from '/public/mongodb.png'
-import sql from '/public/sql.png'
-import express from '/public/express.png'
-import node2 from '/public/node.png'
-import typescript from '/public/typescript.png'
-import styledcomponents from '/public/styledcomponents.png'
-import tailwind from '/public/tailwind.png'
 
 export default function About() {
   const [greeting, setGreeting] = useState('Hi 😃')
@@ -34,21 +20,6 @@ export default function About() {
     else setGreeting('Good evening 🌚')
     /* eslint-enable react-hooks/set-state-in-effect */
   }, [])
-
-  const skills = [
-    { name: 'TypeScript', image: typescript },
-    { name: 'JavaScript', image: javascript },
-    { name: 'React', image: react },
-    { name: 'Next.js', image: nextjs },
-    { name: 'Node.js', image: node2 },
-    { name: 'Express', image: express },
-    { name: 'MongoDB', image: mongodb },
-    { name: 'SQL', image: sql },
-    { name: 'Tailwind CSS', image: tailwind },
-    { name: 'Styled Components', image: styledcomponents },
-    { name: 'HTML', image: html },
-    { name: 'CSS', image: css },
-  ]
 
   return (
     <main className="w-full px-6 sm:px-8 pt-8 sm:pt-12 pb-12">
@@ -94,24 +65,6 @@ export default function About() {
               intelligence, play drums, or get lost in a good book.
             </p>
           </motion.section>
-
-          {/* Technologies & Stack */}
-          <section className="pb-8 border-t border-border/70 pt-6">
-            <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-3 pb-0 font-normal">
-              STACK & TOOLS
-            </h2>
-
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill) => (
-                <span
-                  key={skill.name}
-                  className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded bg-surface border border-border text-text-primary hover:border-accent transition-colors"
-                >
-                  {skill.name}
-                </span>
-              ))}
-            </div>
-          </section>
 
           {/* Connect / Links */}
           <section className="pb-8 border-t border-border/70 pt-6 font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary flex flex-wrap items-center gap-x-2.5">
