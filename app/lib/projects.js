@@ -3,10 +3,11 @@ export const projects = [
     id: 'pookoo',
     name: 'Pookoo',
     tagline: 'ENV VARIABLE AUDITING CLI',
+    kind: 'CLI',
     categories: ['Tools', 'Open Source'],
     github: 'https://github.com/CreatorLZ/pookoo',
     description:
-      'Audit, document, and extract environment variables using static AST analysis.',
+      'Catches missing and leaked env variables before they reach production.',
     details:
       'A zero-config CLI distributed globally via npm. It statically analyzes JavaScript/TypeScript codebases via Abstract Syntax Trees (AST) to build a knowledge graph of configuration dependencies, catching missing or leaked secrets before they hit production. Built as a pnpm monorepo.',
     skills: [
@@ -23,9 +24,10 @@ export const projects = [
     id: 'chute',
     name: 'chute',
     tagline: 'UPLOADTHING WRAPPER',
+    kind: 'LIBRARY',
     categories: ['Tools', 'Open Source'],
     github: 'https://github.com/CreatorLZ/chute',
-    description: 'Plug-and-play UploadThing file upload library for Next.js.',
+    description: 'A wrapper that cuts the setup around UploadThing file uploads.',
     details: 'Drop-in file upload components for Next.js.',
     skills: [
       'Next.js',
@@ -41,6 +43,7 @@ export const projects = [
     id: 'bagxtra',
     name: 'BagXtra',
     tagline: 'CROWDSOURCED DELIVERY',
+    kind: 'PLATFORM',
     categories: ['Websites', 'Full Stack'],
     link: 'https://app.usebagxtra.com',
     description: 'Shop abroad, get it delivered by a traveler on your route.',

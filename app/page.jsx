@@ -54,8 +54,12 @@ const rowVariants = {
   },
 }
 
+const inlineLinkClass =
+  'text-text-primary underline decoration-accent underline-offset-[3px] decoration-[1.5px] hover:text-accent transition-colors'
+
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [greeting, setGreeting] = useState('Hi 😃')
 
   // Featured selected work matching the target design screenshot
   const featuredSlugs = ['pookoo', 'chute', 'bagxtra']
@@ -65,6 +69,10 @@ export default function Home() {
       return { ...projects[index], originalIndex: index }
     })
     .filter((p) => p.originalIndex !== -1)
+
+  const featuredById = Object.fromEntries(
+    featuredProjects.map((project) => [project.id, project]),
+  )
 
   const handleOpenProject = (originalIndex) => {
     setSelectedProject(originalIndex)
@@ -101,6 +109,17 @@ export default function Home() {
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
+  useEffect(() => {
+    // Computed after mount so the greeting matches the visitor's local time
+    // instead of the server time (which would cause a hydration mismatch).
+    /* eslint-disable react-hooks/set-state-in-effect */
+    const hour = new Date().getHours()
+    if (hour < 12) setGreeting('Good morning 🌞')
+    else if (hour < 18) setGreeting('Good afternoon 🌤️')
+    else setGreeting('Good evening 🌚')
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, [])
+
   return (
     <main className="w-full px-6 sm:px-8 pt-8 sm:pt-12 pb-6">
       <div className="max-w-[1024px] mx-auto md:pl-[21.4%]">
@@ -122,22 +141,15 @@ export default function Home() {
           {/* Statement / Bio */}
           <motion.section variants={itemVariants} className="pb-8">
             <p className="font-sans text-[15px] sm:text-[15.5px] font-normal text-text-secondary leading-[1.6]">
-              Software engineer and builder. I design, build, and run things{' '}
-              <Link
-                href="/about"
-                className="underline decoration-accent underline-offset-[3px] decoration-[1.5px] text-text-primary hover:text-accent transition-colors"
-                data-cuelume-hover="tick"
-              >
-                end to end
-              </Link>
-              , from the first sketch to the server it runs on.
+              Software engineer and builder. I design, build, and run things end
+              to end, from the first sketch to the server it runs on.
             </p>
           </motion.section>
 
           {/* Quick Links */}
           <motion.section
             variants={itemVariants}
-            className="pb-10 font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary flex flex-wrap items-center gap-x-2.5"
+            className="pb-14 font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary flex flex-wrap items-center gap-x-2.5"
           >
             <Link
               href={SOCIAL_LINKS.github}
@@ -178,14 +190,73 @@ export default function Home() {
             </a>
           </motion.section>
 
+          {/* About */}
+          <motion.section
+            id="about"
+            variants={itemVariants}
+            className="pb-10"
+          >
+            <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-4 pb-0 font-normal">
+              ABOUT
+            </h2>
+            <div className="space-y-4 font-sans text-[14px] sm:text-[14.5px] font-normal leading-[1.65] text-text-secondary">
+              <p>
+                {greeting}. I build the whole product: the data model, the API,
+                the interface, and the deploy.
+              </p>
+              <p>
+                At Analaize Limited I led{' '}
+                <Link
+                  href={featuredById.bagxtra.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={inlineLinkClass}
+                  data-cuelume-hover="tick"
+                >
+                  BagXtra
+                </Link>{' '}
+                end to end. I'm currently auditing the Qewordly v1.9 codebase
+                and designing its v2.0 architecture.
+              </p>
+              <p>
+                On my own time I build the tools I wish existed, like{' '}
+                <Link
+                  href={featuredById.pookoo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={inlineLinkClass}
+                  data-cuelume-hover="tick"
+                >
+                  Pookoo
+                </Link>{' '}
+                and{' '}
+                <Link
+                  href={featuredById.chute.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={inlineLinkClass}
+                  data-cuelume-hover="tick"
+                >
+                  Chute
+                </Link>
+                , and publish them as open source. Away from the keyboard, I'm
+                exploring what's new in AI, playing drums, or lost in a good
+                book.
+              </p>
+            </div>
+          </motion.section>
+
           {/* Projects */}
-          <motion.section variants={itemVariants} className="pb-12">
+          <motion.section
+            variants={itemVariants}
+            className="pt-8 border-t border-border/70 pb-12"
+          >
             <h2 className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-text-secondary mb-4 pb-0 font-normal">
               PROJECTS
             </h2>
 
             <motion.div
-              className="flex flex-col gap-3.5 mb-3"
+              className="flex flex-col divide-y divide-border/60 border-y border-border/60 mb-3"
               variants={listContainerVariants}
             >
               {featuredProjects.map((project) => (
@@ -194,32 +265,29 @@ export default function Home() {
                   variants={rowVariants}
                   type="button"
                   onClick={() => handleOpenProject(project.originalIndex)}
-                  className="group flex items-center gap-3 text-left w-fit cursor-pointer outline-none focus-visible:outline-accent"
+                  className="group flex items-start justify-between gap-6 py-5 text-left w-full cursor-pointer outline-none focus-visible:outline-accent"
                   data-cuelume-hover="tick"
                   data-cuelume-press
                 >
-                  {/* Dart Icon with subtle micro-hover drift */}
-                  <svg
-                    className="w-3 h-3 text-text-primary group-hover:text-accent transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <polygon points="21 3 3 10 11 13 14 21 21 3" />
-                  </svg>
-
-                  {/* Project Row Label */}
-                  <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                    <span className="font-mono text-[11px] sm:text-[11.5px] tracking-[0.08em] uppercase text-text-primary group-hover:text-accent transition-colors">
+                  <span className="flex flex-col gap-1.5">
+                    <span className="font-sans font-bold text-[20px] sm:text-[22px] tracking-tight text-text-primary group-hover:text-accent transition-colors leading-tight">
                       {project.name}
                     </span>
-                    <span className="font-mono text-[9px] sm:text-[9.5px] tracking-[0.12em] uppercase text-text-muted">
-                      {project.tagline}
+                    <span className="font-sans text-[12.5px] sm:text-[13px] text-text-secondary leading-snug max-w-[380px]">
+                      {project.description}
                     </span>
+                  </span>
+
+                  <span className="flex items-center gap-3 shrink-0 pt-1">
+                    {project.kind && (
+                      <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.14em] text-text-muted">
+                        {project.kind}
+                      </span>
+                    )}
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="w-4 h-4 text-text-muted group-hover:text-accent transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
                   </span>
                 </motion.button>
               ))}
@@ -228,7 +296,7 @@ export default function Home() {
             <motion.div variants={rowVariants}>
               <Link
                 href="/projects"
-                className="font-mono text-[10px] tracking-[0.16em] uppercase text-text-primary hover:text-accent transition-colors font-medium inline-flex items-center gap-1 pl-[22px] group"
+                className="font-mono text-[10px] tracking-[0.16em] uppercase text-text-primary hover:text-accent transition-colors font-medium inline-flex items-center gap-1 group"
                 data-cuelume-hover="tick"
               >
                 VIEW ALL

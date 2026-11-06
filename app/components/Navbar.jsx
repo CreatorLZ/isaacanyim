@@ -1,14 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 import Logo from './Logo'
 
 export default function Navbar() {
-  const pathname = usePathname()
-
   return (
     <motion.header
       initial={{ opacity: 0, y: -4 }}
@@ -30,11 +27,8 @@ export default function Navbar() {
         {/* Right navigation: About + Theme toggle */}
         <div className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.16em]">
           <Link
-            href="/about"
-            className={`nav-link hover:text-text-primary transition-colors ${
-              pathname === '/about' ? 'active' : ''
-            }`}
-            aria-current={pathname === '/about' ? 'page' : undefined}
+            href="/#about"
+            className="nav-link hover:text-text-primary transition-colors"
             data-cuelume-hover="tick"
           >
             ABOUT

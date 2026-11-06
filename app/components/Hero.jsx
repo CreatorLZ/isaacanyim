@@ -57,7 +57,7 @@ export default function Hero() {
 
         <motion.div variants={itemVariants}>
           <Link
-            href="/about"
+            href="/#about"
             className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-text-secondary hover:text-text-primary font-medium group pb-3 border-b border-border hover:border-text-primary transition-colors"
             data-cuelume-hover="tick"
           >
