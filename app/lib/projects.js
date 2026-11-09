@@ -45,7 +45,7 @@ export const projects = [
     tagline: 'CROWDSOURCED DELIVERY',
     kind: 'PLATFORM',
     categories: ['Websites', 'Full Stack'],
-    link: 'https://app.usebagxtra.com',
+    link: 'https://app.bagxtra.com',
     description: 'Shop abroad, get it delivered by a traveler on your route.',
     image: '/bagxtra.png',
     details:

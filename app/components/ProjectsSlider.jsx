@@ -13,7 +13,7 @@ const projects = [
   {
     name: "bagXtra",
     image: bagxtra,
-    link: "https://app.usebagxtra.com",
+    link: "https://app.bagxtra.com",
     description: "Shop from any store abroad and have it brought to you by a verified traveler on your route — cheaper than courier shipping.",
     details:
       "Explore global shopping without the hassle of shipping. With BagXtra, travelers help you bring it home. Shop from anywhere, receive from everywhere.",
